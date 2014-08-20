@@ -1,0 +1,9 @@
+﻿Renamed ComputerManger to ComputerManager (fixed typo)
+Renamed IISServer to IisManager, replaced public constructors with connect method
+Added Impersonation class to security manager
+Added RunAs function to wrap impersonation
+Added IisVersion function to IisManger
+Added ExecuteScalarAsInt to Database class
+Added FeatureInfo class and FeaturesAndRoles enum (maps to Win32_ServerFeature objects / ids)
+Added ToBytes/FromBytes methods to ObjectCopier class
+Added CryptoManager 
