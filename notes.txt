@@ -1,4 +1,11 @@
-﻿Renamed ComputerManger to ComputerManager (fixed typo)
+﻿v1.0.4
+Enhanced Default extension method, Support for more types including nullables
+Added Traverse<T> extension method for recurisively searching an enumerable tree
+Added ToLong and TryToLong extension methods for converting strings to longs
+Added Compression class for basic zip/unzip using Gzip (unbuffered)
+Added SHA256 hashing function to CryptoManager
+v1.0.3
+Renamed ComputerManger to ComputerManager (fixed typo)
 Renamed IISServer to IisManager, replaced public constructors with connect method
 Added Impersonation class to security manager
 Added RunAs function to wrap impersonation

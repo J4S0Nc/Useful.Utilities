@@ -1,97 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Management;
 using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 using Useful.Utilities.Models;
 
 namespace Useful.Utilities
 {
-
-    namespace Models
-    {
-        /// <summary>
-        /// Model for holding process information. Also handles converting a <see cref="ManagementObject"/> to a model.
-        /// </summary>
-        public class ProcessInfo
-        {
-            public uint Priority { get; set; }
-            public uint ProcessId { get; set; }
-            public string Status { get; set; }
-            public string CreationDate { get; set; }
-            public string Caption { get; set; }
-            public string Description { get; set; }
-            public string CommandLine { get; set; }
-            public string ExecutablePath { get; set; }
-            public string ExecutionState { get; set; }
-            public UInt32? MaximumWorkingSetSize { get; set; }
-            public UInt32? MinimumWorkingSetSize { get; set; }
-            public UInt64 KernelModeTime { get; set; }
-            public UInt32 ThreadCount { get; set; }
-            public UInt64 UserModeTime { get; set; }
-            public UInt64 VirtualSize { get; set; }
-            public UInt64 WorkingSetSize { get; set; }
-
-            [NonSerialized]
-            private ManagementObject _managementObject;
-            protected internal ManagementObject ManagementObject() { return _managementObject; }
-
-            protected internal static ProcessInfo CreateProcessInfo(ManagementObject managementObject)
-            {
-
-                if (managementObject == null)
-                    return null;
-                ProcessInfo process = null;
-                try
-                {
-                    process = new ProcessInfo
-                        {
-                            _managementObject = managementObject,
-                            Priority = (uint)managementObject["Priority"],
-                            ProcessId = (uint)managementObject["ProcessId"],
-                            Status = (string)managementObject["Status"],
-                            CreationDate = (string)managementObject["CreationDate"],
-                            Caption = (string)managementObject["Caption"],
-                            CommandLine = (string)managementObject["CommandLine"],
-                            Description = (string)managementObject["Description"],
-                            ExecutablePath = (string)managementObject["ExecutablePath"],
-                            ExecutionState = (string)managementObject["ExecutionState"],
-                            MaximumWorkingSetSize = (UInt32?)managementObject["MaximumWorkingSetSize"],
-                            MinimumWorkingSetSize = (UInt32?)managementObject["MinimumWorkingSetSize"],
-                            KernelModeTime = (UInt64)managementObject["KernelModeTime"],
-                            ThreadCount = (UInt32)managementObject["ThreadCount"],
-                            UserModeTime = (UInt64)managementObject["UserModeTime"],
-                            VirtualSize = (UInt64)managementObject["VirtualSize"],
-                            WorkingSetSize = (UInt64)managementObject["WorkingSetSize"]
-                        };
-                }
-                catch (Exception ex)
-                {
-                    Trace.WriteLine("ERROR: " + ex.Message);
-                    Trace.TraceError(ex.ToString());
-                }
-                return process;
-            }
-        }
-    }
-
     /// <summary>
     /// Used to list, start and stop processes locally or remotely using WMI
     /// </summary>
     public class ProcessManager : WMI
     {
-        /// <summary>
-        /// Creates a new instance of Process Manager
-        /// </summary>
-        private ProcessManager() : base() { }
-        /// <summary>
-        /// Creates a new instance of Process Manager connected to a remote computer
-        /// </summary>
-        private ProcessManager(string server) : base(server) { }
+        ///// <summary>
+        ///// Creates a new instance of Process Manager
+        ///// </summary>
+        //private ProcessManager() : base() { }
+        ///// <summary>
+        ///// Creates a new instance of Process Manager connected to a remote computer
+        ///// </summary>
+        //private ProcessManager(string server) : base(server) { }
+
         /// <summary>
         /// Creates a new instance of the Process Manager connected to a remote server as a different user
         /// </summary>

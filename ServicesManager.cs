@@ -2,149 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
-using System.Net;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Win32;
 using Useful.Utilities.Models;
 
 namespace Useful.Utilities
 {
-
-
-    #region Support objects
-
-    namespace Models
-    {
-        /// <summary>
-        /// Type of Windows Service
-        /// </summary>
-        public enum ServiceType : uint
-        {
-            KernelDriver = 0x1,
-            FileSystemDriver = 0x2,
-            Adapter = 0x4,
-            RecognizerDriver = 0x8,
-            OwnProcess = 0x10,
-            ShareProcess = 0x20,
-            Interactive = 0x100
-        }
-
-        /// <summary>
-        /// Windows Service Error reporting mode
-        /// </summary>
-        public enum OnError
-        {
-            UserIsNotNotified = 0,
-            UserIsNotified = 1,
-            SystemRestartedLastGoodConfiguraion = 2,
-            SystemAttemptStartWithGoodConfiguration = 3
-        }
-
-        /// <summary>
-        /// Windows Service start mode
-        /// </summary>
-        public enum StartMode
-        {
-            Boot = 0,
-            System = 1,
-            Auto = 2,
-            Manual = 3,
-            Disabled = 4
-        }
-
-        /// <summary>
-        /// Windows Service  state
-        /// </summary>
-        public enum ServiceState
-        {
-            Running,
-            Stopped,
-            Paused,
-            StartPending,
-            StopPending,
-            PausePending,
-            ContinuePending
-        }
-
-
-        /// <summary>
-        /// Model for holding service information. Also handles converting a <see cref="ManagementObject"/> to a model.
-        /// </summary>
-        public class ServiceInfo
-        {
-            public string Name { get; set; }
-            public string Status { get; set; }
-            public string DisplayName { get; set; }
-            public string PathName { get; set; }
-            public uint ProcessId { get; set; }
-            public bool Started { get; set; }
-            public string InstallDate { get; set; }
-            public string Description { get; set; }
-            public string Caption { get; set; }
-            public string Username { get; set; }
-            public string Password { get; set; }
-            public ServiceType ServiceType { get; set; }
-            public OnError ErrorHandle { get; set; }
-            public StartMode StartMode { get; set; }
-            public ServiceState State { get; set; }
-            public bool InteractWithDesktop { get; set; }
-            public string LoadOrderGroup { get; set; }
-            public string[] LoadOrderGroupDependencies { get; set; }
-            public string[] Dependencies { get; set; }
-
-            [NonSerialized]
-            private ManagementObject _managementObject;
-            protected internal ManagementObject ManagementObject() { return _managementObject; }
-
-            protected internal static ServiceInfo CreateServiceInfo(ManagementObject managementObject)
-            {
-
-                if (managementObject == null)
-                    return null;
-                ServiceInfo rtn = null;
-                try
-                {
-                    rtn = new ServiceInfo
-                    {
-                        _managementObject = managementObject,
-                        InteractWithDesktop = false,
-                        State = Helpers.ToEnum<ServiceState>(managementObject["State"]),
-                        Status = (string)managementObject["Status"],
-                        Name = (string)managementObject["Name"],
-                        DisplayName = (string)managementObject["DisplayName"],
-                        PathName = (string)managementObject["PathName"],
-                        ProcessId = (uint)managementObject["ProcessId"],
-                        Started = (bool)managementObject["Started"],
-                        StartMode = Helpers.ToEnum<StartMode>(managementObject["StartMode"]),
-                        ServiceType = Helpers.ToEnum<ServiceType>(managementObject["ServiceType"]),
-                        InstallDate = (string)managementObject["InstallDate"],
-                        Description = (string)managementObject["Description"],
-                        Caption = (string)managementObject["Caption"],
-                        Username = (string)managementObject["StartName"]
-                    };
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-                return rtn;
-            }
-            public ServiceInfo()
-            {
-                InteractWithDesktop = false;
-                StartMode = StartMode.Auto;
-                ServiceType = ServiceType.OwnProcess;
-            }
-
-        }
-    }
-
-    #endregion Enum
-
-
     /// <summary>
     /// Used to control windows services locally or remotely using WMI.
     /// Can find, list, install, update, uninstall, start, stop or restart services
@@ -154,15 +17,16 @@ namespace Useful.Utilities
 
         #region Constructors
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ServicesManager"/> class.
-        /// </summary>
-        private ServicesManager() : base() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ServicesManager"/> class connected to a remote server.
-        /// </summary>
-        /// <param name="server"></param>
-        private ServicesManager(string server) : base(server) { }
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="ServicesManager"/> class.
+        ///// </summary>
+        //private ServicesManager() : base() { }
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="ServicesManager"/> class connected to a remote server.
+        ///// </summary>
+        ///// <param name="server"></param>
+        //private ServicesManager(string server) : base(server) { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ServicesManager"/> class connected to a remote server as a different user.
         /// </summary>

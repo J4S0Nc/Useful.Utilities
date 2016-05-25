@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Useful.Utilities
 {
@@ -85,9 +81,13 @@ namespace Useful.Utilities
             X509Certificate2 certificate = new X509Certificate2(fileName, password, X509KeyStorageFlags.PersistKeySet);
             X509Store x509Store = GetStore(store, location, remoteComputer);
             x509Store.Open(OpenFlags.ReadWrite);
+
+            if (certificate.Thumbprint == null) throw new NullReferenceException("Thumbprint is null");
+
             var existing = x509Store.Certificates.Find(X509FindType.FindByThumbprint, certificate.Thumbprint, true);
             if (existing.Count == 0)
                 x509Store.Add(certificate);
+
             x509Store.Close();
             return certificate;
         }

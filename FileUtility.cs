@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Useful.Utilities
 {
@@ -188,17 +186,17 @@ namespace Useful.Utilities
             const uint MAX_PREFERRED_LENGTH = 0xFFFFFFFF;
             const int SuccessCode = 0;
 
-            public List<ShareInfo> EnumNetShares(string Server)
+            public List<ShareInfo> EnumNetShares(string server)
             {
-                List<ShareInfo> ShareInfos = new List<ShareInfo>();
+                List<ShareInfo> shareInfos = new List<ShareInfo>();
                 int entriesread = 0;
                 int totalentries = 0;
-                int resume_handle = 0;
+                int resumeHandle = 0;
                 int nStructSize = Marshal.SizeOf(typeof(ShareInfo));
                 IntPtr bufPtr = IntPtr.Zero;
-                StringBuilder server = new StringBuilder(Server);
-                int ret = NetShareEnum(server, 2, ref bufPtr, MAX_PREFERRED_LENGTH,
-                               ref entriesread, ref totalentries, ref resume_handle);
+                StringBuilder srvr = new StringBuilder(server);
+                int ret = NetShareEnum(srvr, 2, ref bufPtr, MAX_PREFERRED_LENGTH,
+                               ref entriesread, ref totalentries, ref resumeHandle);
                 if (ret == SuccessCode)
                 {
                     IntPtr currentPtr = bufPtr;
@@ -206,11 +204,11 @@ namespace Useful.Utilities
                     {
                         ShareInfo shi1 =
                             (ShareInfo)Marshal.PtrToStructure(currentPtr, typeof(ShareInfo));
-                        ShareInfos.Add(shi1);
+                        shareInfos.Add(shi1);
                         currentPtr = new IntPtr(currentPtr.ToInt32() + nStructSize);
                     }
                     NetApiBufferFree(bufPtr);
-                    return ShareInfos;
+                    return shareInfos;
                 }
                 return null;
             }

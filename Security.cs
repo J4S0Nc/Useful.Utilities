@@ -1,17 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
-using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Security;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Permissions;
 using System.Security.Principal;
-using System.Text;
-using System.Threading;
-using Microsoft.Win32.SafeHandles;
 using LSA_HANDLE = System.IntPtr;
 
 namespace Useful.Utilities
@@ -139,6 +131,7 @@ namespace Useful.Utilities
             }
 
             identity = WindowsIdentity.GetCurrent();
+            if (identity == null) throw new NullReferenceException("Current Windows Identity is Null");
             WindowsPrincipal principal = new WindowsPrincipal(identity);
             return principal.IsInRole(role);
 
@@ -329,14 +322,13 @@ namespace Useful.Utilities
 
         sealed class Sid : IDisposable
         {
-            public IntPtr pSid = IntPtr.Zero;
-            public SecurityIdentifier sid = null;
+            public IntPtr pSid;
 
             public Sid(string account)
             {
                 try
                 {
-                    sid = (SecurityIdentifier)(new NTAccount(account)).Translate(typeof(SecurityIdentifier));
+                    var sid = (SecurityIdentifier)(new NTAccount(account)).Translate(typeof(SecurityIdentifier));
                     Byte[] buffer = new Byte[sid.BinaryLength];
                     sid.GetBinaryForm(buffer, 0);
 
@@ -367,7 +359,7 @@ namespace Useful.Utilities
 
         public sealed class LsaWrapper : IDisposable
         {
-            enum Access : int
+            enum Access 
             {
                 POLICY_READ = 0x20006,
                 POLICY_ALL_ACCESS = 0x00F0FFF,
@@ -415,7 +407,7 @@ namespace Useful.Utilities
 
             public void AddPrivileges(string account, string privilege)
             {
-                uint ret = 0;
+                uint ret;
                 using (Sid sid = new Sid(account))
                 {
                     LSA_UNICODE_STRING[] privileges = new LSA_UNICODE_STRING[1];

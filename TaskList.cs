@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -44,7 +42,7 @@ namespace Useful.Utilities
         public void AddTask(Action work)
         {
             _maxThreadSlim.Wait();
-            _asyscTasks.Add(Task.Factory.StartNew(work).ContinueWith((task) => _maxThreadSlim.Release()));
+            _asyscTasks.Add(Task.Factory.StartNew(work).ContinueWith(task => _maxThreadSlim.Release()));
         }
         /// <summary>
         /// Waits for all tasks in the list to finish. Then clears the lists

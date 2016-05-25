@@ -40,7 +40,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Useful.Utilities.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Useful.Utilities.snk.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Web.Administration, Version=7.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -59,25 +59,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Certificate.cs" />
+    <Compile Include="Compression.cs" />
+    <Compile Include="Models\ComputerInfo.cs" />
     <Compile Include="CryptoManager.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Models\DomainRole.cs" />
     <Compile Include="DynamicRow.cs" />
+    <Compile Include="Models\FeatureInfo.cs" />
+    <Compile Include="Models\FeaturesAndRoles.cs" />
     <Compile Include="FileUtility.cs" />
     <Compile Include="GACUtility.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="IAssemblyCache.cs" />
     <Compile Include="IisManager.cs" />
     <Compile Include="ComputerManager.cs" />
+    <Compile Include="Models\ServiceType.cs" />
     <Compile Include="Network.cs" />
-    <Compile Include="Processes.cs" />
+    <Compile Include="NetworkConnection.cs" />
+    <Compile Include="ObjectCopier.cs" />
+    <Compile Include="Models\OnError.cs" />
+    <Compile Include="ProcessManager.cs" />
+    <Compile Include="Models\ProcessInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registry.cs" />
+    <Compile Include="RegistryHelper.cs" />
     <Compile Include="Security.cs" />
-    <Compile Include="Services.cs" />
-    <Compile Include="Tasks.cs" />
+    <Compile Include="Models\ServiceInfo.cs" />
+    <Compile Include="ServicesManager.cs" />
+    <Compile Include="Models\ServiceState.cs" />
+    <Compile Include="SharedFolderConnection.cs" />
+    <Compile Include="Models\StartMode.cs" />
+    <Compile Include="TaskList.cs" />
     <Compile Include="WMI.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Useful.Utilities.snk" />
+    <None Include="Useful.Utilities.snk.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="notes.txt" />

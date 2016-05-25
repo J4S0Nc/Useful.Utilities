@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Microsoft.Web.Administration;
 using Microsoft.Win32;
 
@@ -23,10 +21,10 @@ namespace Useful.Utilities
             None, Ssl, SslNegotiateCert, SslRequireCert
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="IisManager"/> class.
-        /// </summary>
-        private IisManager() { }
+        ///// <summary>
+        ///// Initializes a new instance of the <see cref="IisManager"/> class.
+        ///// </summary>
+        //private IisManager() { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IisManager"/> class connected to a remote computer
@@ -44,14 +42,14 @@ namespace Useful.Utilities
         /// <summary>
         /// The remote server currently connected to.
         /// </summary>
-        public string RemoteServer { get; private set; }
+        public string RemoteServer { get; }
 
         private ServerManager _svcMan;
 
         /// <summary>
         /// Gets the server manager. Either local or remote based on <see cref="RemoteServer"/>
         /// </summary>
-        protected internal ServerManager serverManager
+        protected internal ServerManager ServerManager
         {
             get
             {
@@ -68,7 +66,7 @@ namespace Useful.Utilities
         /// <returns></returns>
         public IEnumerable<Site> ListSites()
         {
-            return serverManager.Sites;
+            return ServerManager.Sites;
         }
 
         /// <summary>
@@ -77,7 +75,7 @@ namespace Useful.Utilities
         /// <returns></returns>
         public IEnumerable<string> ListSiteNames()
         {
-            return serverManager.Sites.Select(s=> s.Name);
+            return ServerManager.Sites.Select(s => s.Name);
         }
 
         /// <summary>
@@ -87,7 +85,7 @@ namespace Useful.Utilities
         /// <returns></returns>
         public Site GetSite(string siteName)
         {
-            return serverManager.Sites[siteName];
+            return ServerManager.Sites[siteName];
         }
 
         /// <summary>
@@ -97,7 +95,7 @@ namespace Useful.Utilities
         /// <returns></returns>
         public ObjectState SiteState(string siteName)
         {
-            return serverManager.Sites[siteName].State;
+            return ServerManager.Sites[siteName].State;
         }
 
         /// <summary>
@@ -106,7 +104,7 @@ namespace Useful.Utilities
         /// <param name="siteName">Name of the site.</param>
         public void StopSite(string siteName)
         {
-            serverManager.Sites[siteName].Stop(); serverManager.CommitChanges();
+            ServerManager.Sites[siteName].Stop(); ServerManager.CommitChanges();
         }
 
         /// <summary>
@@ -115,7 +113,7 @@ namespace Useful.Utilities
         /// <param name="siteName">Name of the site.</param>
         public void StartSite(string siteName)
         {
-            serverManager.Sites[siteName].Start(); serverManager.CommitChanges();
+            ServerManager.Sites[siteName].Start(); ServerManager.CommitChanges();
         }
 
         /// <summary>
@@ -124,7 +122,7 @@ namespace Useful.Utilities
         /// <returns></returns>
         public IEnumerable<WorkerProcess> Processes()
         {
-            return serverManager.WorkerProcesses;
+            return ServerManager.WorkerProcesses;
         }
 
         /// <summary>
@@ -153,44 +151,44 @@ namespace Useful.Utilities
             if (!System.IO.Directory.Exists(path))
                 System.IO.Directory.CreateDirectory(path);
 
-            var newSite = serverManager.Sites.Add(siteName, path, port);
+            var newSite = ServerManager.Sites.Add(siteName, path, port);
 
             if (!string.IsNullOrWhiteSpace(certHash))
                 SetBinding(siteName, "*", port, "", certHash, true);
 
-            serverManager.CommitChanges();
+            ServerManager.CommitChanges();
             return newSite;
         }
-        
+
         /// <summary>
         /// delete a site
         /// </summary>
         /// <param name="siteName">Name of the site.</param>
         public void DeleteSite(string siteName)
         {
-            serverManager.Sites[siteName].Delete();
-            serverManager.CommitChanges();
+            ServerManager.Sites[siteName].Delete();
+            ServerManager.CommitChanges();
         }
         #endregion
 
         #region Bindings
         public IEnumerable<Binding> Bindings(string siteName)
         {
-            var site = serverManager.Sites[siteName];
+            var site = ServerManager.Sites[siteName];
             return site.Bindings;
         }
         public void DeleteBinding(string siteName, int index)
         {
-            serverManager.Sites[siteName].Bindings.RemoveAt(index);
-            serverManager.CommitChanges();
+            ServerManager.Sites[siteName].Bindings.RemoveAt(index);
+            ServerManager.CommitChanges();
         }
 
         public void DeleteAllBindings(string siteName)
         {
-            serverManager.Sites[siteName].Bindings.Clear();
-            serverManager.CommitChanges();
+            ServerManager.Sites[siteName].Bindings.Clear();
+            ServerManager.CommitChanges();
         }
-       
+
         /// <summary>
         /// Create or update a binding on the given site. 
         /// </summary>
@@ -203,24 +201,24 @@ namespace Useful.Utilities
         /// <returns></returns>
         public Binding SetBinding(string siteName, string ip = "*", int port = 80, string hostheader = "", string certThumb = "", bool removeAllOthers = false)
         {
-            Binding binding = null;
-            if (removeAllOthers) serverManager.Sites[siteName].Bindings.Clear();
+            Binding binding;
+            if (removeAllOthers) ServerManager.Sites[siteName].Bindings.Clear();
 
             string bindingInfo = string.Format("{0}:{1}:{2}", ip, port, hostheader);
 
-            var existing = serverManager.Sites[siteName].Bindings.FirstOrDefault(b => b.BindingInformation.StartsWith(bindingInfo));
+            var existing = ServerManager.Sites[siteName].Bindings.FirstOrDefault(b => b.BindingInformation.StartsWith(bindingInfo));
             if (existing != null)
-                serverManager.Sites[siteName].Bindings.Remove(existing);
+                ServerManager.Sites[siteName].Bindings.Remove(existing);
 
             if (string.IsNullOrWhiteSpace(certThumb))
-                binding = serverManager.Sites[siteName].Bindings.Add(bindingInfo, "http");
+                binding = ServerManager.Sites[siteName].Bindings.Add(bindingInfo, "http");
             else
             {
                 var cert = Certificate.GetByThumbprint(certThumb);
-                binding = serverManager.Sites[siteName].Bindings.Add(bindingInfo, cert.GetCertHash(), "My");
+                binding = ServerManager.Sites[siteName].Bindings.Add(bindingInfo, cert.GetCertHash(), "My");
                 binding.Protocol = "https";
             }
-            serverManager.CommitChanges();
+            ServerManager.CommitChanges();
             return binding;
         }
         #endregion
@@ -233,7 +231,7 @@ namespace Useful.Utilities
         /// <returns></returns>
         public IEnumerable<Application> ListApplications(string siteName)
         {
-            return serverManager.Sites[siteName].Applications;
+            return ServerManager.Sites[siteName].Applications;
 
         }
         /// <summary>
@@ -245,7 +243,7 @@ namespace Useful.Utilities
         public Application GetApplication(string siteName, string appName)
         {
             if (!appName.StartsWith("/")) appName = "/" + appName;
-            return serverManager.Sites[siteName].Applications.FirstOrDefault(
+            return ServerManager.Sites[siteName].Applications.FirstOrDefault(
                     a => a.Path.Equals(appName, StringComparison.CurrentCultureIgnoreCase));
         }
 
@@ -263,11 +261,11 @@ namespace Useful.Utilities
         public Application SetApplication(string siteName, string appName, string path, string poolName, bool allowAnonymousAccess = true, bool windowsAuth = false, ApplicationSslFlags sslFlags = ApplicationSslFlags.None)
         {
             if (!appName.StartsWith("/")) appName = "/" + appName;
-            var app = serverManager.Sites[siteName].Applications.FirstOrDefault(a => a.Path.Equals(appName, StringComparison.CurrentCultureIgnoreCase)) ??
-                              serverManager.Sites[siteName].Applications.Add(appName, path);
+            var app = ServerManager.Sites[siteName].Applications.FirstOrDefault(a => a.Path.Equals(appName, StringComparison.CurrentCultureIgnoreCase)) ??
+                              ServerManager.Sites[siteName].Applications.Add(appName, path);
 
-            var configuration = serverManager.GetApplicationHostConfiguration();
-            
+            var configuration = ServerManager.GetApplicationHostConfiguration();
+
             var winAuth = configuration.GetSection("system.webServer/security/authentication/windowsAuthentication", siteName + appName);
             winAuth["enabled"] = windowsAuth;
 
@@ -282,7 +280,7 @@ namespace Useful.Utilities
             var v = app.VirtualDirectories["/"] ?? app.VirtualDirectories.Add(appName, app.Path);
             v.PhysicalPath = path;
             app.ApplicationPoolName = poolName;
-            serverManager.CommitChanges();
+            ServerManager.CommitChanges();
             return app;
         }
 
@@ -296,8 +294,8 @@ namespace Useful.Utilities
         public void DeleteApplication(string siteName, string appName)
         {
             if (!appName.StartsWith("/")) appName = "/" + appName;
-            serverManager.Sites[siteName].Applications[appName].Delete();
-            serverManager.CommitChanges();
+            ServerManager.Sites[siteName].Applications[appName].Delete();
+            ServerManager.CommitChanges();
         }
 
         /// <summary>
@@ -309,8 +307,8 @@ namespace Useful.Utilities
         public void SetApplicationPool(string siteName, string appName, string poolName)
         {
             if (!appName.StartsWith("/")) appName = "/" + appName;
-            serverManager.Sites[siteName].Applications[appName].ApplicationPoolName = poolName;
-            serverManager.CommitChanges();
+            ServerManager.Sites[siteName].Applications[appName].ApplicationPoolName = poolName;
+            ServerManager.CommitChanges();
         }
         #endregion
 
@@ -322,7 +320,7 @@ namespace Useful.Utilities
         /// <returns></returns>
         public IEnumerable<ApplicationPool> ListPools()
         {
-            return serverManager.ApplicationPools;
+            return ServerManager.ApplicationPools;
         }
 
         /// <summary>
@@ -332,7 +330,7 @@ namespace Useful.Utilities
         /// <returns></returns>
         public ApplicationPool GetPool(string poolName)
         {
-            return serverManager.ApplicationPools.FirstOrDefault(a => a.Name.Equals(poolName, StringComparison.CurrentCultureIgnoreCase));
+            return ServerManager.ApplicationPools.FirstOrDefault(a => a.Name.Equals(poolName, StringComparison.CurrentCultureIgnoreCase));
         }
 
 
@@ -342,10 +340,10 @@ namespace Useful.Utilities
         /// <param name="poolName">Name of the application pool.</param>
         public void RecyclePool(string poolName)
         {
-            var pool = serverManager.ApplicationPools.FirstOrDefault(a => a.Name.Equals(poolName, StringComparison.CurrentCultureIgnoreCase));
+            var pool = ServerManager.ApplicationPools.FirstOrDefault(a => a.Name.Equals(poolName, StringComparison.CurrentCultureIgnoreCase));
             if (pool == null) return;
             pool.Recycle();
-            serverManager.CommitChanges();
+            ServerManager.CommitChanges();
         }
 
         /// <summary>
@@ -354,10 +352,10 @@ namespace Useful.Utilities
         /// <param name="poolName">Name of the application pool.</param>
         public void DeletePool(string poolName)
         {
-            var pool = serverManager.ApplicationPools.FirstOrDefault(a => a.Name.Equals(poolName, StringComparison.CurrentCultureIgnoreCase));
+            var pool = ServerManager.ApplicationPools.FirstOrDefault(a => a.Name.Equals(poolName, StringComparison.CurrentCultureIgnoreCase));
             if (pool == null) return;
             pool.Delete();
-            serverManager.CommitChanges();
+            ServerManager.CommitChanges();
         }
 
         /// <summary>
@@ -374,8 +372,8 @@ namespace Useful.Utilities
         {
             try
             {
-                ApplicationPool pool;
-                pool = GetPool(name) == null ? serverManager.ApplicationPools.Add(name) : serverManager.ApplicationPools[name];
+
+                var pool = GetPool(name) == null ? ServerManager.ApplicationPools.Add(name) : ServerManager.ApplicationPools[name];
 
                 if (string.IsNullOrWhiteSpace(version)) version = "v4.0";
                 pool.ManagedRuntimeVersion = version;
@@ -390,7 +388,7 @@ namespace Useful.Utilities
                 if (maxProcesses > 0)
                     pool.ProcessModel.MaxProcesses = maxProcesses;
 
-                serverManager.CommitChanges();
+                ServerManager.CommitChanges();
                 return pool;
             }
             catch (Exception ex)
@@ -407,7 +405,7 @@ namespace Useful.Utilities
                 _svcMan.Dispose();
         }
         /// <summary>
-        /// Refreshes this instance and restarts the <see cref="serverManager"/>
+        /// Refreshes this instance and restarts the <see cref="ServerManager"/>
         /// </summary>
         public void Refresh()
         {
@@ -416,9 +414,9 @@ namespace Useful.Utilities
         }
 
         /// <summary>
-        /// Commits the <see cref="serverManager"/> changes.
+        /// Commits the <see cref="ServerManager"/> changes.
         /// </summary>
-        public void CommitChanges() { serverManager.CommitChanges(); }
+        public void CommitChanges() { ServerManager.CommitChanges(); }
 
         /// <summary>
         /// Resets IIS. Mode can be Restart, Stop, or Start
@@ -427,7 +425,7 @@ namespace Useful.Utilities
         /// <returns></returns>
         public static bool ResetIis(string mode = "restart")
         {
-            return ProcessManager.Run("iisreset.exe", "/" + mode, true) == 0;
+            return ProcessManager.Run("iisreset.exe", "/" + mode) == 0;
         }
 
         /// <summary>

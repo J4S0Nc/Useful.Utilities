@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.Win32;
 
 namespace Useful.Utilities
@@ -37,6 +36,7 @@ namespace Useful.Utilities
             if (key == null || value == null || value.Equals(default(T)))
                 return false;
             key = key.OpenSubKey("", true);
+            if(key == null) throw new NullReferenceException("Key is null");
             key.SetValue(keyName, value);
             return true;
         }

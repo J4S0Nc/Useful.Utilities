@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace Useful.Utilities
 {
@@ -52,11 +46,9 @@ namespace Useful.Utilities
             if (bytes == null || bytes.Length == 0) return null;
             var c = new char[bytes.Length * 2];
 
-            byte b;
-
             for (int bx = 0, cx = 0; bx < bytes.Length; ++bx, ++cx)
             {
-                b = ((byte)(bytes[bx] >> 4));
+                var b = ((byte)(bytes[bx] >> 4));
                 c[cx] = (char)(b > 9 ? b - 10 + 'A' : b + '0');
 
                 b = ((byte)(bytes[bx] & 0x0F));
@@ -117,134 +109,97 @@ namespace Useful.Utilities
         }
 
         /// <summary>
-        /// If the string is null or whitespace the <see cref="value"/> is returned. 
-        /// If the string has a value it is returned.
+        /// If object is null <see cref="value"/> is returned. 
+        /// If object is empty string or min date time, <see cref="value"/> is returned. 
+        /// If object is a different type then value it may be casted or may throw an <see cref="InvalidCastException"/>
         /// </summary>
-        /// <param name="str">The string</param>
-        /// <param name="value">Default value to return when input is null or whitespace</param>
-        /// <returns>input string or default value</returns>
-        public static string Default(this string str, string value)
+        /// <typeparam name="T">The default value type</typeparam>
+        /// <param name="obj">the object</param>
+        /// <param name="value">Default value to return when object is null or doesn't match rules</param>
+        /// <exception cref="InvalidCastException">When object is different type then default value InvalidCastException might be thrown</exception>
+        /// <returns></returns>
+        public static T Default<T>(this object obj, T value = default(T))
         {
-            return string.IsNullOrWhiteSpace(str) ? value : str;
+            if (obj == null || Equals(obj, default(T))) return value;
+            if (obj is string && string.IsNullOrWhiteSpace(obj.ToString())) return value;
+            if (obj is DateTime && DateTime.MinValue.Equals(obj)) return value;
+            if (obj is T) return (T)obj;
+
+            var type = Nullable.GetUnderlyingType(typeof(T)) ?? typeof(T);
+            obj = (T)Convert.ChangeType(obj, type);
+            if (obj == null || Equals(obj, default(T))) return value;
+            return (T)obj;
         }
 
-        public static float RoundDown(this float number, int decimalPlaces)
+        /// <summary>
+        /// Round a number down. Can set number of decimal places.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="decimalPlaces"></param>
+        /// <returns></returns>
+        public static float RoundDown(this float number, int decimalPlaces = 0)
         {
             return (float)(Math.Floor(number * Math.Pow(10, decimalPlaces)) / Math.Pow(10, decimalPlaces));
         }
-
-        public static float RoundUp(this float number, int decimalPlaces)
+        /// <summary>
+        /// Round a number up. Can set number of decimal places.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="decimalPlaces"></param>
+        /// <returns></returns>
+        public static float RoundUp(this float number, int decimalPlaces = 0)
         {
             return (float)(Math.Ceiling(number * Math.Pow(10, decimalPlaces)) / Math.Pow(10, decimalPlaces));
         }
-    }
 
-
-    /// <summary>
-    /// Perform a deep copy of an object.
-    /// Binary Serialization is used to perform the copy.
-    /// </summary>
-    public static class ObjectCopier
-    {
         /// <summary>
-        /// Perform a deep Copy of the object.
+        /// Convert s string to a long, throws cast exception if it fails
         /// </summary>
-        /// <typeparam name="T">The type of object being copied.</typeparam>
-        /// <param name="source">The object instance to copy.</param>
-        /// <returns>The copied object.</returns>
-        public static T Clone<T>(this T source)
+        /// <param name="str"></param>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <returns></returns>
+        public static long ToLong(this string str)
         {
-            if (!typeof(T).IsSerializable)
-                throw new ArgumentException("The type must be serializable.", "source");
-
-            // Don't serialize a null object, simply return the default for that object
-            if (Object.ReferenceEquals(source, null))
-                return default(T);
-
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new MemoryStream();
-            using (stream)
+            long rtn;
+            if (!long.TryParse(str, out rtn))
             {
-                formatter.Serialize(stream, source);
-                stream.Seek(0, SeekOrigin.Begin);
-                return (T)formatter.Deserialize(stream);
+                throw new InvalidCastException("Unable to parse long from " + str);
             }
+            return rtn;
         }
 
         /// <summary>
-        /// Takes a serializable object and returns it as a byte array.
+        /// Attempt to cast a string to a long, return null if unable to cast
         /// </summary>
-        /// <typeparam name="T">The Type of the Object</typeparam>
-        /// <param name="source">The source object to serialize.</param>
+        /// <param name="str"></param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentException">The type must be serializable.;source</exception>
-        public static byte[] ToBytes<T>(this T source)
+        public static long? TryToLong(this string str)
         {
-            if (!typeof(T).IsSerializable)
-                throw new ArgumentException("The type must be serializable.", "source");
-            if (ReferenceEquals(source, null))
+            long rtn;
+            if (!long.TryParse(str, out rtn))
                 return null;
-
-            IFormatter formatter = new BinaryFormatter();
-            var stream = new MemoryStream();
-            using (stream)
-            {
-                formatter.Serialize(stream, source);
-                stream.Seek(0, SeekOrigin.Begin);
-                return stream.ToArray();
-            }
+            return rtn;
         }
 
         /// <summary>
-        /// Takes a byte array and desterilizes it to a object. 
+        /// Recursively search a tree collection based on the child selector
         /// </summary>
-        /// <typeparam name="T">The Type of the Object</typeparam>
-        /// <param name="obj">byte array of the object.</param>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        /// <param name="childSelector"></param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentException">The type must be serializable.;source</exception>
-        public static T FromBytes<T>(byte[] obj)
+        public static IEnumerable<T> Traverse<T>(this IEnumerable<T> items, Func<T, IEnumerable<T>> childSelector)
         {
-            if (!typeof(T).IsSerializable)
-                throw new ArgumentException("The type must be serializable.", "source");
-            if (obj == null || obj.Length == 0)
-                return default(T);
-
-            IFormatter formatter = new BinaryFormatter();
-            var stream = new MemoryStream(obj);
-            using (stream)
+            if (items == null) yield break;
+            var stack = new Stack<T>(items);
+            while (stack.Any())
             {
-                return (T)formatter.Deserialize(stream);
-            }
-        }
-
-        /// <summary>
-        /// Load an object from XML string.
-        /// </summary>
-        /// <typeparam name="T">The Type of the Object</typeparam>
-        /// <param name="xml">The XML.</param>
-        /// <returns></returns>
-        public static T FromXml<T>(string xml)
-        {
-            using (StringReader stringReader = new StringReader(xml))
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                return (T)serializer.Deserialize(stringReader);
-            }
-        }
-
-        /// <summary>
-        /// Serialize an object to XML string.
-        /// </summary>
-        /// <typeparam name="T">The Type of Object</typeparam>
-        /// <param name="obj">The object.</param>
-        /// <returns>XML String</returns>
-        public static string ToXml<T>(this T obj)
-        {
-            using (StringWriter stringWriter = new StringWriter(new StringBuilder()))
-            {
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-                xmlSerializer.Serialize(stringWriter, obj);
-                return stringWriter.ToString();
+                var next = stack.Pop();
+                yield return next;
+                var children = childSelector(next);
+                if (children == null) continue;
+                foreach (var child in children)
+                    stack.Push(child);
             }
         }
     }

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Management;
 using System.Net;
-using System.Threading;
 
 
 namespace Useful.Utilities
@@ -170,6 +168,7 @@ namespace Useful.Utilities
             try
             {
                 var rtn = (obj.InvokeMethod(method, inParams, methodOptions));
+                if(rtn == null) throw new NullReferenceException("Return value is null"); //todo validate this doesn't break "ServiceNotFound" error handling
                 return Helpers.ToEnum<ReturnValue>(rtn["ReturnValue"].ToString());
             }
             catch (Exception ex)

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -36,7 +34,20 @@ namespace Useful.Utilities
         }
 
         /// <summary>
-        ///  Encryption (AES) then Authentication (HMAC) for a UTF8 Message.
+        /// Hash the string using SHA256 and return base64 encoded string
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static string Sha256(string input)
+        {
+            HashAlgorithm hashAlgorithm = new SHA256CryptoServiceProvider();
+            byte[] byteValue = Encoding.UTF8.GetBytes(input);
+            byte[] byteHash = hashAlgorithm.ComputeHash(byteValue);
+            return Convert.ToBase64String(byteHash);
+        }
+
+        /// <summary>
+        /// Encryption (AES) then Authentication (HMAC) for a UTF8 Message.
         /// </summary>
         /// <param name="secretMessage">The secret message.</param>
         /// <param name="cryptKey">The crypt key.</param>
@@ -60,7 +71,7 @@ namespace Useful.Utilities
         }
 
         /// <summary>
-        ///  Authentication (HMAC) then Decryption (AES) for a secrets UTF8 Message.
+        /// Authentication (HMAC) then Decryption (AES) for a secret UTF8 Message.
         /// </summary>
         /// <param name="encryptedMessage">The encrypted message.</param>
         /// <param name="cryptKey">The crypt key.</param>
@@ -81,7 +92,7 @@ namespace Useful.Utilities
         }
 
         /// <summary>
-        ///  Encryption (AES) then Authentication (HMAC) of a UTF8 message
+        /// Encryption (AES) then Authentication (HMAC) of a UTF8 message
         /// using Keys derived from a Password (PBKDF2).
         /// </summary>
         /// <param name="secretMessage">The secret message.</param>
@@ -106,7 +117,7 @@ namespace Useful.Utilities
         }
 
         /// <summary>
-        ///  Authentication (HMAC) and then Descryption (AES) of a UTF8 Message
+        /// Authentication (HMAC) and then Descryption (AES) of a UTF8 Message
         /// using keys derived from a password (PBKDF2). 
         /// </summary>
         /// <param name="encryptedMessage">The encrypted message.</param>
@@ -347,5 +358,7 @@ namespace Useful.Utilities
 
             return Decrypt(encryptedMessage, cryptKey, authKey, cryptSalt.Length + authSalt.Length + nonSecretPayloadLength);
         }
+
+
     }
 }
