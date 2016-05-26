@@ -17,11 +17,11 @@ namespace Useful.Utilities
         ///// </summary>
         //private ComputerManager() : base() { }
         ///// <summary>
-        ///// Creates a new instance of Process Manager connected to a remote computer
+        ///// Creates a new instance of Computer Manager connected to a remote computer
         ///// </summary>
         //private ComputerManager(string server) : base(server) { }
         /// <summary>
-        /// Creates a new instance of the Process Manager connected to a remote server as a different user
+        /// Creates a new instance of the Computer Manager connected to a remote server as a different user
         /// </summary>
         private ComputerManager(string server, string username, string password) : base(server, username, password) { }
 

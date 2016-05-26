@@ -92,6 +92,8 @@
     <Compile Include="WMI.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="package.json" />
+    <None Include="ref.md" />
     <None Include="Useful.Utilities.snk.pfx" />
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,7 @@ namespace Useful.Utilities
         /// </summary>
         public WMI()
         {
-            Initialise(null, null, null);
+            Initialize(null, null, null);
         }
 
         /// <summary>
@@ -39,14 +39,14 @@ namespace Useful.Utilities
         /// </summary>
         public WMI(string server)
         {
-            Initialise(server, null, null);
+            Initialize(server, null, null);
         }
         /// <summary>
         /// Creates a new instance of the wrapper connected to a remote server as a different user
         /// </summary>
         public WMI(string server, string username, string password)
         {
-            Initialise(server, username, password);
+            Initialize(server, username, password);
         }
 
         #endregion
@@ -71,7 +71,7 @@ namespace Useful.Utilities
         /// <param name="username">Username to connect to server with</param>
         /// <param name="password">Password to connect to server with</param>
         /// <param name="server">Server to connect to</param>
-        private void Initialise(string server, string username, string password)
+        private void Initialize(string server, string username, string password)
         {
             if (ComputerManager.IsLocal(server))
                 server = Dns.GetHostEntry(Environment.MachineName).HostName;

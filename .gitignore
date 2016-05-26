@@ -44,3 +44,5 @@ Icon
 .Spotlight-V100
 .Trashes
 *.pfx
+/node_modules
+/.vs/config
