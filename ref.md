@@ -1,6 +1,11 @@
 ﻿<!-- http://varus.io/vsdoc-2-md/ -->
 # Useful.Utilities
 
+Collection of utility classes for dealing with Windows services, IIS, WMI, Registry, x509 certificates, Files, security, network shares, GAC files, and a few other things. Most utilities can be ran locally or remotely.
+
+[NuGet Package Information](https://www.nuget.org/packages/Useful.Utilities/)                 
+
+
 ##Class Reference 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
