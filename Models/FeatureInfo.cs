@@ -6,7 +6,7 @@ namespace Useful.Utilities.Models
 {
     /// <summary>
     /// Model for holding feature information. Also handles converting a <see cref="ManagementObject"/> to a model. 
-    /// <see href="http://msdn.microsoft.com/en-us/library/cc280268(v=vs.85).aspx"/>
+    /// <see cref="http://msdn.microsoft.com/en-us/library/cc280268(v=vs.85).aspx"/>
     /// </summary>
     [Serializable]
         

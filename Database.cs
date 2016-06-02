@@ -89,9 +89,7 @@ namespace Useful.Utilities
         /// <summary>
         /// Gets a list of all available instances of SQL Server within the local network.
         /// </summary>
-        /// <value>
-        /// string array of server names
-        /// </value>
+        /// <returns>string array of server names</returns>
         public static string[] Servers
         {
             get

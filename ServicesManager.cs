@@ -103,7 +103,7 @@ namespace Useful.Utilities
         /// <param name="svcType">Type of the service.</param>
         /// <param name="errHandle">The error handle type.</param>
         /// <param name="svcStartMode">The service start mode.</param>
-        /// <param name="interactWithDesktop">if set to <c>true</c> service can interact with desktop.</param>
+        /// <param name="interactWithDesktop">if set to true service can interact with desktop.</param>
         /// <param name="loadOrderGroup">The load order group.</param>
         /// <param name="loadOrderGroupDependencies">The load order group dependencies.</param>
         /// <param name="svcDependencies">Any service dependencies.</param>

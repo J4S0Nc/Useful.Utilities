@@ -620,7 +620,7 @@ Starts a background task that removes all assemblies from the GAC matching a giv
 
 Extensions and helper methods
 
-#### Default\`\`1(obj, value)
+#### Default&lt;T&gt;(obj, value)
 
 If object is null <a href="#value">value</a> is returned. If object is empty string or min date time, <a href="#value">value</a> is returned. If object is a different type then value it may be casted or may throw an <a href="#system.invalidcastexception">System.InvalidCastException</a>
 
@@ -701,7 +701,7 @@ Round a number up. Can set number of decimal places.
 | decimalPlaces | *System.Int32*<br> |
 
 
-#### ToEnum\`\`1(value, spaceReplace)
+#### ToEnum(value, spaceReplace)
 
 Convert a string object to an Enum
 
@@ -713,21 +713,6 @@ Convert a string object to an Enum
 | ---- | ----------- |
 | value | *System.Object*<br>The object to convert |
 | spaceReplace | *System.String*<br>If value has spaces, They will be replaced |
-
-
-#### ToEnum\`\`1(value, spaceReplace)
-
-Convert a string to an Enum
-
-##### Type Parameters
-
-- T - The type of Enum to convert to
-
-| Name | Description |
-| ---- | ----------- |
-| value | *System.String*<br>The object to convert |
-| spaceReplace | *System.String*<br>If value has spaces, They will be replaced |
-
 
 #### ToHex(bytes)
 
@@ -749,7 +734,7 @@ Convert s string to a long, throws cast exception if it fails
 *System.InvalidCastException:* 
 
 
-#### Traverse\`\`1(items, childSelector)
+#### Traverse&lt;T&gt;(items, childSelector)
 
 Recursively search a tree collection based on the child selector
 
@@ -1186,7 +1171,7 @@ Creates a connection to a network resource with a given set of credentials
 
 Perform a deep copy of an object. Binary Serialization is used to perform the copy.
 
-#### Clone\`\`1(source)
+#### Clone&lt;T&gt;(source)
 
 Perform a deep Copy of the object.
 
@@ -1200,7 +1185,7 @@ Perform a deep Copy of the object.
 
 Returns The copied object.
 
-#### FromBytes\`\`1(obj)
+#### FromBytes&lt;T&gt;(obj)
 
 Takes a byte array and desterilizes it to a object.
 
@@ -1213,7 +1198,7 @@ Takes a byte array and desterilizes it to a object.
 | obj | *System.Byte[]*<br>byte array of the object. |
 
 
-#### FromXml\`\`1(xml)
+#### FromXml&lt;T&gt;(xml)
 
 Load an object from XML string.
 
@@ -1226,7 +1211,7 @@ Load an object from XML string.
 | xml | *System.String*<br>The XML. |
 
 
-#### ToBytes\`\`1(source)
+#### ToBytes&lt;T&gt;(source)
 
 Takes a serializable object and returns it as a byte array.
 
@@ -1238,7 +1223,7 @@ Takes a serializable object and returns it as a byte array.
 | ---- | ----------- |
 | source | *\`\`0*<br>The source object to serialize. |
 
-#### ToXml\`\`1(obj)
+#### ToXml&lt;T&gt;(obj)
 
 Serialize an object to XML string.
 
@@ -1364,7 +1349,7 @@ Gets or Creates a registry Sub Key
 
 Returns <a href="#microsoft.win32.registrykey">Microsoft.Win32.RegistryKey</a>
 
-#### GetValue\`\`1(key, keyName, defaultValue)
+#### GetValue&lt;T&gt;(key, keyName, defaultValue)
 
 Get the value of a key or the default if the key has no value
 
@@ -1389,7 +1374,7 @@ Takes a .reg file and imports it to the registry
 | computer | *System.String*<br>Remote computer name used for execution, null or blank for local host |
 
 
-#### SetValue\`\`1(key, keyName, value)
+#### SetValue&lt;T&gt;(key, keyName, value)
 
 Sets the value of a given key
 
@@ -1847,7 +1832,7 @@ Runs the specified work. If work action threw an error and error action is provi
 | after | *System.Action{System.Boolean}*<br>The action to run after work is complete. |
 | error | *System.Action{System.Exception}*<br>The on error action if work faulted |
 
-#### Run\`\`1(work, after, error)
+#### Run&lt;T&gt;(work, after, error)
 
 Runs the specified work. If work action threw an error and error action is provided, it will be called before the after action. If after action is provided, it is ran once the work action is done. The after action is passed the result of work action if it was successful. If work action faulted, after action will be passed the default of <a href="#t">T</a>. After and error actions are ran in the Current Synchronization Context (usually the UI thread)
 

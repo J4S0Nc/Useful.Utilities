@@ -151,7 +151,7 @@ namespace Useful.Utilities
         /// </summary>
         /// <param name="filename">The file to run</param>
         /// <param name="args">The optional arguments to pass to the file, if any</param>
-        /// <param name="hideWindow"><c>true</c> to hide the window.</param>
+        /// <param name="hideWindow">true to hide the window.</param>
         /// <returns></returns>
         public static int Run(string filename, string args = "", bool hideWindow = true)
         {
