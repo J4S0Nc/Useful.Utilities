@@ -1,37 +1,37 @@
 ## Useful.Utilities ##
-- [Certificate](#certificate)
-- [Compression](#compression)
-- [Models.ComputerInfo](#models.computerinfo)
-- [Models.FeatureInfo](#models.featureinfo)
-- [Models.FeaturesAndRoles](#models.featuresandroles)
-- [Models.ServiceType](#models.servicetype)
-- [Models.OnError](#models.onerror)
-- [Models.ProcessInfo](#models.processinfo)
-- [Models.ServiceInfo](#models.serviceinfo)
-- [Models.ServiceState](#models.servicestate)
-- [Models.StartMode](#models.startmode)
-- [CryptoManager](#cryptomanager)
-- [Database](#database)
-- [DynamicRow](#dynamicrow)
-- [FileUtility](#fileutility)
-- [FileUtility.WindowsShares](#fileutility.windowsshares)
-- [GacUtility](#gacutility)
-- [Helpers](#helpers)
-- [IAssemblyCache](#iassemblycache)
-- [IisManager](#iismanager)
-- [IisManager.ApplicationSslFlags](#iismanager.applicationsslflags)
-- [ComputerManager](#computermanager)
-- [NetworkConnection](#networkconnection)
-- [ObjectCopier](#objectcopier)
-- [ProcessManager](#processmanager)
-- [RandomExtensions](#randomextensions)
-- [RegistryHelper](#registryhelper)
-- [Security](#security)
-- [ServicesManager](#servicesmanager)
-- [SharedFolderConnection](#sharedfolderconnection)
-- [TaskList](#tasklist)
-- [WMI](#wmi)
-- [WMI.ReturnValue](#wmi.returnvalue)
+- [Certificate](#certificate) Deals with windows x509 certificates
+- [Compression](#compression) Unbuffered compression/decompression methods using GZip
+- [Models.ComputerInfo](#models.computerinfo) Model for holding computer information. Also handles converting a [Models.ComputerInfo.ManagementObject] to a model. [http://msdn.microsoft.com/en-us/library/aa394102(v=vs.85).aspx]
+- [Models.FeatureInfo](#models.featureinfo) Model for holding feature information. Also handles converting a [Models.FeatureInfo.ManagementObject] to a model. [http://msdn.microsoft.com/en-us/library/cc280268(v=vs.85).aspx]
+- [Models.FeaturesAndRoles](#models.featuresandroles) List of Features and Roles that can be mapped to the FeatureInfo Id and Parent Id property
+- [Models.ServiceType](#models.servicetype) Type of Windows Service
+- [Models.OnError](#models.onerror) Windows Service Error reporting mode
+- [Models.ProcessInfo](#models.processinfo) Model for holding process information. Also handles converting a [Models.ProcessInfo.ManagementObject] to a model.
+- [Models.ServiceInfo](#models.serviceinfo) Model for holding service information. Also handles converting a [Models.ServiceInfo.ManagementObject] to a model.
+- [Models.ServiceState](#models.servicestate) Windows Service state
+- [Models.StartMode](#models.startmode) Windows Service start mode
+- [CryptoManager](#cryptomanager) Used to Encrypt / Decrypt strings and byte arrays
+- [Database](#database) SQL Database functions
+- [DynamicRow](#dynamicrow) Custom Dynamic Object for dealing with DataRow Objects
+- [FileUtility](#fileutility) File Utility functions
+- [FileUtility.WindowsShares](#fileutility.windowsshares) Support class for listing windows shares
+- [GacUtility](#gacutility) A utility class for interacting with the Global Assembly Cache.
+- [Helpers](#helpers) Extensions and helper methods
+- [IAssemblyCache](#iassemblycache) Defines a contract for interacting with the Global Assembly Cache.
+- [IisManager](#iismanager) IIS Server Manager Wrapper. can be used for local and remote IIS settings
+- [IisManager.ApplicationSslFlags](#iismanager.applicationsslflags) Application level Ssl Flags
+- [ComputerManager](#computermanager) Collection of computer, domain, and user name functions
+- [NetworkConnection](#networkconnection) Creates a connection to a network resource with a given set of credentials
+- [ObjectCopier](#objectcopier) Perform a deep copy of an object. Binary Serialization is used to perform the copy.
+- [ProcessManager](#processmanager) Used to list, start and stop processes locally or remotely using WMI
+- [RandomExtensions](#randomextensions) Extension methods for System.Random objects. IEnumerable extension to get a random item.
+- [RegistryHelper](#registryhelper) Windows registry wrapper. Used to read, write and delete keys and values. Handles picking 64bit or 32bit views. Can be used on local or remote registries.
+- [Security](#security) Security Utility Functions
+- [ServicesManager](#servicesmanager) Used to control windows services locally or remotely using WMI. Can find, list, install, update, uninstall, start, stop or restart services
+- [SharedFolderConnection](#sharedfolderconnection) Create a connection to a shared folder with a different set of credentials 
+- [TaskList](#tasklist) Provides functions for running async work.
+- [WMI](#wmi) Windows Management Interface Wrapper class. Handles scoping WMI calls for local or remote computers
+- [WMI.ReturnValue](#wmi.returnvalue) WMI Common Return Values
 
 ---
 # Certificate
