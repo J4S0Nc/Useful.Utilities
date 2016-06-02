@@ -42,6 +42,7 @@
 
  Selects the specified store using built-in windows UI 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |     store |The store to look in |
@@ -55,6 +56,7 @@
 
  Gets a certificate by thumb print. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |thumbprint |the cert thumbprint to find |
@@ -67,6 +69,7 @@
 
  Gets a list of Cert names and thumbprints in a tuple 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |     store |The store to look in |
@@ -77,6 +80,7 @@
 #### Certificate.Setup(System.String,System.String,System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)
 
  Install a PFX file to the cert store 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -90,6 +94,7 @@
 #### Certificate.GetStore(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)
 
  Helper function to connect to a cert store. Can be local or remote 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -107,6 +112,7 @@
 
  Compresses a string using GZip 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      text |The text to compress |
@@ -115,6 +121,7 @@
 #### Compression.Compress(System.Byte[])
 
  Use GZip Compression 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -125,6 +132,7 @@
 
  Decompresses a string 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |compressedText |The compressed text |
@@ -133,6 +141,7 @@
 #### Compression.Decompress(System.Byte[])
 
  Use GZip Decompression 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -143,6 +152,7 @@
 # Models.ComputerInfo
 
  Model for holding computer information. Also handles converting a [Models.ComputerInfo.ManagementObject] to a model. [http://msdn.microsoft.com/en-us/library/aa394102(v=vs.85).aspx]
+
 |  Property | Description |
 |-----------|-------------|
 |Models.ComputerInfo.DNSHostName | Name of local computer according to the domain name server (DNS). |
@@ -213,6 +223,7 @@
 
  Hash the string using SHA256 and return base64 encoded string 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |     input |             |
@@ -222,13 +233,16 @@
 
  Encryption (AES) then Authentication (HMAC) for a UTF8 Message. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |secretMessage |The secret message. |
 |  cryptKey |The crypt key. |
 |   authKey |The auth key. |
 |nonSecretPayload |(Optional) Non-Secret Payload. |
+
 Returns:  Encrypted Message 
+
 
 Throws: [[System.ArgumentException|System.ArgumentException]]: Secret Message Required!;secretMessage
 
@@ -241,13 +255,16 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: Secret Message Re
 
  Authentication (HMAC) then Decryption (AES) for a secret UTF8 Message. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |encryptedMessage |The encrypted message. |
 |  cryptKey |The crypt key. |
 |   authKey |The auth key. |
 |nonSecretPayloadLength |Length of the non secret payload. |
+
 Returns:  Decrypted Message 
+
 
 Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message Required!;encryptedMessage
 
@@ -256,12 +273,15 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message
 
  Encryption (AES) then Authentication (HMAC) of a UTF8 message using Keys derived from a Password (PBKDF2). 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |secretMessage |The secret message. |
 |  password |The password. |
 |nonSecretPayload |The non secret payload. |
+
 Returns:  Encrypted Message 
+
 
 Throws: [[System.ArgumentException|System.ArgumentException]]: password
 
@@ -274,12 +294,15 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: password
 
  Authentication (HMAC) and then Descryption (AES) of a UTF8 Message using keys derived from a password (PBKDF2). 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |encryptedMessage |The encrypted message. |
 |  password |The password. |
 |nonSecretPayloadLength |Length of the non secret payload. |
+
 Returns:  Decrypted Message 
+
 
 Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message Required!;encryptedMessage
 
@@ -297,9 +320,11 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message
 
  Initializes a new instance of the [Database] class. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |connection |The connection string. |
+
 
 |  Property | Description |
 |-----------|-------------|
@@ -314,6 +339,7 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message
 
  Parses the connection string in to a [System.Data.SqlClient.SqlConnectionStringBuilder]
 
+
 | Parameter | Description |
 |-----------|-------------|
 |connection |The connection string to parse |
@@ -323,9 +349,11 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message
 
  Tests the connection. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |throwOnError |Flag to throw or hide connection errors |
+
 Returns: True if successful
 
 
@@ -333,17 +361,22 @@ Returns: True if successful
 
  Tests the connection. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |connection |The connection string. |
 |throwOnError |Flag to throw or hide connection errors |
+
 Returns:  True if successful 
 
+
 Throws: [[System.ArgumentNullException|System.ArgumentNullException]]: Connection string must have Data Source and Initial Catalog both set
+
 
 |  Property | Description |
 |-----------|-------------|
 |Database.Servers | Gets a list of all available instances of SQL Server within the local network. 
+
 
 Returns: string array of server names |
 
@@ -354,12 +387,14 @@ Returns: string array of server names |
 |    server |Server to connect to |
 |  username |SQL Auth user. To use NT Auth leave blank |
 |  password |SQL Auth password |
+
 Returns: string array of database names
 
 
 #### Database.ExecuteSql(System.String,System.String)
 
  Executes a non query. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -371,16 +406,19 @@ Returns: string array of database names
 
  Executes a scalar 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |    sqlCmd |The command to execute |
 |connection |SQL connection string |
+
 Returns: Scalar result
 
 
 #### Database.ExecuteNonQuery(System.Data.SqlClient.SqlCommand,System.String)
 
  Executes a non query. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -392,16 +430,19 @@ Returns: Scalar result
 
  Executes a scalar and attempts to parse the result to integer. If parse fails -1 is returned 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |    sqlCmd |The command to execute |
 |connection |SQL connection string |
+
 Returns: Scalar result as integer or -1
 
 
 #### Database.ExecuteStoredProc(System.String,System.String)
 
  Executes a stored procedure as a non query 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -413,10 +454,12 @@ Returns: Scalar result as integer or -1
 
  Executes a Sql Adapter and fills a dataset 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |    sqlCmd |The command to execute |
 |connection |SQL connection string |
+
 Returns: A Filled DataSet
 
 
@@ -424,9 +467,11 @@ Returns: A Filled DataSet
 
  Run a SQL command and return each row as a dynamic row 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |       sql |             |
+
 Returns: Enumeration of [DynamicRow]
 
 
@@ -439,9 +484,11 @@ Returns: Enumeration of [DynamicRow]
 
  Initializes a new instance of the [DynamicRow] class. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |       row |The data row object. |
+
 
 |  Property | Description |
 |-----------|-------------|
@@ -452,6 +499,7 @@ Returns: Enumeration of [DynamicRow]
  Converts the specified table to Enumeration of [DynamicRow]. 
 
 |     table |The data table to convert. |
+
 Returns: Enumeration of [DynamicRow]
 
 
@@ -464,6 +512,7 @@ Returns: Enumeration of [DynamicRow]
 
  Tries to create a file stream. On error, the thread sleeps and retries until the max retry number is hit. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      file |File path    |
@@ -472,12 +521,14 @@ Returns: Enumeration of [DynamicRow]
 |     share |file share   |
 |     retry |Number of retries to attempt on error |
 |    waitMs |number of milliseconds to sleep between retries |
+
 Throws: [[System.IO.IOException|System.IO.IOException]]: Throws IOExecption if max retry is hit
 
 
 #### FileUtility.IsFileLocked(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
 
  Checks if a file is locked by attempting to open it. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -491,6 +542,7 @@ Throws: [[System.IO.IOException|System.IO.IOException]]: Throws IOExecption if m
 
  Checks if a file exists. If remote computer is passed in the path is converted to a UNC first 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      path |File path to check |
@@ -500,6 +552,7 @@ Throws: [[System.IO.IOException|System.IO.IOException]]: Throws IOExecption if m
 #### FileUtility.CopyFile(System.String,System.String,System.Boolean)
 
  Ensures the destination directory exists then copies a file. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -512,16 +565,19 @@ Throws: [[System.IO.IOException|System.IO.IOException]]: Throws IOExecption if m
 
  Takes a local file path and translates it into a UNC file path where possible. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      path |Path to convert to UNC. |
 |  computer |Machine name to use, if not set uses local machine |
+
 Returns: UNC path otherwise throws arg error.
 
 
 #### FileUtility.ClearReadOnly(System.String)
 
  Clears the read only flag on a file 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -542,9 +598,11 @@ Returns: UNC path otherwise throws arg error.
 
  Removes an assembly from the GAC. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |assemblyName |The name of the assembly to remove. |
+
 Returns: A magic number.
 
 
@@ -552,9 +610,11 @@ Returns: A magic number.
 
  Adds an assembly to the GAC. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |assemblyName |The name of the assembly to add. |
+
 Returns: A magic number.
 
 
@@ -562,9 +622,11 @@ Returns: A magic number.
 
  Adds an assembly to the GAC. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |assemblyName |The name of the assembly to add. |
+
 Returns: A magic number.
 
 
@@ -572,15 +634,18 @@ Returns: A magic number.
 
  Removes an assembly from the GAC. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |assemblyName |The name of the assembly to remove. |
+
 Returns: A magic number.
 
 
 #### GacUtility.RemoveByKey(System.String)
 
  Starts a background task that removes all assemblies from the GAC matching a given key 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -591,9 +656,11 @@ Returns: A magic number.
 
  Gets a list of paths to all files matching the given key 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |       key |The key to find |
+
 Returns: list of file paths
 
 
@@ -606,6 +673,7 @@ Returns: list of file paths
 
  Convert a string object to an Enum 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |         T |The type of Enum to convert to |
@@ -616,6 +684,7 @@ Returns: list of file paths
 #### Helpers.ToEnum&lt;T&gt;(System.String,System.String)
 
  Convert a string to an Enum 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -628,6 +697,7 @@ Returns: list of file paths
 
  Convert a byte array to a hexadecimal string. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |     bytes |The bytes.   |
@@ -636,6 +706,7 @@ Returns: list of file paths
 #### Helpers.GetAttribute&lt;T2&gt;(System.Enum,System.Func{&lt;T&gt;,&lt;T&gt;})
 
  Gets attribute from an enumeration object 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -649,9 +720,11 @@ Returns: list of file paths
 
  Gets the description value from the [System.ComponentModel.DescriptionAttribute] of the enum. If enum doesn't have a description attribute, null is returned 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |enumeration |The enum value to look at |
+
 Returns: description value from the [System.ComponentModel.DescriptionAttribute] or null
 
 
@@ -659,9 +732,11 @@ Returns: description value from the [System.ComponentModel.DescriptionAttribute]
 
  If the nullable Boolean value is null or false, false is returned. if the nullable Boolean has a value and its true, true is returned. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |     value |nullable Boolean |
+
 Returns: true or false
 
 
@@ -669,9 +744,11 @@ Returns: true or false
 
  If the nullable Boolean value is null or true, true is returned. if the nullable Boolean has a value and its false, false is returned. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |     value |nullable Boolean |
+
 Returns: true or false
 
 
@@ -679,17 +756,20 @@ Returns: true or false
 
  If object is null [value] is returned. If object is empty string or min date time, [value] is returned. If object is a different type then value it may be casted or may throw an [System.InvalidCastException]
 
+
 | Parameter | Description |
 |-----------|-------------|
 |         T |The default value type |
 |       obj |the object   |
 |     value |Default value to return when object is null or doesn't match rules |
+
 Throws: [[System.InvalidCastException|System.InvalidCastException]]: When object is different type then default value InvalidCastException might be thrown
 
 
 #### Helpers.RoundDown(System.Single,System.Int32)
 
  Round a number down. Can set number of decimal places. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -701,6 +781,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]: When object
 
  Round a number up. Can set number of decimal places. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |    number |             |
@@ -711,15 +792,18 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]: When object
 
  Convert s string to a long, throws cast exception if it fails 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |       str |             |
+
 Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
 
 #### Helpers.TryToLong(System.String)
 
  Attempt to cast a string to a long, return null if unable to cast 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -729,6 +813,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### Helpers.Traverse&lt;T&gt;(System.Collections.Generic.IEnumerable{&lt;T&gt;},System.Func{&lt;T&gt;,System.Collections.Generic.IEnumerable{&lt;T&gt;}})
 
  Recursively search a tree collection based on the child selector 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -746,6 +831,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Uninstalls the assembly. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   dwFlags |The dw flags. |
@@ -758,6 +844,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Queries the assembly information. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   dwFlags |The dw flags. |
@@ -768,6 +855,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### IAssemblyCache.CreateAssemblyCacheItem(System.UInt32,System.IntPtr,System.IntPtr@,System.String)
 
  Creates the assembly cache item. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -781,6 +869,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Creates the assembly scavenger. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |ppAsmScavenger |The pp asm scavenger. |
@@ -789,6 +878,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### IAssemblyCache.InstallAssembly(System.UInt32,System.String,System.IntPtr)
 
  Installs the assembly. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -811,9 +901,11 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Initializes a new instance of the [IisManager] class connected to a remote computer 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |remoateServer |The remote server. |
+
 
 |  Property | Description |
 |-----------|-------------|
@@ -834,6 +926,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Get single site by name 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  siteName |Name of the site. |
@@ -842,6 +935,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### IisManager.SiteState(System.String)
 
  Get site state (stopped, running, etc) 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -852,6 +946,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Stop IIS site by name 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  siteName |Name of the site. |
@@ -860,6 +955,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### IisManager.StartSite(System.String)
 
  Attempt to start a site by name 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -875,6 +971,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Create a new web site on port 443 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  siteName |site name    |
@@ -886,6 +983,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### IisManager.CreateSite(System.String,System.String,System.Int32,System.String)
 
  Create a new web site 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -899,6 +997,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  delete a site 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  siteName |Name of the site. |
@@ -907,6 +1006,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### IisManager.SetBinding(System.String,System.String,System.Int32,System.String,System.String,System.Boolean)
 
  Create or update a binding on the given site. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -922,6 +1022,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Get list of applications for a site 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  siteName |Name of the site. |
@@ -930,6 +1031,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### IisManager.GetApplication(System.String,System.String)
 
  Get an application under the given site 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -940,6 +1042,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### IisManager.SetApplication(System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,IisManager.ApplicationSslFlags)
 
  create or update an application under a site 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -956,6 +1059,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Deletes an application under a site. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  siteName |Name of the site. |
@@ -965,6 +1069,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### IisManager.SetApplicationPool(System.String,System.String,System.String)
 
  Change the pool tied to an application 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -982,6 +1087,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Gets the application pool by name. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  poolName |Name of the application pool. |
@@ -990,6 +1096,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 #### IisManager.RecyclePool(System.String)
 
  Recycles the pool. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1000,6 +1107,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  Deletes the application pool. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  poolName |Name of the application pool. |
@@ -1009,6 +1117,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
  create or update an application pool 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      name |The application pool name. |
@@ -1016,6 +1125,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 |  password |The password. |
 |maxProcesses |The maximum processes. 0 for default |
 |   version |The version. |
+
 Throws: [[System.Exception|System.Exception]]:
 
 
@@ -1033,6 +1143,7 @@ Throws: [[System.Exception|System.Exception]]:
 
  Resets IIS. Mode can be Restart, Stop, or Start 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      mode |The mode argument. Can be Restart, Stop, or Start |
@@ -1041,6 +1152,7 @@ Throws: [[System.Exception|System.Exception]]:
 #### IisManager.IisVersion(System.String)
 
  IIS version number. 0 if not installed or error 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1066,11 +1178,13 @@ Throws: [[System.Exception|System.Exception]]:
 
  Connects to the computer name passed in, leave blank for local 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |computerName |Name of the computer. Leave blank for local |
 |  username |The username to connect as. Leave blank for current user |
 |  password |The password for username if provided. |
+
 
 |  Property | Description |
 |-----------|-------------|
@@ -1084,6 +1198,7 @@ Throws: [[System.Exception|System.Exception]]:
  Splits the username and domain into a Tuple. Domain is Item1, User is Item2. 
 
 |  username |The Domain\Username or User@domain string to parse. |
+
 Returns: Domain is Item1, Username is Item2
 
 
@@ -1091,10 +1206,13 @@ Returns: Domain is Item1, Username is Item2
 
  Ensures the username as a domain prefix. If no prefix is given machine name is used. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      user |The username to check for domain. |
+
 Returns: domain\user or machine\user
+
 
 |  Property | Description |
 |-----------|-------------|
@@ -1122,10 +1240,12 @@ Returns: domain\user or machine\user
 
  Perform a deep Copy of the object. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |         T |The type of object being copied. |
 |    source |The object instance to copy. |
+
 Returns: The copied object.
 
 
@@ -1133,10 +1253,12 @@ Returns: The copied object.
 
  Takes a serializable object and returns it as a byte array. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |         T |The Type of the Object |
 |    source |The source object to serialize. |
+
 Throws: [[System.ArgumentException|System.ArgumentException]]: The type must be serializable.;source
 
 
@@ -1144,16 +1266,19 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: The type must be 
 
  Takes a byte array and desterilizes it to a object. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |         T |The Type of the Object |
 |       obj |byte array of the object. |
+
 Throws: [[System.ArgumentException|System.ArgumentException]]: The type must be serializable.;source
 
 
 #### ObjectCopier.FromXml&lt;T&gt;(System.String)
 
  Load an object from XML string. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1165,10 +1290,12 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: The type must be 
 
  Serialize an object to XML string. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |         T |The Type of Object |
 |       obj |The object.  |
+
 Returns: XML String
 
 
@@ -1186,6 +1313,7 @@ Returns: XML String
 
  Connects to the computer name passed in, leave blank for local 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |computerName |Name of the computer. Leave blank for local |
@@ -1197,6 +1325,7 @@ Returns: XML String
 
  Gets a list of running processes. Can be filtered by name 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      name |Null or blank to return all, otherwise returns all processes matching this name |
@@ -1206,6 +1335,7 @@ Returns: XML String
 
  Gets a single process by process id 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |        id |The process identifier |
@@ -1214,6 +1344,7 @@ Returns: XML String
 #### ProcessManager.Terminate(System.String,System.Boolean)
 
  Terminates a process with the specified name. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1225,6 +1356,7 @@ Returns: XML String
 
  Terminates a process by the specified identifier. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |        id |The process identifier |
@@ -1233,6 +1365,7 @@ Returns: XML String
 #### ProcessManager.Start(System.String,System.String,System.Int32)
 
  Starts a command process. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1243,6 +1376,7 @@ Returns: XML String
 #### ProcessManager.Run(System.String,System.String,System.Boolean)
 
  Starts a local process 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1255,6 +1389,7 @@ Returns: XML String
 # RandomExtensions
 
  Extension methods for System.Random objects. IEnumerable extension to get a random item.
+
 |  Property | Description |
 |-----------|-------------|
 |RandomExtensions.Random | Static access to random object |
@@ -1270,6 +1405,7 @@ Returns: XML String
 
  Generate a random Boolean 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |    random |             |
@@ -1279,6 +1415,7 @@ Returns: XML String
 #### RandomExtensions.RandomItem&lt;T&gt;(System.Collections.Generic.IEnumerable{&lt;T&gt;})
 
  Randomly sort the items and pick one. If the collection is null, null is returned. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1295,6 +1432,7 @@ Returns: XML String
 
  Get the value of a key or the default if the key has no value 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |         T |The type of value to return |
@@ -1306,6 +1444,7 @@ Returns: XML String
 #### RegistryHelper.SetValue&lt;T&gt;(Microsoft.Win32.RegistryKey,System.String,&lt;T&gt;)
 
  Sets the value of a given key 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1319,6 +1458,7 @@ Returns: XML String
 
  Deletes a key and value. Will delete a full tree structure by default 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |       key |Sub key to select from deletion |
@@ -1328,6 +1468,7 @@ Returns: XML String
 #### RegistryHelper.DeleteValue(Microsoft.Win32.RegistryKey,System.String)
 
  Deletes the value from a given key. To delete the key use [RegistryHelper.DeleteKey(Microsoft.Win32.RegistryKey,System.Boolean)]
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1339,12 +1480,15 @@ Returns: XML String
 
  Gets or Creates a registry Sub Key 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      hive |[Microsoft.Win32.RegistryHive] |
 |subKeyName |Path for sub key |
 |  computer |Remote computer name used for execution, null or blank for local host |
+
 Returns: [Microsoft.Win32.RegistryKey]
+
 
 |  Property | Description |
 |-----------|-------------|
@@ -1367,6 +1511,7 @@ Returns: [Microsoft.Win32.RegistryKey]
 
  Set logon as a service rights for the user. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      user |The username as domain\user. if domain is not provide machine name is used |
@@ -1376,6 +1521,7 @@ Returns: [Microsoft.Win32.RegistryKey]
 #### Security.SetPrivilege(System.String,System.String,System.String)
 
  Sets a privilege for the user. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1388,6 +1534,7 @@ Returns: [Microsoft.Win32.RegistryKey]
 
  Login as a given user and return the login token 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      user |The user: domain\user |
@@ -1398,6 +1545,7 @@ Returns: [Microsoft.Win32.RegistryKey]
 #### Security.IsValidLogin(System.String,System.String,System.String)
 
  Determines whether the specified username and password are valid. Can be ran locally or remotely 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1411,18 +1559,21 @@ Returns: [Microsoft.Win32.RegistryKey]
 
  Validates the username and password. Throws error if its invalid 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  username |The username. |
 |  password |The password. |
 |    domain |The domain.  |
 |remoteComputer |Can be used to execute on a remote computer. |
+
 Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: Thrown if Username and password is invalid!
 
 
 #### Security.IsInRole(System.String,System.String,System.Security.Principal.WindowsBuiltInRole,System.String)
 
  Determines whether the specified user is in a given role 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1436,10 +1587,12 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 
  Runs an action as a different user. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  username |The username. |
 |  password |The password. |
+
 
 |  Property | Description |
 |-----------|-------------|
@@ -1494,6 +1647,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 
  Connects to the computer name passed in, leave blank for local 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |computerName |Name of the computer. Leave blank for local |
@@ -1510,6 +1664,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 
  Gets a service by name. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      name |The service name to find. |
@@ -1518,6 +1673,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 #### ServicesManager.GetServiceInfo(Models.ServiceInfo)
 
  Gets a service by name. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1528,6 +1684,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 
  Gets a service by name. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      name |The service name to find. |
@@ -1536,6 +1693,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 #### ServicesManager.GetServiceState(Models.ServiceInfo)
 
  Gets the state of the service. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1546,6 +1704,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 
  Gets the state of the service. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      name |The service name to find. |
@@ -1554,6 +1713,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 #### ServicesManager.InstallService(System.String,System.String,System.String,System.String,System.String,System.String,Models.ServiceType,Models.OnError,Models.StartMode,System.Boolean,System.String,System.String[],System.String[])
 
  Installs a windows service. Ensures user has Logon as a service right by calling [Security.SetLogonAsAService(System.String,System.String)]
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1570,12 +1730,14 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 |loadOrderGroup |The load order group. |
 |loadOrderGroupDependencies |The load order group dependencies. |
 |svcDependencies |Any service dependencies. |
+
 Returns: [WMI.ReturnValue]
 
 
 #### ServicesManager.InstallService(Models.ServiceInfo)
 
  Installs a windows service. Ensures user has Logon as a service right by calling [Security.SetLogonAsAService(System.String,System.String)]
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1586,9 +1748,11 @@ Returns: [WMI.ReturnValue]
 
  Determines whether a service is installed by name. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   svcInfo |The service information object. Name property is used |
+
 Returns: True if installed
 
 
@@ -1596,15 +1760,18 @@ Returns: True if installed
 
  Determines whether a service is installed by name. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   svcName |Name of the service. |
+
 Returns: True if installed
 
 
 #### ServicesManager.ChangeCredentials(System.String,System.String,System.String)
 
  Changes the credentials of a service. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1617,6 +1784,7 @@ Returns: True if installed
 
  Changes the specified service username, password or path. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   service |The service to update. |
@@ -1626,6 +1794,7 @@ Returns: True if installed
 
  Gets the description of the service from the registry. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   svcName |Name of the service. |
@@ -1634,6 +1803,7 @@ Returns: True if installed
 #### ServicesManager.SetDescription(System.String,System.String)
 
  Sets the description of the service in the registry. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1645,6 +1815,7 @@ Returns: True if installed
 
  Gets the path of the service in the registry. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   svcName |Name of the service. |
@@ -1653,6 +1824,7 @@ Returns: True if installed
 #### ServicesManager.SetPath(System.String,System.String)
 
  Sets the path of the service in the registry. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1664,6 +1836,7 @@ Returns: True if installed
 
  Uninstalls the service from the system. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   svcName |The service name. |
@@ -1672,6 +1845,7 @@ Returns: True if installed
 #### ServicesManager.UninstallService(Models.ServiceInfo)
 
  Uninstalls the service from the system. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1682,6 +1856,7 @@ Returns: True if installed
 
  Starts the service. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   svcName |Name of the service. |
@@ -1690,6 +1865,7 @@ Returns: True if installed
 #### ServicesManager.StartService(Models.ServiceInfo)
 
  Starts the service. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1700,6 +1876,7 @@ Returns: True if installed
 
  Stops the service. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   svcName |Name of the service. |
@@ -1709,6 +1886,7 @@ Returns: True if installed
 
  Stops the service. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   service |The service information object. Name property is used |
@@ -1717,6 +1895,7 @@ Returns: True if installed
 #### ServicesManager.WaitForState(System.String,Models.ServiceState,System.Int32)
 
  Waits for the service to be in a given state. 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1729,11 +1908,13 @@ Returns: True if installed
 
  Waits for the service to be in a given state. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   service |The service information object. |
 |     state |The state to wait for. |
 | timeoutMs |The timeout in milliseconds. |
+
 Returns: True when service is in given state. False if service is not in given state by the end of the timeout period
 
 
@@ -1758,6 +1939,7 @@ _C# code_
 
  Initializes a new instance of the [SharedFolderConnection] class. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |       unc |The unc. \\Server |
@@ -1778,6 +1960,7 @@ _C# code_
 
  Initializes a new instance of the [TaskList] class with a limited number of threads. 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |   threads |The number of threads to limit. |
@@ -1787,6 +1970,7 @@ _C# code_
 
  Adds the task to the list. If a thread is available work starts right away otherwise it waits for a thread then starts 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      work |The action to run. |
@@ -1795,6 +1979,7 @@ _C# code_
 #### TaskList.WaitForAll
 
  Waits for all tasks in the list to finish. Then clears the lists
+
 
 |  Property | Description |
 |-----------|-------------|
@@ -1813,6 +1998,7 @@ _C# code_
 
  Runs the specified work. If work action threw an error and error action is provided, it will be called before the after action. If after action is provided, it is ran once the work action is done. The after action is passed the result of work action if it was successful. If work action faulted, after action will be passed the default of [T]. After and error actions are ran in the Current Synchronization Context (usually the UI thread) 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |         T |Type returned from work function and input to after action |
@@ -1830,9 +2016,11 @@ _C# code_
 
  Convert the property data collection to a string object dictionary 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |        mo |ManagementBaseObject |
+
 Returns: Dictionary{string,object}
 
 
@@ -1860,6 +2048,7 @@ Returns: Dictionary{string,object}
 
  Initializes the WMI connection 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  username |Username to connect to server with |
@@ -1876,6 +2065,7 @@ Returns: Dictionary{string,object}
 
  Creates a [System.Management.ManagementObject] scoped to the current connection 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |      path |The WMI path |
@@ -1885,6 +2075,7 @@ Returns: Dictionary{string,object}
 #### WMI.ScopedClass(System.String,System.Management.ObjectGetOptions)
 
  Creates a [System.Management.ManagementClass] scoped to the current connection 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1896,15 +2087,18 @@ Returns: Dictionary{string,object}
 
  Get an instance of the specified class 
 
+
 | Parameter | Description |
 |-----------|-------------|
 |  wmiClass |Type of the class |
+
 Returns: Array of management objects
 
 
 #### WMI.GetObjects(System.String,System.String)
 
  Get an instance of the specified class filtered by a where clause 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1915,6 +2109,7 @@ Returns: Array of management objects
 #### WMI.GetObjectsByName(System.String,System.String)
 
  Get an instance of the specified class filtered by name 
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1931,9 +2126,11 @@ Returns: Array of management objects
 
  Dispose of managed and unmanaged objects 
 
+
 | Parameter | Description |
 |-----------|-------------|
 | disposing |             |
+
 
 |  Property | Description |
 |-----------|-------------|
