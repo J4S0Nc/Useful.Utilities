@@ -142,7 +142,7 @@
 ---
 # Models.ComputerInfo
 
- Model for holding computer information. Also handles converting a [[|Models.ComputerInfo.ManagementObject]] to a model. [[|http://msdn.microsoft.com/en-us/library/aa394102(v=vs.85).aspx]]
+ Model for holding computer information. Also handles converting a [Models.ComputerInfo.ManagementObject] to a model. [http://msdn.microsoft.com/en-us/library/aa394102(v=vs.85).aspx]
 |  Property | Description |
 |-----------|-------------|
 |Models.ComputerInfo.DNSHostName | Name of local computer according to the domain name server (DNS). |
@@ -162,7 +162,7 @@
 ---
 # Models.FeatureInfo
 
- Model for holding feature information. Also handles converting a [[|Models.FeatureInfo.ManagementObject]] to a model. [[|http://msdn.microsoft.com/en-us/library/cc280268(v=vs.85).aspx]]
+ Model for holding feature information. Also handles converting a [Models.FeatureInfo.ManagementObject] to a model. [http://msdn.microsoft.com/en-us/library/cc280268(v=vs.85).aspx]
 
 ---
 # Models.FeaturesAndRoles
@@ -182,12 +182,12 @@
 ---
 # Models.ProcessInfo
 
- Model for holding process information. Also handles converting a [[|Models.ProcessInfo.ManagementObject]] to a model.
+ Model for holding process information. Also handles converting a [Models.ProcessInfo.ManagementObject] to a model.
 
 ---
 # Models.ServiceInfo
 
- Model for holding service information. Also handles converting a [[|Models.ServiceInfo.ManagementObject]] to a model.
+ Model for holding service information. Also handles converting a [Models.ServiceInfo.ManagementObject] to a model.
 
 ---
 # Models.ServiceState
@@ -295,7 +295,7 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message
 
 #### Database.#ctor(System.String)
 
- Initializes a new instance of the [[|Database]] class. 
+ Initializes a new instance of the [Database] class. 
 
 | Parameter | Description |
 |-----------|-------------|
@@ -307,12 +307,12 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message
 
 #### Database.ConnectionParts
 
- Parses the connection string in to a [[|System.Data.SqlClient.SqlConnectionStringBuilder]]
+ Parses the connection string in to a [System.Data.SqlClient.SqlConnectionStringBuilder]
 
 
 #### Database.ConnectionParts(System.String)
 
- Parses the connection string in to a [[|System.Data.SqlClient.SqlConnectionStringBuilder]]
+ Parses the connection string in to a [System.Data.SqlClient.SqlConnectionStringBuilder]
 
 | Parameter | Description |
 |-----------|-------------|
@@ -427,7 +427,7 @@ Returns: A Filled DataSet
 | Parameter | Description |
 |-----------|-------------|
 |       sql |             |
-Returns: Enumeration of [[|DynamicRow]]
+Returns: Enumeration of [DynamicRow]
 
 
 ---
@@ -437,7 +437,7 @@ Returns: Enumeration of [[|DynamicRow]]
 
 #### DynamicRow.#ctor(System.Data.DataRow)
 
- Initializes a new instance of the [[|DynamicRow]] class. 
+ Initializes a new instance of the [DynamicRow] class. 
 
 | Parameter | Description |
 |-----------|-------------|
@@ -449,10 +449,10 @@ Returns: Enumeration of [[|DynamicRow]]
 
 #### DynamicRow.Convert(System.Data.DataTable)
 
- Converts the specified table to Enumeration of [[|DynamicRow]]. 
+ Converts the specified table to Enumeration of [DynamicRow]. 
 
 |     table |The data table to convert. |
-Returns: Enumeration of [[|DynamicRow]]
+Returns: Enumeration of [DynamicRow]
 
 
 ---
@@ -647,12 +647,12 @@ Returns: list of file paths
 
 #### Helpers.Description(System.Enum)
 
- Gets the description value from the [[|System.ComponentModel.DescriptionAttribute]] of the enum. If enum doesn't have a description attribute, null is returned 
+ Gets the description value from the [System.ComponentModel.DescriptionAttribute] of the enum. If enum doesn't have a description attribute, null is returned 
 
 | Parameter | Description |
 |-----------|-------------|
 |enumeration |The enum value to look at |
-Returns: description value from the [[|System.ComponentModel.DescriptionAttribute]] or null
+Returns: description value from the [System.ComponentModel.DescriptionAttribute] or null
 
 
 #### Helpers.IsTrue(System.Nullable{System.Boolean})
@@ -677,7 +677,7 @@ Returns: true or false
 
 #### Helpers.Default&lt;T&gt;(System.Object,&lt;T&gt;)
 
- If object is null [[|value]] is returned. If object is empty string or min date time, [[|value]] is returned. If object is a different type then value it may be casted or may throw an [[|System.InvalidCastException]]
+ If object is null [value] is returned. If object is empty string or min date time, [value] is returned. If object is a different type then value it may be casted or may throw an [System.InvalidCastException]
 
 | Parameter | Description |
 |-----------|-------------|
@@ -809,7 +809,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
 #### IisManager.#ctor(System.String)
 
- Initializes a new instance of the [[|IisManager]] class connected to a remote computer 
+ Initializes a new instance of the [IisManager] class connected to a remote computer 
 
 | Parameter | Description |
 |-----------|-------------|
@@ -818,7 +818,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 |  Property | Description |
 |-----------|-------------|
 |IisManager.RemoteServer | The remote server currently connected to. |
-|IisManager.ServerManager | Gets the server manager. Either local or remote based on [[|IisManager.RemoteServer]] |
+|IisManager.ServerManager | Gets the server manager. Either local or remote based on [IisManager.RemoteServer] |
 
 #### IisManager.ListSites
 
@@ -1021,12 +1021,12 @@ Throws: [[System.Exception|System.Exception]]:
 
 #### IisManager.Refresh
 
- Refreshes this instance and restarts the [[|IisManager.ServerManager]]
+ Refreshes this instance and restarts the [IisManager.ServerManager]
 
 
 #### IisManager.CommitChanges
 
- Commits the [[|IisManager.ServerManager]] changes.
+ Commits the [IisManager.ServerManager] changes.
 
 
 #### IisManager.ResetIis(System.String)
@@ -1074,7 +1074,7 @@ Throws: [[System.Exception|System.Exception]]:
 
 |  Property | Description |
 |-----------|-------------|
-|ComputerManager.DomainNameFull | Gets the full domain name of the current computer (without the computer name). Use [[|ComputerManager.MachineFullName]] to get FQN of current computer. |
+|ComputerManager.DomainNameFull | Gets the full domain name of the current computer (without the computer name). Use [ComputerManager.MachineFullName] to get FQN of current computer. |
 |ComputerManager.DomainNameBios | Gets the Domain Net Bios of the current user. |
 |ComputerManager.UserName | Gets the username of current user |
 |ComputerManager.UserQualified | Gets the domain and username of current user. Domain\User |
@@ -1098,12 +1098,12 @@ Returns: domain\user or machine\user
 
 |  Property | Description |
 |-----------|-------------|
-|ComputerManager.MachineName | Gets the Machine name of the current computer (without domain). Use [[|ComputerManager.MachineFullName]] to get the FQN of the current computer. |
+|ComputerManager.MachineName | Gets the Machine name of the current computer (without domain). Use [ComputerManager.MachineFullName] to get the FQN of the current computer. |
 |ComputerManager.MachineFullName | Gets the fully qualified name of the current computer. computer.domain.com |
 
 #### ComputerManager.IsLocal(System.String)
 
- Checks if the name passed in is the current computer. Returns true if the string is null/empty or the name matches the current [[|ComputerManager.MachineName]] or [[|ComputerManager.MachineFullName]]. 
+ Checks if the name passed in is the current computer. Returns true if the string is null/empty or the name matches the current [ComputerManager.MachineName] or [ComputerManager.MachineFullName]. 
 
 |serverName |Computer name to check |
 
@@ -1327,7 +1327,7 @@ Returns: XML String
 
 #### RegistryHelper.DeleteValue(Microsoft.Win32.RegistryKey,System.String)
 
- Deletes the value from a given key. To delete the key use [[|RegistryHelper.DeleteKey(Microsoft.Win32.RegistryKey,System.Boolean)]]
+ Deletes the value from a given key. To delete the key use [RegistryHelper.DeleteKey(Microsoft.Win32.RegistryKey,System.Boolean)]
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1341,10 +1341,10 @@ Returns: XML String
 
 | Parameter | Description |
 |-----------|-------------|
-|      hive |[[|Microsoft.Win32.RegistryHive]] |
+|      hive |[Microsoft.Win32.RegistryHive] |
 |subKeyName |Path for sub key |
 |  computer |Remote computer name used for execution, null or blank for local host |
-Returns: [[|Microsoft.Win32.RegistryKey]]
+Returns: [Microsoft.Win32.RegistryKey]
 
 |  Property | Description |
 |-----------|-------------|
@@ -1380,7 +1380,7 @@ Returns: [[|Microsoft.Win32.RegistryKey]]
 | Parameter | Description |
 |-----------|-------------|
 |      user |The username as domain\user. if domain is not provide machine name is used |
-| privilege |The privilege to set. [[|Security.LsaWrapper]] |
+| privilege |The privilege to set. [Security.LsaWrapper] |
 |remoteComputer |Can be used to execute on a remote computer. |
 
 
@@ -1462,7 +1462,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 
 #### Security.Impersonation.#ctor
 
- Initializes a new instance of the [[|Security.Impersonation]] class.
+ Initializes a new instance of the [Security.Impersonation] class.
 
 
 #### Security.Impersonation.Dispose
@@ -1487,7 +1487,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 
 #### ServicesManager.#ctor(System.String,System.String,System.String)
 
- Initializes a new instance of the [[|ServicesManager]] class connected to a remote server as a different user.
+ Initializes a new instance of the [ServicesManager] class connected to a remote server as a different user.
 
 
 #### ServicesManager.Connect(System.String,System.String,System.String)
@@ -1553,7 +1553,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 
 #### ServicesManager.InstallService(System.String,System.String,System.String,System.String,System.String,System.String,Models.ServiceType,Models.OnError,Models.StartMode,System.Boolean,System.String,System.String[],System.String[])
 
- Installs a windows service. Ensures user has Logon as a service right by calling [[|Security.SetLogonAsAService(System.String,System.String)]]
+ Installs a windows service. Ensures user has Logon as a service right by calling [Security.SetLogonAsAService(System.String,System.String)]
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1570,16 +1570,16 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 |loadOrderGroup |The load order group. |
 |loadOrderGroupDependencies |The load order group dependencies. |
 |svcDependencies |Any service dependencies. |
-Returns: [[|WMI.ReturnValue]]
+Returns: [WMI.ReturnValue]
 
 
 #### ServicesManager.InstallService(Models.ServiceInfo)
 
- Installs a windows service. Ensures user has Logon as a service right by calling [[|Security.SetLogonAsAService(System.String,System.String)]]
+ Installs a windows service. Ensures user has Logon as a service right by calling [Security.SetLogonAsAService(System.String,System.String)]
 
 | Parameter | Description |
 |-----------|-------------|
-|   service |The service information object. [[|Models.ServiceInfo]] |
+|   service |The service information object. [Models.ServiceInfo] |
 
 
 #### ServicesManager.IsServiceInstalled(Models.ServiceInfo)
@@ -1756,12 +1756,12 @@ _C# code_
 
 #### SharedFolderConnection.#ctor(System.String,System.Net.NetworkCredential)
 
- Initializes a new instance of the [[|SharedFolderConnection]] class. 
+ Initializes a new instance of the [SharedFolderConnection] class. 
 
 | Parameter | Description |
 |-----------|-------------|
 |       unc |The unc. \\Server |
-|credentials |The [[|System.Net.NetworkCredential]]. |
+|credentials |The [System.Net.NetworkCredential]. |
 
 
 ---
@@ -1771,12 +1771,12 @@ _C# code_
 
 #### TaskList.#ctor
 
- Initializes a new instance of the [[|TaskList]] class with a max thread count of 50.
+ Initializes a new instance of the [TaskList] class with a max thread count of 50.
 
 
 #### TaskList.#ctor(System.Int32)
 
- Initializes a new instance of the [[|TaskList]] class with a limited number of threads. 
+ Initializes a new instance of the [TaskList] class with a limited number of threads. 
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1811,7 +1811,7 @@ _C# code_
 
 #### TaskList.Run&lt;T&gt;(System.Func{&lt;T&gt;},System.Action{&lt;T&gt;},System.Action{System.Exception})
 
- Runs the specified work. If work action threw an error and error action is provided, it will be called before the after action. If after action is provided, it is ran once the work action is done. The after action is passed the result of work action if it was successful. If work action faulted, after action will be passed the default of [[|T]]. After and error actions are ran in the Current Synchronization Context (usually the UI thread) 
+ Runs the specified work. If work action threw an error and error action is provided, it will be called before the after action. If after action is provided, it is ran once the work action is done. The after action is passed the result of work action if it was successful. If work action faulted, after action will be passed the default of [T]. After and error actions are ran in the Current Synchronization Context (usually the UI thread) 
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1869,12 +1869,12 @@ Returns: Dictionary{string,object}
 
 #### WMI.Scope
 
- Creates a [[|System.Management.ManagementScope]] scoped to the current connection
+ Creates a [System.Management.ManagementScope] scoped to the current connection
 
 
 #### WMI.ScopedObject(System.String,System.Management.ObjectGetOptions)
 
- Creates a [[|System.Management.ManagementObject]] scoped to the current connection 
+ Creates a [System.Management.ManagementObject] scoped to the current connection 
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1884,7 +1884,7 @@ Returns: Dictionary{string,object}
 
 #### WMI.ScopedClass(System.String,System.Management.ObjectGetOptions)
 
- Creates a [[|System.Management.ManagementClass]] scoped to the current connection 
+ Creates a [System.Management.ManagementClass] scoped to the current connection 
 
 | Parameter | Description |
 |-----------|-------------|
