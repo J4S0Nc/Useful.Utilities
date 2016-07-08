@@ -97,6 +97,7 @@
   <ItemGroup>
     <None Include="examples.md" />
     <None Include="package.json" />
+    <None Include="README.md" />
     <None Include="ref.md" />
     <None Include="Useful.Utilities.md" />
     <None Include="Useful.Utilities.snk.pfx" />

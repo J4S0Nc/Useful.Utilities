@@ -21,8 +21,7 @@ namespace Useful.Utilities
         /// </summary>
         /// <param name="random"></param>
         /// <param name="length">The total length of the new string to return</param>
-        /// <param name="chars">string of characters to pick randomly from</para>
-        /// <returns></returns>
+        /// <param name="chars">string of characters to pick randomly from</param>
         public static string String(this Random random, int length, string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
         {
             return new string(Enumerable.Repeat(chars, length).Select(s => s[Random.Next(s.Length)]).ToArray());
@@ -33,7 +32,7 @@ namespace Useful.Utilities
         /// </summary>
         /// <param name="random"></param>
         /// <param name="length"></param>
-        /// <param name="chars">string of numbers to pick randomly from</para>
+        /// <param name="chars">string of numbers to pick randomly from</param>
         /// <returns></returns>
         public static string Number(this Random random, int length, string chars = "0123456789")
         {

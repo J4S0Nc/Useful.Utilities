@@ -14,6 +14,22 @@ namespace Useful.Utilities
         /// <summary>
         /// Convert a string object to an Enum
         /// </summary>
+        /// <example> 
+        /// <code lang="c#">
+        /// //define some example enums
+        /// enum SomeEnum { Yes, No, File_Not_Found }
+        /// enum AnotherEnum { No, Maybe, Yes }
+        /// 
+        /// //turn a string into an enum
+        /// SomeEnum yes = "Yes".ToEnum&lt;SomeEnum&gt;();
+        /// // replace spaces with _
+        /// SomeEnum fileNotFound = "File not found".ToEnum&lt;SomeEnum&gt;("_");
+        /// 
+        /// //convert one enum to another enum with matching name (not value)
+        /// SomeEnum someEnumYes = SomeEnum.Yes; //value of 0
+        /// AnotherEnum anotherEnumYes = someEnumYes.ToEnum&lt;AnotherEnum&gt;(); //value of 2
+        /// </code>
+        /// </example>
         /// <typeparam name="T">The type of Enum to convert to</typeparam>
         /// <param name="value">The object to convert</param>
         /// <param name="spaceReplace">If value has spaces, They will be replaced</param>

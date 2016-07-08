@@ -673,6 +673,22 @@ Returns: list of file paths
 
  Convert a string object to an Enum 
 
+_C# code_
+
+```c#
+    //define some example enums
+    enum SomeEnum { Yes, No, File_Not_Found }
+    enum AnotherEnum { No, Maybe, Yes }    
+    //turn a string into an enum
+    SomeEnum yes = "Yes".ToEnum<SomeEnum>();
+    // replace spaces with _
+    SomeEnum fileNotFound = "File not found".ToEnum<SomeEnum>("_");    
+    //convert one enum to another enum with matching name (not value)
+    SomeEnum someEnumYes = SomeEnum.Yes; //value of 0
+    AnotherEnum anotherEnumYes = someEnumYes.ToEnum<AnotherEnum>(); //value of 2
+    
+```
+
 
 | Parameter | Description |
 |-----------|-------------|
@@ -1394,10 +1410,34 @@ Returns: XML String
 |-----------|-------------|
 |RandomExtensions.Random | Static access to random object |
 
+#### RandomExtensions.String(System.Random,System.Int32,System.String)
+
+ Generate a random string. Can take a string of characters to randomly pick from. 
+
+|    random |             |
+|    length |The total length of the new string to return |
+|     chars |string of characters to pick randomly from |
+
+
+#### RandomExtensions.Number(System.Random,System.Int32,System.String)
+
+ Generate a random string of numbers (may have leading zeros) 
+
+
+| Parameter | Description |
+|-----------|-------------|
+|    random |             |
+|    length |             |
+|     chars |string of numbers to pick randomly from |
+
+
 #### RandomExtensions.PhoneNumber(System.Random)
 
  Generate a random phone number (10 random digits formatted as ###-###-####) 
 
+
+| Parameter | Description |
+|-----------|-------------|
 |    random |             |
 
 
@@ -1926,8 +1966,7 @@ Returns: True when service is in given state. False if service is not in given s
 _C# code_
 
 ```c#
-    Connect to a server share and copy a file as a different user:
-    
+    //Connect to a server share and copy a file as a different user:
     using (new SharedFolderConnection(@"\\192.168.1.9", new NetworkCredential("user", "password", "domain")))
     {
         File.Copy(@"\\192.168.1.9\some share\some file.txt", @"c:\dest\some file.txt", true); 
