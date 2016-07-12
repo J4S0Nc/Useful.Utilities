@@ -122,5 +122,56 @@ and output MD files to the parent directory", ConsoleColor.Cyan);
             }
         }
     }
+
+    /// <summary>
+    /// This is a dummy class to highlight documentation examples
+    /// </summary>
+    /// <remarks>This a remarks block</remarks>
+    /// <example>This ia an example block</example>
+    /// <code lang="C#">
+    /// //This is a C# code block
+    /// if(example == "code") 
+    /// {
+    ///     DoSomething();   
+    /// }
+    /// </code>
+    /// <code lang="VB">
+    /// `This is a VB code block
+    /// If True Then
+    ///     DoEvents()
+    /// End If
+    /// </code>
+    /// <code lang="SQL">
+    /// --This is a SQL code block
+    /// Select * from table 
+    /// where field = 'value'
+    /// </code>
+    public class DocumentationExample
+    {
+        /// <summary>
+        /// This is a string property
+        /// </summary>
+        public string StringProperty { get; set; }
+        /// <summary>
+        /// This is a int property
+        /// </summary>
+        public string IntProperty { get; set; }
+        /// <summary>
+        /// This is a bool property
+        /// </summary>
+        public string BoolProperty { get; set; }
+
+        /// <summary>
+        /// This is an example method
+        /// </summary>
+        /// <param name="inString">Input string</param>
+        /// <param name="inInt">Input int</param>
+        /// <param name="inBool">Input bool</param>
+        /// <returns>Returns a string</returns>
+        public string ExampleMethod(string inString, int inInt, bool inBool)
+        {
+            return string.Empty;
+        }
+    }
 }
 

@@ -390,6 +390,9 @@ Returns: string array of server names |
 
 Gets a list of databases on a given server. To use NT Auth leave user/pass blank
 
+
+| Parameter | Description |
+|-----------|-------------|
 |    server |Server to connect to |
 |  username |SQL Auth user. To use NT Auth leave blank |
 |  password |SQL Auth password |
@@ -504,6 +507,9 @@ Initializes a new instance of the[Useful.Utilities.DynamicRow]class.
 
 Converts the specified table to Enumeration of[Useful.Utilities.DynamicRow].
 
+
+| Parameter | Description |
+|-----------|-------------|
 |     table |The data table to convert. |
 
 Returns: Enumeration of[Useful.Utilities.DynamicRow]
@@ -704,6 +710,9 @@ _c# Example_
 | Parameter | Description |
 |-----------|-------------|
 |         T |The type of Enum to convert to |
+
+| Parameter | Description |
+|-----------|-------------|
 |     value |The object to convert |
 |spaceReplace |If value has spaces, They will be replaced |
 
@@ -716,6 +725,9 @@ Convert a string to an Enum
 | Parameter | Description |
 |-----------|-------------|
 |         T |The type of Enum to convert to |
+
+| Parameter | Description |
+|-----------|-------------|
 |     value |The object to convert |
 |spaceReplace |If value has spaces, They will be replaced |
 
@@ -739,6 +751,9 @@ Gets attribute from an enumeration object
 |-----------|-------------|
 |         T |Input type   |
 | TExpected |The return type |
+
+| Parameter | Description |
+|-----------|-------------|
 |enumeration |The enum value |
 |expression |             |
 
@@ -787,6 +802,9 @@ If object is null[value]is returned. If object is empty string or min date time,
 | Parameter | Description |
 |-----------|-------------|
 |         T |The default value type |
+
+| Parameter | Description |
+|-----------|-------------|
 |       obj |the object   |
 |     value |Default value to return when object is null or doesn't match rules |
 
@@ -845,6 +863,9 @@ Recursively search a tree collection based on the child selector
 | Parameter | Description |
 |-----------|-------------|
 |         T |             |
+
+| Parameter | Description |
+|-----------|-------------|
 |     items |             |
 |childSelector |             |
 
@@ -1224,6 +1245,9 @@ Connects to the computer name passed in, leave blank for local
 
 Splits the username and domain into a Tuple. Domain is Item1, User is Item2.
 
+
+| Parameter | Description |
+|-----------|-------------|
 |  username |The Domain\Username or User@domain string to parse. |
 
 Returns: Domain is Item1, Username is Item2
@@ -1250,6 +1274,9 @@ Returns: domain\user or machine\user
 
 Checks if the name passed in is the current computer. Returns true if the string is null/empty or the name matches the current[Useful.Utilities.ComputerManager.MachineName]or[Useful.Utilities.ComputerManager.MachineFullName].
 
+
+| Parameter | Description |
+|-----------|-------------|
 |serverName |Computer name to check |
 
 
@@ -1271,6 +1298,9 @@ Perform a deep Copy of the object.
 | Parameter | Description |
 |-----------|-------------|
 |         T |The type of object being copied. |
+
+| Parameter | Description |
+|-----------|-------------|
 |    source |The object instance to copy. |
 
 Returns: The copied object.
@@ -1284,6 +1314,9 @@ Takes a serializable object and returns it as a byte array.
 | Parameter | Description |
 |-----------|-------------|
 |         T |The Type of the Object |
+
+| Parameter | Description |
+|-----------|-------------|
 |    source |The source object to serialize. |
 
 Throws: [[System.ArgumentException|System.ArgumentException]]: The type must be serializable.;source
@@ -1297,6 +1330,9 @@ Takes a byte array and desterilizes it to a object.
 | Parameter | Description |
 |-----------|-------------|
 |         T |The Type of the Object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       obj |byte array of the object. |
 
 Throws: [[System.ArgumentException|System.ArgumentException]]: The type must be serializable.;source
@@ -1310,6 +1346,9 @@ Load an object from XML string.
 | Parameter | Description |
 |-----------|-------------|
 |         T |The Type of the Object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       xml |The XML.     |
 
 
@@ -1321,6 +1360,9 @@ Serialize an object to XML string.
 | Parameter | Description |
 |-----------|-------------|
 |         T |The Type of Object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       obj |The object.  |
 
 Returns: XML String
@@ -1425,6 +1467,9 @@ Extension methods for System.Random objects. IEnumerable extension to get a rand
 
 Generate a random string. Can take a string of characters to randomly pick from.
 
+
+| Parameter | Description |
+|-----------|-------------|
 |    random |             |
 |    length |The total length of the new string to return |
 |     chars |string of characters to pick randomly from |
@@ -1471,6 +1516,9 @@ Randomly sort the items and pick one. If the collection is null, null is returne
 | Parameter | Description |
 |-----------|-------------|
 |         T |             |
+
+| Parameter | Description |
+|-----------|-------------|
 |      list |             |
 
 
@@ -1487,6 +1535,9 @@ Get the value of a key or the default if the key has no value
 | Parameter | Description |
 |-----------|-------------|
 |         T |The type of value to return |
+
+| Parameter | Description |
+|-----------|-------------|
 |       key |The Sub Key to select |
 |   keyName |The key name to get |
 |defaultValue |The default value to return if the key has no value |
@@ -1500,6 +1551,9 @@ Sets the value of a given key
 | Parameter | Description |
 |-----------|-------------|
 |         T |The Type of the value to be set |
+
+| Parameter | Description |
+|-----------|-------------|
 |       key |The Sub Key to select |
 |   keyName |the key name to set |
 |     value |The value to apply to the key name |
@@ -1549,6 +1603,9 @@ Returns: [Microsoft.Win32.RegistryKey]
 
 Takes a .reg file and imports it to the registry
 
+
+| Parameter | Description |
+|-----------|-------------|
 |   regFile |Full path and name of the .reg file |
 |  computer |Remote computer name used for execution, null or blank for local host |
 
@@ -2039,6 +2096,9 @@ Waits for all tasks in the list to finish. Then clears the lists
 
 Runs the specified work. If work action threw an error and error action is provided, it will be called before the after action. If after action is provided, it is ran once the work action is done. The after action is passed true if work completed successfully, false if work faulted. After and error actions are ran in the Current Synchronization Context (usually the UI thread)
 
+
+| Parameter | Description |
+|-----------|-------------|
 |      work |The work to the run. |
 |     after |The action to run after work is complete. |
 |     error |The on error action if work faulted |
@@ -2052,6 +2112,9 @@ Runs the specified work. If work action threw an error and error action is provi
 | Parameter | Description |
 |-----------|-------------|
 |         T |Type returned from work function and input to after action |
+
+| Parameter | Description |
+|-----------|-------------|
 |      work |The work function to run |
 |     after |The after action to run |
 |     error |The on error action if work faulted |
@@ -2065,7 +2128,7 @@ Base class for building Web Clients that take and return typed objects.
 _C# Example_
 
 ```C#
-    //Example class using JSON.Net 
+    //Example client class using JSON.Net 
     public class JsonWebClient : WebBase
     {
        protected override T DeserializeObject<T>(string content)
@@ -2097,6 +2160,9 @@ _C# Example_
 | Parameter | Description |
 |-----------|-------------|
 |         T |The Type to deserialize the string in to |
+
+| Parameter | Description |
+|-----------|-------------|
 |   content |Body of the request |
 
 
@@ -2126,6 +2192,9 @@ _C# Example_
 
 Build an HTTP Client and sent a request to the given URL. The resulting status will be validated to match the expected status parameter
 
+
+| Parameter | Description |
+|-----------|-------------|
 |       uri |The URI to send the request to |
 |   content |Body of the request, This is not valid on GET requests |
 |expectedStatus |Expected status will be checked against the response status code |
@@ -2142,6 +2211,9 @@ Build an HTTP Client and sent a typed request to the given URL. The response wil
 |-----------|-------------|
 |        TO |Type of HTTP response content object |
 |         T |Type of the request content object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       uri |The URI to send the request to |
 |   content |Body of the request, This is not valid on GET requests |
 |expectedStatus |Expected status will be checked against the response status code |
@@ -2157,6 +2229,9 @@ Build an HTTP Client and sent a typed request to the given URL. The response wil
 | Parameter | Description |
 |-----------|-------------|
 |         T |The type of the request and response objects |
+
+| Parameter | Description |
+|-----------|-------------|
 |       uri |The URI to send the request to |
 |   content |Body of the request, This is not valid on GET requests |
 |expectedStatus |Expected status will be checked against the response status code |
@@ -2166,7 +2241,7 @@ Build an HTTP Client and sent a typed request to the given URL. The response wil
 
 #### Useful.Utilities.WebBase.MakeUri(System.String)
 
-Takes a string URL and converts it to a URI object. If the string starts with http:// or https:// it is returned. Else the BaseUrl property is prepended to the URL.
+Takes a string URL and converts it to a URI object. If the string starts with http:// or https:// it is simply returned. Else the BaseUrl property is prepended to the URL.
 
 
 | Parameter | Description |
@@ -2194,6 +2269,9 @@ Preform a GET Request and return a typed response object
 | Parameter | Description |
 |-----------|-------------|
 |         T |Type of HTTP response content object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       url |The URL to send the request to |
 |expectedStatus |Expected status will be checked against the response status code |
 |preRequest |Optional action that can modify the request object before it is sent |
@@ -2207,6 +2285,9 @@ Preform a POST Request and return a typed response object
 | Parameter | Description |
 |-----------|-------------|
 |         T |Type of HTTP response content object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       url |The URL to send the request to |
 |   content |Body of the request |
 |expectedStatus |Expected status will be checked against the response status code |
@@ -2222,6 +2303,9 @@ Preform a POST Request with a different type and return a typed response object
 |-----------|-------------|
 |      TOut |Type of HTTP response content object |
 |       TIn |Type of request content object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       url |The URL to send the request to |
 |   content |Body of the request |
 |expectedStatus |Expected status will be checked against the response status code |
@@ -2236,6 +2320,9 @@ Preform a PUT Request and return a typed response object
 | Parameter | Description |
 |-----------|-------------|
 |         T |Type of HTTP response content object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       url |The URL to send the request to |
 |   content |Body of the request |
 |expectedStatus |Expected status will be checked against the response status code |
@@ -2251,6 +2338,9 @@ Preform a PUT Request and return a typed response object
 |-----------|-------------|
 |      TOut |Type of HTTP response content object |
 |       TIn |Type of request content object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       url |The URL to send the request to |
 |   content |Body of the request |
 |expectedStatus |Expected status will be checked against the response status code |
@@ -2265,6 +2355,9 @@ Preform a DELETE Request and return a typed response object
 | Parameter | Description |
 |-----------|-------------|
 |         T |Type of HTTP response content object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       url |The URL to send the request to |
 |   content |Body of the request |
 |expectedStatus |Expected status will be checked against the response status code |
@@ -2280,6 +2373,9 @@ Preform a DELETE Request and return a typed response object
 |-----------|-------------|
 |      TOut |Type of HTTP response content object |
 |       TIn |Type of request content object |
+
+| Parameter | Description |
+|-----------|-------------|
 |       url |The URL to send the request to |
 |   content |Body of the request |
 |expectedStatus |Expected status will be checked against the response status code |
@@ -2306,6 +2402,9 @@ Model for storing raw HTTP responses.
 
 Model for storing typed HTTP responses.
 
+
+| Parameter | Description |
+|-----------|-------------|
 |         T |The Type of content in the response |
 
 |  Property | Description |

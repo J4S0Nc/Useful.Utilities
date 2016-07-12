@@ -25,7 +25,7 @@ namespace XmlMd
             {"event", "\n#### {0}\n\n{1}\n\n"},
             {"summary", "{0}\n\n"},
             {"remarks", "\n\n>{0}\n\n"},
-            {"example", "_Example_\n\n```\n{0}\n```\n\n"},
+            {"example", "\n_Example_\n\n```\n{0}\n```\n\n"},
             {"code", "_{1} Example_\n\n```{1}\n{0}\n```\n\n"},
             {"seePage", "[{1}|{0}]"},
             {"seeAnchor", "[{1}]({0})"},
@@ -97,6 +97,10 @@ namespace XmlMd
         /// list of things to add table headers to
         /// </summary>
         private static readonly string[] TypesWithHeader = new[] { "param", "typeparam", "field", "property" };
+        /// <summary>
+        /// Hold last type to compare with
+        /// </summary>
+        private static string LastType;
 
         /// <summary>
         /// Method that transforms a node to a string of markdown 
@@ -145,17 +149,25 @@ namespace XmlMd
                 //run template based on type
                 string str = "";
                 str = string.Format(templates[name], vals);
-
-                if (TypesWithHeader.Contains(name) && !tableHeader && !string.IsNullOrWhiteSpace(str))
+                if (TypesWithHeader.Contains(name))
                 {
-                    // create table header
-                    tableHeader = true;
-                    if (name == "param" || name == "typeparam")
-                        str = "\n| Parameter | Description |\n|-----------|-------------|\n" + str;
-                    else
-                        str = "\n|  Property | Description |\n|-----------|-------------|\n" + str;
+                    if (name != LastType)
+                    {
+                        LastType = name;
+                        tableHeader = false;
+                    }
+                    if (!tableHeader && !string.IsNullOrWhiteSpace(str))
+                    {
+                        // create table header
+                        tableHeader = true;
+                        if (name == "param" || name == "typeparam")
+                            str = "\n| Parameter | Description |\n|-----------|-------------|\n" + str;
+                        else
+                            str = "\n|  Property | Description |\n|-----------|-------------|\n" + str;
 
+                    }
                 }
+
                 if (name.StartsWith("see")) str = str.Replace("[|", "[");
                 if (str.Trim() == "Returns:" || string.IsNullOrWhiteSpace(str)) return string.Empty;
                 return str;

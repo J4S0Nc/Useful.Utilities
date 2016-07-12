@@ -16,3 +16,7 @@ The first parameter should be the path to a single XML file or a directory to se
 
 The second parameter is optional and will override the output folder.
 
+## Example Output
+
+[./XmlMd.md]
+

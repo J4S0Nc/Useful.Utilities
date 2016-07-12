@@ -1,5 +1,6 @@
 ## XmlMd ##
 - [XmlMd.Program](#xmlmdprogram) Main Program for turning XML docs into MD files
+- [XmlMd.DocumentationExample](#xmlmddocumentationexample) This is a dummy class to highlight documentation examples
 - [XmlMd.XmlToMarkdown](#xmlmdxmltomarkdown) Enhanced version of https://gist.github.com/lontivero/593fc51f1208555112e0
 
 ---
@@ -15,6 +16,7 @@ The first parameter should be the path to a single XML file or a directory to se
 | Parameter | Description |
 |-----------|-------------|
 |      args |Arguments passed in from command line |
+
 _Example_
 
 ```
@@ -25,29 +27,6 @@ _Example_
     Example: XmlMd.exe .\ ..\                                          
     This will process all XML files in the current directory and output MD files to the parent directory
     
-```
-
-_C# Example_
-
-```C#
- 
-            //testing code block
-            if(something)
-            {
-                return false;
-            }
-            
-```
-
-_VB.Net Example_
-
-```VB.Net
- 
-            'vb block
-            if(something) 
-                return false;
-            end if
-            
 ```
 
 
@@ -64,6 +43,72 @@ Helper method to print errors to console, if app is running with input available
 
 
 ---
+# XmlMd.DocumentationExample
+
+This is a dummy class to highlight documentation examples
+
+
+
+>This a remarks block
+
+
+_Example_
+
+```
+This ia an example block
+```
+
+_C# Example_
+
+```C#
+    //This is a C# code block
+    if(example == "code") 
+    {
+        DoSomething();   
+    }
+    
+```
+
+_VB Example_
+
+```VB
+    `This is a VB code block
+    If True Then
+        DoEvents()
+    End If
+    
+```
+
+_SQL Example_
+
+```SQL
+    --This is a SQL code block
+    Select * from table 
+    where field = 'value'
+    
+```
+
+|  Property | Description |
+|-----------|-------------|
+|XmlMd.DocumentationExample.StringProperty |This is a string property |
+|XmlMd.DocumentationExample.IntProperty |This is a int property |
+|XmlMd.DocumentationExample.BoolProperty |This is a bool property |
+
+#### XmlMd.DocumentationExample.ExampleMethod(System.String,System.Int32,System.Boolean)
+
+This is an example method
+
+
+| Parameter | Description |
+|-----------|-------------|
+|  inString |Input string |
+|     inInt |Input int    |
+|    inBool |Input bool   |
+
+Returns: Returns a string
+
+
+---
 # XmlMd.XmlToMarkdown
 
 Enhanced version of https://gist.github.com/lontivero/593fc51f1208555112e0
@@ -76,11 +121,15 @@ Enhanced version of https://gist.github.com/lontivero/593fc51f1208555112e0
 |XmlMd.XmlToMarkdown.Toc |Table of content container |
 |XmlMd.XmlToMarkdown.tableHeader |Flag to manager adding table headers |
 |XmlMd.XmlToMarkdown.TypesWithHeader |list of things to add table headers to |
+|XmlMd.XmlToMarkdown.LastType |Hold last type to compare with |
 
 #### XmlMd.XmlToMarkdown.ToMarkDown(System.Xml.Linq.XNode)
 
 Method that transforms a node to a string of markdown
 
+
+| Parameter | Description |
+|-----------|-------------|
 |         e |             |
 
 

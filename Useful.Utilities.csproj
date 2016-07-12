@@ -100,20 +100,13 @@
     <Compile Include="WMI.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="examples.md" />
-    <None Include="package.json" />
     <None Include="README.md" />
-    <None Include="ref.md" />
     <None Include="Useful.Utilities.md" />
     <None Include="Useful.Utilities.snk.pfx" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="notes.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>$(ProjectDir)buildtools\bin\debug\xmlmd.exe $(TargetDir) ..\</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
