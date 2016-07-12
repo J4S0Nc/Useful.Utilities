@@ -14,7 +14,7 @@ namespace Useful.Utilities
         //http://blogs.msdn.com/b/carlosag/archive/2006/04/17/microsoftwebadministration.aspx
 
         /// <summary>
-        /// Application level Ssl Flags
+        /// Application level SSL Flags
         /// </summary>
         public enum ApplicationSslFlags
         {
@@ -130,7 +130,7 @@ namespace Useful.Utilities
         /// </summary>
         /// <param name="siteName">site name</param>
         /// <param name="path">root directory of site</param>
-        /// <param name="certHash">certificate thumbprint</param>
+        /// <param name="certHash">certificate thumb print</param>
         /// <param name="port">port</param>
         /// <returns></returns>
         public Site CreateSslSite(string siteName, string path, string certHash = null, int port = 443)
@@ -144,7 +144,7 @@ namespace Useful.Utilities
         /// <param name="siteName">display name</param>
         /// <param name="path">Root directory</param>
         /// <param name="port">port</param>
-        /// <param name="certHash">certificate thumbprint</param>
+        /// <param name="certHash">certificate thumb print</param>
         /// <returns></returns>
         public Site CreateSite(string siteName, string path, int port = 80, string certHash = null)
         {
@@ -193,7 +193,7 @@ namespace Useful.Utilities
         /// Create or update a binding on the given site. 
         /// </summary>
         /// <param name="siteName">Site name</param>
-        /// <param name="ip">Ip to apply binding to. Use * for all</param>
+        /// <param name="ip">IP address to apply binding to. Use * for all</param>
         /// <param name="port">Port to apply binding to</param>
         /// <param name="hostheader">Optional host header</param>
         /// <param name="certThumb">Optional Cert thumb print, if Set protocol will be https</param>

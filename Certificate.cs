@@ -35,7 +35,7 @@ namespace Useful.Utilities
         /// <summary>
         /// Gets a certificate by thumb print.
         /// </summary>
-        /// <param name="thumbprint">the cert thumbprint to find</param>
+        /// <param name="thumbprint">the cert thumb print to find</param>
         /// <param name="store">The store to look in</param>
         /// <param name="location">The location to look in</param>
         /// <param name="remoteComputer">remote computer to run on</param>
@@ -51,7 +51,7 @@ namespace Useful.Utilities
         }
 
         /// <summary>
-        /// Gets a list of Cert names and thumbprints in a tuple
+        /// Gets a list of Cert names and thumb prints in a tuple
         /// </summary>
         /// <param name="store">The store to look in</param>
         /// <param name="location">The location to look in</param>
@@ -82,7 +82,7 @@ namespace Useful.Utilities
             X509Store x509Store = GetStore(store, location, remoteComputer);
             x509Store.Open(OpenFlags.ReadWrite);
 
-            if (certificate.Thumbprint == null) throw new NullReferenceException("Thumbprint is null");
+            if (certificate.Thumbprint == null) throw new NullReferenceException("Thumb print is null");
 
             var existing = x509Store.Certificates.Find(X509FindType.FindByThumbprint, certificate.Thumbprint, true);
             if (existing.Count == 0)
@@ -139,7 +139,7 @@ namespace Useful.Utilities
         //            Console.WriteLine("Simple Name: {0}", x509.GetNameInfo(X509NameType.SimpleName, true));
         //            Console.WriteLine("URL Name: {0}", x509.GetNameInfo(X509NameType.UrlName, true));
         //            Console.WriteLine("Hash: {0}", x509.GetCertHashString());
-        //            Console.WriteLine("Thumbprint: {0}", x509.Thumbprint);
+        //            Console.WriteLine("Thumb print: {0}", x509.Thumbprint);
 
 
         //            Console.WriteLine("");

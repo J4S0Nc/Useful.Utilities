@@ -5,7 +5,6 @@ namespace Useful.Utilities
     /// <summary>
     /// Create a connection to a shared folder with a different set of credentials 
     /// </summary>
-    /// <example> 
     /// <code lang="c#">
     /// //Connect to a server share and copy a file as a different user:
     /// using (new SharedFolderConnection(@"\\192.168.1.9", new NetworkCredential("user", "password", "domain")))
@@ -13,7 +12,6 @@ namespace Useful.Utilities
     ///     File.Copy(@"\\192.168.1.9\some share\some file.txt", @"c:\dest\some file.txt", true); 
     /// }
     /// </code>
-    /// </example>
     public class SharedFolderConnection : NetworkConnection
     {
         /// <summary>

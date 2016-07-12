@@ -104,7 +104,8 @@ namespace Useful.Utilities
         /// </summary>
         /// <param name="path">Path to convert to UNC.</param>
         /// <param name="computer">Machine name to use, if not set uses local machine</param>
-        /// <returns>UNC path otherwise throws arg error.</returns>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns>UNC path otherwise throws Argument Exception.</returns>
         public static string GetUniversalPath(string path, string computer = "")
         {
             if (ComputerManager.IsLocal(computer)) computer = Environment.MachineName;

@@ -69,7 +69,7 @@ namespace Useful.Utilities.Models
         /// </summary>
         public string UserName { get; private set; }
         /// <summary>
-        /// Name of the workgroup for this computer. Only if the value of the PartOfDomain property is False
+        /// Name of the work group for this computer. Only if the value of the PartOfDomain property is False
         /// </summary>
         public string Workgroup { get; private set; }
 

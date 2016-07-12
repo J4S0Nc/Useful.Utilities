@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Useful.Utilities", "Useful.Utilities.csproj", "{B1574169-1608-400D-B5BC-7F9820C7286F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildTools", "..\BuildTools\BuildTools.csproj", "{552673B7-8C43-4FCE-BF27-AE75231FE69C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlMd", "..\BuildTools\XmlMd.csproj", "{552673B7-8C43-4FCE-BF27-AE75231FE69C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

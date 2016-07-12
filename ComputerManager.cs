@@ -71,7 +71,7 @@ namespace Useful.Utilities
         }
 
         /// <summary>
-        /// Gets the Domain Net Bios of the current user. 
+        /// Gets the Domain Net BIOS of the current user. 
         /// </summary>
         public static string DomainNameBios { get { return Environment.UserDomainName; } }
 

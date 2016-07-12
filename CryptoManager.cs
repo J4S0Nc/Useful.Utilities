@@ -13,11 +13,11 @@ namespace Useful.Utilities
     {
         private static readonly RandomNumberGenerator Random = RandomNumberGenerator.Create();
 
-        //Preconfigured Encryption Parameters
+        //Pre configured Encryption Parameters
         public static readonly int BlockBitSize = 128;
         public static readonly int KeyBitSize = 256;
 
-        //Preconfigured Password Key Derivation Parameters
+        //Pre configured Password Key Derivation Parameters
         public static readonly int SaltBitSize = 64;
         public static readonly int Iterations = 10000;
         public static readonly int MinPasswordLength = 12;
@@ -58,7 +58,7 @@ namespace Useful.Utilities
         /// </returns>
         /// <exception cref="System.ArgumentException">Secret Message Required!;secretMessage</exception>
         /// <remarks>
-        /// Adds overhead of (Optional-Payload + BlockSize(16) + Message-Padded-To-Blocksize +  HMac-Tag(32)) * 1.33 Base64
+        /// Adds overhead of (Optional-Payload + BlockSize(16) + Message-Padded-To-Block-size +  HMac-Tag(32)) * 1.33 Base64
         /// </remarks>
         public static string Encrypt(string secretMessage, byte[] cryptKey, byte[] authKey, byte[] nonSecretPayload = null)
         {
@@ -117,7 +117,7 @@ namespace Useful.Utilities
         }
 
         /// <summary>
-        /// Authentication (HMAC) and then Descryption (AES) of a UTF8 Message
+        /// Authentication (HMAC) and then Decryption (AES) of a UTF8 Message
         /// using keys derived from a password (PBKDF2). 
         /// </summary>
         /// <param name="encryptedMessage">The encrypted message.</param>
@@ -196,13 +196,13 @@ namespace Useful.Utilities
                     binaryWriter.Write(nonSecretPayload);
                     //Prepend IV
                     binaryWriter.Write(iv);
-                    //Write Ciphertext
+                    //Write Cipher text
                     binaryWriter.Write(cipherText);
                     binaryWriter.Flush();
 
                     //Authenticate all data
                     var tag = hmac.ComputeHash(encryptedStream.ToArray());
-                    //Postpend tag
+                    //Post pend tag
                     binaryWriter.Write(tag);
                 }
                 return encryptedStream.ToArray();
@@ -311,7 +311,7 @@ namespace Useful.Utilities
             }
 
             //Deriving separate key, might be less efficient than using HKDF, 
-            //but now compatible with RNEncryptor which had a very similar wireformat and requires less code than HKDF.
+            //but now compatible with RNEncryptor which had a very similar wire format and requires less code than HKDF.
             using (var generator = new Rfc2898DeriveBytes(password, SaltBitSize / 8, Iterations))
             {
                 var salt = generator.Salt;
