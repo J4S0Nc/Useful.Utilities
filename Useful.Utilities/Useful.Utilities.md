@@ -1,13 +1,13 @@
 ## Useful.Utilities ##
 - [Useful.Utilities.Certificate](#usefulutilitiescertificate) Deals with windows x509 certificates
 - [Useful.Utilities.Compression](#usefulutilitiescompression) Unbuffered compression/decompression methods using GZip
-- [Useful.Utilities.Models.ComputerInfo](#usefulutilitiesmodelscomputerinfo) Model for holding computer information. Also handles converting a[Useful.Utilities.Models.ComputerInfo.ManagementObject]to a model.[http://msdn.microsoft.com/en-us/library/aa394102(v=vs.85).aspx]
-- [Useful.Utilities.Models.FeatureInfo](#usefulutilitiesmodelsfeatureinfo) Model for holding feature information. Also handles converting a[Useful.Utilities.Models.FeatureInfo.ManagementObject]to a model.[http://msdn.microsoft.com/en-us/library/cc280268(v=vs.85).aspx]
+- [Useful.Utilities.Models.ComputerInfo](#usefulutilitiesmodelscomputerinfo) Model for holding computer information. Also handles converting a [Useful.Utilities.Models.ComputerInfo.ManagementObject] to a model. [http://msdn.microsoft.com/en-us/library/aa394102(v=vs.85).aspx]
+- [Useful.Utilities.Models.FeatureInfo](#usefulutilitiesmodelsfeatureinfo) Model for holding feature information. Also handles converting a [Useful.Utilities.Models.FeatureInfo.ManagementObject] to a model. [http://msdn.microsoft.com/en-us/library/cc280268(v=vs.85).aspx]
 - [Useful.Utilities.Models.FeaturesAndRoles](#usefulutilitiesmodelsfeaturesandroles) List of Features and Roles that can be mapped to the FeatureInfo Id and Parent Id property
 - [Useful.Utilities.Models.ServiceType](#usefulutilitiesmodelsservicetype) Type of Windows Service
 - [Useful.Utilities.Models.OnError](#usefulutilitiesmodelsonerror) Windows Service Error reporting mode
-- [Useful.Utilities.Models.ProcessInfo](#usefulutilitiesmodelsprocessinfo) Model for holding process information. Also handles converting a[Useful.Utilities.Models.ProcessInfo.ManagementObject]to a model.
-- [Useful.Utilities.Models.ServiceInfo](#usefulutilitiesmodelsserviceinfo) Model for holding service information. Also handles converting a[Useful.Utilities.Models.ServiceInfo.ManagementObject]to a model.
+- [Useful.Utilities.Models.ProcessInfo](#usefulutilitiesmodelsprocessinfo) Model for holding process information. Also handles converting a [Useful.Utilities.Models.ProcessInfo.ManagementObject] to a model.
+- [Useful.Utilities.Models.ServiceInfo](#usefulutilitiesmodelsserviceinfo) Model for holding service information. Also handles converting a [Useful.Utilities.Models.ServiceInfo.ManagementObject] to a model.
 - [Useful.Utilities.Models.ServiceState](#usefulutilitiesmodelsservicestate) Windows Service state
 - [Useful.Utilities.Models.StartMode](#usefulutilitiesmodelsstartmode) Windows Service start mode
 - [Useful.Utilities.CryptoManager](#usefulutilitiescryptomanager) Used to Encrypt / Decrypt strings and byte arrays
@@ -28,12 +28,12 @@
 - [Useful.Utilities.RegistryHelper](#usefulutilitiesregistryhelper) Windows registry wrapper. Used to read, write and delete keys and values. Handles picking 64bit or 32bit views. Can be used on local or remote registries.
 - [Useful.Utilities.Security](#usefulutilitiessecurity) Security Utility Functions
 - [Useful.Utilities.ServicesManager](#usefulutilitiesservicesmanager) Used to control windows services locally or remotely using WMI. Can find, list, install, update, uninstall, start, stop or restart services
-- [Useful.Utilities.SharedFolderConnection](#usefulutilitiessharedfolderconnection) Create a connection to a shared folder with a different set of credentials
+- [Useful.Utilities.SharedFolderConnection](#usefulutilitiessharedfolderconnection) Create a connection to a shared folder with a different set of credentials 
 - [Useful.Utilities.TaskList](#usefulutilitiestasklist) Provides functions for running async work.
-- [Useful.Utilities.WebBase](#usefulutilitieswebbase) Base class for building Web Clients that take and return typed objects.
+- [Useful.Utilities.WebBase](#usefulutilitieswebbase) Base class for building Web Clients that take and return typed objects. 
 - [Useful.Utilities.JsonContent](#usefulutilitiesjsoncontent) Provides HTTP content based on JSON string. Sets media type to "application/json"
 - [Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse](#usefulutilitiesusefulutilitieswebmodelshttpresponse) Model for storing raw HTTP responses.
-- [Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse&lt;T&gt;](#usefulutilitiesusefulutilitieswebmodelshttpresponse&lt;T&gt;) Model for storing typed HTTP responses.
+- [Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse&lt;T&gt;](#usefulutilitiesusefulutilitieswebmodelshttpresponse&lt;T&gt;) Model for storing typed HTTP responses. 
 - [Useful.Utilities.Useful.Utilities.Web.Models.Method](#usefulutilitiesusefulutilitieswebmodelsmethod) Supported HTTP Methods: GET, POST, PUT, DELETE
 - [Useful.Utilities.Useful.Utilities.Web.Ext.WebRequestExt](#usefulutilitiesusefulutilitieswebextwebrequestext) Web Request Extension methods
 - [Useful.Utilities.WMI](#usefulutilitieswmi) Windows Management Interface Wrapper class. Handles scoping WMI calls for local or remote computers
@@ -42,11 +42,11 @@
 ---
 # Useful.Utilities.Certificate
 
-Deals with windows x509 certificates
+ Deals with windows x509 certificates
 
 #### Useful.Utilities.Certificate.Select(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String,System.String,System.String)
 
-Selects the specified store using built-in windows UI
+ Selects the specified store using built-in windows UI 
 
 
 | Parameter | Description |
@@ -60,7 +60,7 @@ Selects the specified store using built-in windows UI
 
 #### Useful.Utilities.Certificate.GetByThumbprint(System.String,System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)
 
-Gets a certificate by thumb print.
+ Gets a certificate by thumb print. 
 
 
 | Parameter | Description |
@@ -73,7 +73,7 @@ Gets a certificate by thumb print.
 
 #### Useful.Utilities.Certificate.GetCerts(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)
 
-Gets a list of Cert names and thumb prints in a tuple
+ Gets a list of Cert names and thumb prints in a tuple 
 
 
 | Parameter | Description |
@@ -85,7 +85,7 @@ Gets a list of Cert names and thumb prints in a tuple
 
 #### Useful.Utilities.Certificate.Setup(System.String,System.String,System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)
 
-Install a PFX file to the cert store
+ Install a PFX file to the cert store 
 
 
 | Parameter | Description |
@@ -99,7 +99,7 @@ Install a PFX file to the cert store
 
 #### Useful.Utilities.Certificate.GetStore(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)
 
-Helper function to connect to a cert store. Can be local or remote
+ Helper function to connect to a cert store. Can be local or remote 
 
 
 | Parameter | Description |
@@ -112,11 +112,11 @@ Helper function to connect to a cert store. Can be local or remote
 ---
 # Useful.Utilities.Compression
 
-Unbuffered compression/decompression methods using GZip
+ Unbuffered compression/decompression methods using GZip
 
 #### Useful.Utilities.Compression.Compress(System.String)
 
-Compresses a string using GZip
+ Compresses a string using GZip 
 
 
 | Parameter | Description |
@@ -126,7 +126,7 @@ Compresses a string using GZip
 
 #### Useful.Utilities.Compression.Compress(System.Byte[])
 
-Use GZip Compression
+ Use GZip Compression 
 
 
 | Parameter | Description |
@@ -136,7 +136,7 @@ Use GZip Compression
 
 #### Useful.Utilities.Compression.Decompress(System.String)
 
-Decompresses a string
+ Decompresses a string 
 
 
 | Parameter | Description |
@@ -146,7 +146,7 @@ Decompresses a string
 
 #### Useful.Utilities.Compression.Decompress(System.Byte[])
 
-Use GZip Decompression
+ Use GZip Decompression 
 
 
 | Parameter | Description |
@@ -157,77 +157,77 @@ Use GZip Decompression
 ---
 # Useful.Utilities.Models.ComputerInfo
 
-Model for holding computer information. Also handles converting a[Useful.Utilities.Models.ComputerInfo.ManagementObject]to a model.[http://msdn.microsoft.com/en-us/library/aa394102(v=vs.85).aspx]
+ Model for holding computer information. Also handles converting a [Useful.Utilities.Models.ComputerInfo.ManagementObject] to a model. [http://msdn.microsoft.com/en-us/library/aa394102(v=vs.85).aspx]
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.Models.ComputerInfo.DNSHostName |Name of local computer according to the domain name server (DNS). |
-|Useful.Utilities.Models.ComputerInfo.Domain |Name of the domain to which a computer belongs. |
-|Useful.Utilities.Models.ComputerInfo.Manufacturer |Name of a computer manufacturer. |
-|Useful.Utilities.Models.ComputerInfo.Model |Product name that a manufacturer gives to a computer. This property must have a value. |
-|Useful.Utilities.Models.ComputerInfo.Name |Name of object |
-|Useful.Utilities.Models.ComputerInfo.NumberOfLogicalProcessors |Number of logical processors available on the computer. |
-|Useful.Utilities.Models.ComputerInfo.NumberOfProcessors |Number of all processors available on the computer. |
-|Useful.Utilities.Models.ComputerInfo.PartOfDomain |Null if unknown |
-|Useful.Utilities.Models.ComputerInfo.PrimaryOwnerContact |Contact information for the primary system owner, |
-|Useful.Utilities.Models.ComputerInfo.PrimaryOwnerName |Name of the primary system owner. |
-|Useful.Utilities.Models.ComputerInfo.TotalPhysicalMemory |Total size of physical memory. Be aware this property may not return an accurate value |
-|Useful.Utilities.Models.ComputerInfo.UserName |Name of a user that is logged on currently to the console (not remote desktop users) |
-|Useful.Utilities.Models.ComputerInfo.Workgroup |Name of the work group for this computer. Only if the value of the PartOfDomain property is False |
+|Useful.Utilities.Models.ComputerInfo.DNSHostName | Name of local computer according to the domain name server (DNS). |
+|Useful.Utilities.Models.ComputerInfo.Domain | Name of the domain to which a computer belongs. |
+|Useful.Utilities.Models.ComputerInfo.Manufacturer | Name of a computer manufacturer. |
+|Useful.Utilities.Models.ComputerInfo.Model | Product name that a manufacturer gives to a computer. This property must have a value. |
+|Useful.Utilities.Models.ComputerInfo.Name | Name of object |
+|Useful.Utilities.Models.ComputerInfo.NumberOfLogicalProcessors | Number of logical processors available on the computer. |
+|Useful.Utilities.Models.ComputerInfo.NumberOfProcessors | Number of all processors available on the computer. |
+|Useful.Utilities.Models.ComputerInfo.PartOfDomain | Null if unknown |
+|Useful.Utilities.Models.ComputerInfo.PrimaryOwnerContact | Contact information for the primary system owner, |
+|Useful.Utilities.Models.ComputerInfo.PrimaryOwnerName | Name of the primary system owner. |
+|Useful.Utilities.Models.ComputerInfo.TotalPhysicalMemory | Total size of physical memory. Be aware this property may not return an accurate value |
+|Useful.Utilities.Models.ComputerInfo.UserName | Name of a user that is logged on currently to the console (not remote desktop users) |
+|Useful.Utilities.Models.ComputerInfo.Workgroup | Name of the work group for this computer. Only if the value of the PartOfDomain property is False |
 
 ---
 # Useful.Utilities.Models.FeatureInfo
 
-Model for holding feature information. Also handles converting a[Useful.Utilities.Models.FeatureInfo.ManagementObject]to a model.[http://msdn.microsoft.com/en-us/library/cc280268(v=vs.85).aspx]
+ Model for holding feature information. Also handles converting a [Useful.Utilities.Models.FeatureInfo.ManagementObject] to a model. [http://msdn.microsoft.com/en-us/library/cc280268(v=vs.85).aspx]
 
 ---
 # Useful.Utilities.Models.FeaturesAndRoles
 
-List of Features and Roles that can be mapped to the FeatureInfo Id and Parent Id property
+ List of Features and Roles that can be mapped to the FeatureInfo Id and Parent Id property
 
 ---
 # Useful.Utilities.Models.ServiceType
 
-Type of Windows Service
+ Type of Windows Service
 
 ---
 # Useful.Utilities.Models.OnError
 
-Windows Service Error reporting mode
+ Windows Service Error reporting mode
 
 ---
 # Useful.Utilities.Models.ProcessInfo
 
-Model for holding process information. Also handles converting a[Useful.Utilities.Models.ProcessInfo.ManagementObject]to a model.
+ Model for holding process information. Also handles converting a [Useful.Utilities.Models.ProcessInfo.ManagementObject] to a model.
 
 ---
 # Useful.Utilities.Models.ServiceInfo
 
-Model for holding service information. Also handles converting a[Useful.Utilities.Models.ServiceInfo.ManagementObject]to a model.
+ Model for holding service information. Also handles converting a [Useful.Utilities.Models.ServiceInfo.ManagementObject] to a model.
 
 ---
 # Useful.Utilities.Models.ServiceState
 
-Windows Service state
+ Windows Service state
 
 ---
 # Useful.Utilities.Models.StartMode
 
-Windows Service start mode
+ Windows Service start mode
 
 ---
 # Useful.Utilities.CryptoManager
 
-Used to Encrypt / Decrypt strings and byte arrays
+ Used to Encrypt / Decrypt strings and byte arrays
 
 #### Useful.Utilities.CryptoManager.NewKey
 
-Helper that generates a random key on each call.
+ Helper that generates a random key on each call.
 
 
 #### Useful.Utilities.CryptoManager.Sha256(System.String)
 
-Hash the string using SHA256 and return base64 encoded string
+ Hash the string using SHA256 and return base64 encoded string 
 
 
 | Parameter | Description |
@@ -237,7 +237,7 @@ Hash the string using SHA256 and return base64 encoded string
 
 #### Useful.Utilities.CryptoManager.Encrypt(System.String,System.Byte[],System.Byte[],System.Byte[])
 
-Encryption (AES) then Authentication (HMAC) for a UTF8 Message.
+ Encryption (AES) then Authentication (HMAC) for a UTF8 Message. 
 
 
 | Parameter | Description |
@@ -247,19 +247,19 @@ Encryption (AES) then Authentication (HMAC) for a UTF8 Message.
 |   authKey |The auth key. |
 |nonSecretPayload |(Optional) Non-Secret Payload. |
 
-Returns: Encrypted Message
+Returns:  Encrypted Message 
 
 
 Throws: [[System.ArgumentException|System.ArgumentException]]: Secret Message Required!;secretMessage
 
 
 
->Adds overhead of (Optional-Payload + BlockSize(16) + Message-Padded-To-Block-size + HMac-Tag(32)) * 1.33 Base64
+> Adds overhead of (Optional-Payload + BlockSize(16) + Message-Padded-To-Block-size + HMac-Tag(32)) * 1.33 Base64
 
 
 #### Useful.Utilities.CryptoManager.Decrypt(System.String,System.Byte[],System.Byte[],System.Int32)
 
-Authentication (HMAC) then Decryption (AES) for a secret UTF8 Message.
+ Authentication (HMAC) then Decryption (AES) for a secret UTF8 Message. 
 
 
 | Parameter | Description |
@@ -269,7 +269,7 @@ Authentication (HMAC) then Decryption (AES) for a secret UTF8 Message.
 |   authKey |The auth key. |
 |nonSecretPayloadLength |Length of the non secret payload. |
 
-Returns: Decrypted Message
+Returns:  Decrypted Message 
 
 
 Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message Required!;encryptedMessage
@@ -277,7 +277,7 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message
 
 #### Useful.Utilities.CryptoManager.EncryptWithPassword(System.String,System.String,System.Byte[])
 
-Encryption (AES) then Authentication (HMAC) of a UTF8 message using Keys derived from a Password (PBKDF2).
+ Encryption (AES) then Authentication (HMAC) of a UTF8 message using Keys derived from a Password (PBKDF2). 
 
 
 | Parameter | Description |
@@ -286,19 +286,19 @@ Encryption (AES) then Authentication (HMAC) of a UTF8 message using Keys derived
 |  password |The password. |
 |nonSecretPayload |The non secret payload. |
 
-Returns: Encrypted Message
+Returns:  Encrypted Message 
 
 
 Throws: [[System.ArgumentException|System.ArgumentException]]: password
 
 
 
->Significantly less secure than using random binary keys. Adds additional non secret payload for key generation parameters.
+> Significantly less secure than using random binary keys. Adds additional non secret payload for key generation parameters.
 
 
 #### Useful.Utilities.CryptoManager.DecryptWithPassword(System.String,System.String,System.Int32)
 
-Authentication (HMAC) and then Decryption (AES) of a UTF8 Message using keys derived from a password (PBKDF2).
+ Authentication (HMAC) and then Decryption (AES) of a UTF8 Message using keys derived from a password (PBKDF2). 
 
 
 | Parameter | Description |
@@ -307,24 +307,24 @@ Authentication (HMAC) and then Decryption (AES) of a UTF8 Message using keys der
 |  password |The password. |
 |nonSecretPayloadLength |Length of the non secret payload. |
 
-Returns: Decrypted Message
+Returns:  Decrypted Message 
 
 
 Throws: [[System.ArgumentException|System.ArgumentException]]: Encrypted Message Required!;encryptedMessage
 
 
 
->Significantly less secure than using random binary keys.
+> Significantly less secure than using random binary keys.
 
 
 ---
 # Useful.Utilities.Database
 
-SQL Database functions
+ SQL Database functions
 
 #### Useful.Utilities.Database.#ctor(System.String)
 
-Initializes a new instance of the[Useful.Utilities.Database]class.
+ Initializes a new instance of the [Useful.Utilities.Database] class. 
 
 
 | Parameter | Description |
@@ -334,16 +334,16 @@ Initializes a new instance of the[Useful.Utilities.Database]class.
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.Database.Connection |The database connection string. |
+|Useful.Utilities.Database.Connection | The database connection string. |
 
 #### Useful.Utilities.Database.ConnectionParts
 
-Parses the connection string in to a[System.Data.SqlClient.SqlConnectionStringBuilder]
+ Parses the connection string in to a [System.Data.SqlClient.SqlConnectionStringBuilder]
 
 
 #### Useful.Utilities.Database.ConnectionParts(System.String)
 
-Parses the connection string in to a[System.Data.SqlClient.SqlConnectionStringBuilder]
+ Parses the connection string in to a [System.Data.SqlClient.SqlConnectionStringBuilder]
 
 
 | Parameter | Description |
@@ -353,7 +353,7 @@ Parses the connection string in to a[System.Data.SqlClient.SqlConnectionStringBu
 
 #### Useful.Utilities.Database.TestConnection(System.Boolean)
 
-Tests the connection.
+ Tests the connection. 
 
 
 | Parameter | Description |
@@ -365,7 +365,7 @@ Returns: True if successful
 
 #### Useful.Utilities.Database.TestConnection(System.String,System.Boolean)
 
-Tests the connection.
+ Tests the connection. 
 
 
 | Parameter | Description |
@@ -373,7 +373,7 @@ Tests the connection.
 |connection |The connection string. |
 |throwOnError |Flag to throw or hide connection errors |
 
-Returns: True if successful
+Returns:  True if successful 
 
 
 Throws: [[System.ArgumentNullException|System.ArgumentNullException]]: Connection string must have Data Source and Initial Catalog both set
@@ -381,14 +381,14 @@ Throws: [[System.ArgumentNullException|System.ArgumentNullException]]: Connectio
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.Database.Servers |Gets a list of all available instances of SQL Server within the local network.
+|Useful.Utilities.Database.Servers | Gets a list of all available instances of SQL Server within the local network. 
 
 
 Returns: string array of server names |
 
 #### Useful.Utilities.Database.Databases(System.String,System.String,System.String)
 
-Gets a list of databases on a given server. To use NT Auth leave user/pass blank
+ Gets a list of databases on a given server. To use NT Auth leave user/pass blank 
 
 
 | Parameter | Description |
@@ -402,7 +402,7 @@ Returns: string array of database names
 
 #### Useful.Utilities.Database.ExecuteSql(System.String,System.String)
 
-Executes a non query.
+ Executes a non query. 
 
 
 | Parameter | Description |
@@ -413,7 +413,7 @@ Executes a non query.
 
 #### Useful.Utilities.Database.ExecuteScalar(System.Data.SqlClient.SqlCommand,System.String)
 
-Executes a scalar
+ Executes a scalar 
 
 
 | Parameter | Description |
@@ -426,7 +426,7 @@ Returns: Scalar result
 
 #### Useful.Utilities.Database.ExecuteNonQuery(System.Data.SqlClient.SqlCommand,System.String)
 
-Executes a non query.
+ Executes a non query. 
 
 
 | Parameter | Description |
@@ -437,7 +437,7 @@ Executes a non query.
 
 #### Useful.Utilities.Database.ExecuteCount(System.Data.SqlClient.SqlCommand,System.String)
 
-Executes a scalar and attempts to parse the result to integer. If parse fails -1 is returned
+ Executes a scalar and attempts to parse the result to integer. If parse fails -1 is returned 
 
 
 | Parameter | Description |
@@ -450,7 +450,7 @@ Returns: Scalar result as integer or -1
 
 #### Useful.Utilities.Database.ExecuteStoredProc(System.String,System.String)
 
-Executes a stored procedure as a non query
+ Executes a stored procedure as a non query 
 
 
 | Parameter | Description |
@@ -461,7 +461,7 @@ Executes a stored procedure as a non query
 
 #### Useful.Utilities.Database.GetDataset(System.Data.SqlClient.SqlCommand,System.String)
 
-Executes a Sql Adapter and fills a dataset
+ Executes a Sql Adapter and fills a dataset 
 
 
 | Parameter | Description |
@@ -474,24 +474,24 @@ Returns: A Filled DataSet
 
 #### Useful.Utilities.Database.Run(System.String,System.String)
 
-Run a SQL command and return each row as a dynamic row
+ Run a SQL command and return each row as a dynamic row 
 
 
 | Parameter | Description |
 |-----------|-------------|
 |       sql |             |
 
-Returns: Enumeration of[Useful.Utilities.DynamicRow]
+Returns: Enumeration of [Useful.Utilities.DynamicRow]
 
 
 ---
 # Useful.Utilities.DynamicRow
 
-Custom Dynamic Object for dealing with DataRow Objects
+ Custom Dynamic Object for dealing with DataRow Objects
 
 #### Useful.Utilities.DynamicRow.#ctor(System.Data.DataRow)
 
-Initializes a new instance of the[Useful.Utilities.DynamicRow]class.
+ Initializes a new instance of the [Useful.Utilities.DynamicRow] class. 
 
 
 | Parameter | Description |
@@ -501,28 +501,28 @@ Initializes a new instance of the[Useful.Utilities.DynamicRow]class.
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.DynamicRow.DataRow |Gets the data row that created this DynamicRow object |
+|Useful.Utilities.DynamicRow.DataRow | Gets the data row that created this DynamicRow object |
 
 #### Useful.Utilities.DynamicRow.Convert(System.Data.DataTable)
 
-Converts the specified table to Enumeration of[Useful.Utilities.DynamicRow].
+ Converts the specified table to Enumeration of [Useful.Utilities.DynamicRow]. 
 
 
 | Parameter | Description |
 |-----------|-------------|
 |     table |The data table to convert. |
 
-Returns: Enumeration of[Useful.Utilities.DynamicRow]
+Returns: Enumeration of [Useful.Utilities.DynamicRow]
 
 
 ---
 # Useful.Utilities.FileUtility
 
-File Utility functions
+ File Utility functions
 
 #### Useful.Utilities.FileUtility.WaitForFile(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,System.Int32,System.Int32)
 
-Tries to create a file stream. On error, the thread sleeps and retries until the max retry number is hit.
+ Tries to create a file stream. On error, the thread sleeps and retries until the max retry number is hit. 
 
 
 | Parameter | Description |
@@ -539,7 +539,7 @@ Throws: [[System.IO.IOException|System.IO.IOException]]: Throws IOExecption if m
 
 #### Useful.Utilities.FileUtility.IsFileLocked(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
 
-Checks if a file is locked by attempting to open it.
+ Checks if a file is locked by attempting to open it. 
 
 
 | Parameter | Description |
@@ -552,7 +552,7 @@ Checks if a file is locked by attempting to open it.
 
 #### Useful.Utilities.FileUtility.FileExists(System.String,System.String)
 
-Checks if a file exists. If remote computer is passed in the path is converted to a UNC first
+ Checks if a file exists. If remote computer is passed in the path is converted to a UNC first 
 
 
 | Parameter | Description |
@@ -563,7 +563,7 @@ Checks if a file exists. If remote computer is passed in the path is converted t
 
 #### Useful.Utilities.FileUtility.CopyFile(System.String,System.String,System.Boolean)
 
-Ensures the destination directory exists then copies a file.
+ Ensures the destination directory exists then copies a file. 
 
 
 | Parameter | Description |
@@ -575,7 +575,7 @@ Ensures the destination directory exists then copies a file.
 
 #### Useful.Utilities.FileUtility.GetUniversalPath(System.String,System.String)
 
-Takes a local file path and translates it into a UNC file path where possible.
+ Takes a local file path and translates it into a UNC file path where possible. 
 
 
 | Parameter | Description |
@@ -591,7 +591,7 @@ Returns: UNC path otherwise throws Argument Exception.
 
 #### Useful.Utilities.FileUtility.ClearReadOnly(System.String)
 
-Clears the read only flag on a file
+ Clears the read only flag on a file 
 
 
 | Parameter | Description |
@@ -602,16 +602,16 @@ Clears the read only flag on a file
 ---
 # Useful.Utilities.FileUtility.WindowsShares
 
-Support class for listing windows shares
+ Support class for listing windows shares
 
 ---
 # Useful.Utilities.GacUtility
 
-A utility class for interacting with the Global Assembly Cache.
+ A utility class for interacting with the Global Assembly Cache.
 
 #### Useful.Utilities.GacUtility.Remove(System.String)
 
-Removes an assembly from the GAC.
+ Removes an assembly from the GAC. 
 
 
 | Parameter | Description |
@@ -623,7 +623,7 @@ Returns: A magic number.
 
 #### Useful.Utilities.GacUtility.Add(System.String)
 
-Adds an assembly to the GAC.
+ Adds an assembly to the GAC. 
 
 
 | Parameter | Description |
@@ -635,7 +635,7 @@ Returns: A magic number.
 
 #### Useful.Utilities.GacUtility.AddAssembly(System.String)
 
-Adds an assembly to the GAC.
+ Adds an assembly to the GAC. 
 
 
 | Parameter | Description |
@@ -647,7 +647,7 @@ Returns: A magic number.
 
 #### Useful.Utilities.GacUtility.RemoveAssembly(System.String)
 
-Removes an assembly from the GAC.
+ Removes an assembly from the GAC. 
 
 
 | Parameter | Description |
@@ -659,7 +659,7 @@ Returns: A magic number.
 
 #### Useful.Utilities.GacUtility.RemoveByKey(System.String)
 
-Starts a background task that removes all assemblies from the GAC matching a given key
+ Starts a background task that removes all assemblies from the GAC matching a given key 
 
 
 | Parameter | Description |
@@ -669,7 +669,7 @@ Starts a background task that removes all assemblies from the GAC matching a giv
 
 #### Useful.Utilities.GacUtility.GetByKey(System.String)
 
-Gets a list of paths to all files matching the given key
+ Gets a list of paths to all files matching the given key 
 
 
 | Parameter | Description |
@@ -682,11 +682,11 @@ Returns: list of file paths
 ---
 # Useful.Utilities.Helpers
 
-Extensions and helper methods
+ Extensions and helper methods
 
 #### Useful.Utilities.Helpers.ToEnum&lt;T&gt;(System.Object,System.String)
 
-Convert a string object to an Enum
+ Convert a string object to an Enum 
 
 _c# Example_
 
@@ -719,7 +719,7 @@ _c# Example_
 
 #### Useful.Utilities.Helpers.ToEnum&lt;T&gt;(System.String,System.String)
 
-Convert a string to an Enum
+ Convert a string to an Enum 
 
 
 | Parameter | Description |
@@ -734,7 +734,7 @@ Convert a string to an Enum
 
 #### Useful.Utilities.Helpers.ToHex(System.Byte[])
 
-Convert a byte array to a hexadecimal string.
+ Convert a byte array to a hexadecimal string. 
 
 
 | Parameter | Description |
@@ -744,7 +744,7 @@ Convert a byte array to a hexadecimal string.
 
 #### Useful.Utilities.Helpers.GetAttribute&lt;T2&gt;(System.Enum,System.Func{&lt;T&gt;,&lt;T&gt;})
 
-Gets attribute from an enumeration object
+ Gets attribute from an enumeration object 
 
 
 | Parameter | Description |
@@ -760,19 +760,19 @@ Gets attribute from an enumeration object
 
 #### Useful.Utilities.Helpers.Description(System.Enum)
 
-Gets the description value from the[System.ComponentModel.DescriptionAttribute]of the enum. If enum doesn't have a description attribute, null is returned
+ Gets the description value from the [System.ComponentModel.DescriptionAttribute] of the enum. If enum doesn't have a description attribute, null is returned 
 
 
 | Parameter | Description |
 |-----------|-------------|
 |enumeration |The enum value to look at |
 
-Returns: description value from the[System.ComponentModel.DescriptionAttribute]or null
+Returns: description value from the [System.ComponentModel.DescriptionAttribute] or null
 
 
 #### Useful.Utilities.Helpers.IsTrue(System.Nullable{System.Boolean})
 
-If the nullable Boolean value is null or false, false is returned. if the nullable Boolean has a value and its true, true is returned.
+ If the nullable Boolean value is null or false, false is returned. if the nullable Boolean has a value and its true, true is returned. 
 
 
 | Parameter | Description |
@@ -784,7 +784,7 @@ Returns: true or false
 
 #### Useful.Utilities.Helpers.IsTrueOrNull(System.Nullable{System.Boolean})
 
-If the nullable Boolean value is null or true, true is returned. if the nullable Boolean has a value and its false, false is returned.
+ If the nullable Boolean value is null or true, true is returned. if the nullable Boolean has a value and its false, false is returned. 
 
 
 | Parameter | Description |
@@ -796,7 +796,7 @@ Returns: true or false
 
 #### Useful.Utilities.Helpers.Default&lt;T&gt;(System.Object,&lt;T&gt;)
 
-If object is null[value]is returned. If object is empty string or min date time,[value]is returned. If object is a different type then value it may be casted or may throw an[System.InvalidCastException]
+ If object is null [value] is returned. If object is empty string or min date time, [value] is returned. If object is a different type then value it may be casted or may throw an [System.InvalidCastException]
 
 
 | Parameter | Description |
@@ -813,7 +813,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]: When object
 
 #### Useful.Utilities.Helpers.RoundDown(System.Single,System.Int32)
 
-Round a number down. Can set number of decimal places.
+ Round a number down. Can set number of decimal places. 
 
 
 | Parameter | Description |
@@ -824,7 +824,7 @@ Round a number down. Can set number of decimal places.
 
 #### Useful.Utilities.Helpers.RoundUp(System.Single,System.Int32)
 
-Round a number up. Can set number of decimal places.
+ Round a number up. Can set number of decimal places. 
 
 
 | Parameter | Description |
@@ -835,7 +835,7 @@ Round a number up. Can set number of decimal places.
 
 #### Useful.Utilities.Helpers.ToLong(System.String)
 
-Convert s string to a long, throws cast exception if it fails
+ Convert s string to a long, throws cast exception if it fails 
 
 
 | Parameter | Description |
@@ -847,7 +847,7 @@ Throws: [[System.InvalidCastException|System.InvalidCastException]]:
 
 #### Useful.Utilities.Helpers.TryToLong(System.String)
 
-Attempt to cast a string to a long, return null if unable to cast
+ Attempt to cast a string to a long, return null if unable to cast 
 
 
 | Parameter | Description |
@@ -855,9 +855,21 @@ Attempt to cast a string to a long, return null if unable to cast
 |       str |             |
 
 
+#### Useful.Utilities.Helpers.Contains(System.String,System.String,System.StringComparison)
+
+ Returns a value indicating if the substring is found within the string. Accepts comparison parameter that can be set to ignore case. 
+
+
+| Parameter | Description |
+|-----------|-------------|
+|    source |The string   |
+|     value |Value to look for in source string |
+|comparison |comparison type to use (can be set to ignore case) |
+
+
 #### Useful.Utilities.Helpers.Traverse&lt;T&gt;(System.Collections.Generic.IEnumerable{&lt;T&gt;},System.Func{&lt;T&gt;,System.Collections.Generic.IEnumerable{&lt;T&gt;}})
 
-Recursively search a tree collection based on the child selector
+ Recursively search a tree collection based on the child selector 
 
 
 | Parameter | Description |
@@ -870,14 +882,86 @@ Recursively search a tree collection based on the child selector
 |childSelector |             |
 
 
+#### Useful.Utilities.Helpers.IterateNodes(System.Xml.XmlDocument,System.Action{System.Xml.XmlNode,System.Int32},System.Int32)
+
+ Recursively iterate child nodes of an XML document. Calls elementVisitor action for each node and passes the node and current depth. If max depth is greater than 0 an error will be throw when current depth is greater than max. 
+
+_c# Example_
+
+```c#
+ 
+            //print a tree of the all the nodes
+            var xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(File.ReadAllText(filename));
+            xmlDoc.IterateNodes((node, depth) =>
+            {
+                Debug.WriteLine(string.Format("{0}{1} : {2}", string.Empty.PadLeft(depth, ' '), node.Name, (node.ChildNodes.Count == 1 ? node.InnerText : node.Value)));
+            });
+            
+```
+
+
+| Parameter | Description |
+|-----------|-------------|
+|       doc |The XML document to iterate over |
+|elementVisitor |The action to call for each node |
+|  maxDepth |Max depth before an error is thrown. 0 = no limit |
+
+Throws: [[System.StackOverflowException|System.StackOverflowException]]:
+
+
+#### Useful.Utilities.Helpers.IterateNodes(System.Xml.XmlNode,System.Action{System.Xml.XmlNode,System.Int32},System.Int32,System.Int32)
+
+ Recursively iterates over an XML node and all of its child nodes. Calls elementVisitor action for each node and passes the node and current depth. If max depth is greater than 0 an error will be throw when current depth is greater than max. 
+
+
+| Parameter | Description |
+|-----------|-------------|
+|      node |XML Node to iterate |
+|elementVisitor |The action to call for each node |
+|currentDepth |Zero based counter of current iteration level |
+|  maxDepth |Max depth before an error is thrown. 0 = no limit |
+
+Throws: [[System.StackOverflowException|System.StackOverflowException]]:
+
+
+#### Useful.Utilities.Helpers.Item(System.Collections.Specialized.NameValueCollection,System.String,System.String)
+
+ Extends a name value collection to allow obtaining an item by matching on the calling property or method name. 
+
+
+| Parameter | Description |
+|-----------|-------------|
+|     items |The collection of items |
+|defaultValue |default value to return when item is not found or value is empty |
+|      name |Name of key to select. This is optional and obtained through name of the caller method or property (see example code) |
+_c# Example_
+
+```c#
+    //Example using hard coded items
+   public NameValueCollection Items = new NameValueCollection { { "SomeKey", "Some Value" }, { "AnotherKey", "Another Value" } };
+   public string SomeKey => Items.Item(); //returns "Some value" from the "SomeKey" item
+   public string AnotherKey => Items.Item(); //returns "Another value" from the "AnotherKey" item
+   public string InvalidKey => Items.Item(); //returns null when key is not in items collection
+   public string DefaultKey => Items.Item("Default value"); //returns "Default value" since key is not in collection
+    
+    //Example using appSettings from a config file
+    //assume config appSettings has something like: <add key="MyAppSetting" value="some setting value" />
+    public string MyAppSetting => System.Configuration.ConfigurationManager.AppSettings.Item(); 
+    //If setting is not defined or empty string, default value can be returned instead:
+    public string NotInConfig => System.Configuration.ConfigurationManager.AppSettings.Item("Some default value"); 
+    
+```
+
+
 ---
 # Useful.Utilities.IAssemblyCache
 
-Defines a contract for interacting with the Global Assembly Cache.
+ Defines a contract for interacting with the Global Assembly Cache.
 
 #### Useful.Utilities.IAssemblyCache.UninstallAssembly(System.UInt32,System.String,System.IntPtr,System.UInt32@)
 
-Uninstalls the assembly.
+ Uninstalls the assembly. 
 
 
 | Parameter | Description |
@@ -890,7 +974,7 @@ Uninstalls the assembly.
 
 #### Useful.Utilities.IAssemblyCache.QueryAssemblyInfo(System.UInt32,System.String,System.IntPtr)
 
-Queries the assembly information.
+ Queries the assembly information. 
 
 
 | Parameter | Description |
@@ -902,7 +986,7 @@ Queries the assembly information.
 
 #### Useful.Utilities.IAssemblyCache.CreateAssemblyCacheItem(System.UInt32,System.IntPtr,System.IntPtr@,System.String)
 
-Creates the assembly cache item.
+ Creates the assembly cache item. 
 
 
 | Parameter | Description |
@@ -915,7 +999,7 @@ Creates the assembly cache item.
 
 #### Useful.Utilities.IAssemblyCache.CreateAssemblyScavenger(System.Object@)
 
-Creates the assembly scavenger.
+ Creates the assembly scavenger. 
 
 
 | Parameter | Description |
@@ -925,7 +1009,7 @@ Creates the assembly scavenger.
 
 #### Useful.Utilities.IAssemblyCache.InstallAssembly(System.UInt32,System.String,System.IntPtr)
 
-Installs the assembly.
+ Installs the assembly. 
 
 
 | Parameter | Description |
@@ -938,16 +1022,16 @@ Installs the assembly.
 ---
 # Useful.Utilities.IisManager
 
-IIS Server Manager Wrapper. can be used for local and remote IIS settings
+ IIS Server Manager Wrapper. can be used for local and remote IIS settings
 
 ---
 # Useful.Utilities.IisManager.ApplicationSslFlags
 
-Application level SSL Flags
+ Application level SSL Flags
 
 #### Useful.Utilities.IisManager.#ctor(System.String)
 
-Initializes a new instance of the[Useful.Utilities.IisManager]class connected to a remote computer
+ Initializes a new instance of the [Useful.Utilities.IisManager] class connected to a remote computer 
 
 
 | Parameter | Description |
@@ -957,22 +1041,22 @@ Initializes a new instance of the[Useful.Utilities.IisManager]class connected to
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.IisManager.RemoteServer |The remote server currently connected to. |
-|Useful.Utilities.IisManager.ServerManager |Gets the server manager. Either local or remote based on[Useful.Utilities.IisManager.RemoteServer] |
+|Useful.Utilities.IisManager.RemoteServer | The remote server currently connected to. |
+|Useful.Utilities.IisManager.ServerManager | Gets the server manager. Either local or remote based on [Useful.Utilities.IisManager.RemoteServer] |
 
 #### Useful.Utilities.IisManager.ListSites
 
-List all IIS web sites
+ List all IIS web sites
 
 
 #### Useful.Utilities.IisManager.ListSiteNames
 
-List all IIS web sites
+ List all IIS web sites
 
 
 #### Useful.Utilities.IisManager.GetSite(System.String)
 
-Get single site by name
+ Get single site by name 
 
 
 | Parameter | Description |
@@ -982,7 +1066,7 @@ Get single site by name
 
 #### Useful.Utilities.IisManager.SiteState(System.String)
 
-Get site state (stopped, running, etc)
+ Get site state (stopped, running, etc) 
 
 
 | Parameter | Description |
@@ -992,7 +1076,7 @@ Get site state (stopped, running, etc)
 
 #### Useful.Utilities.IisManager.StopSite(System.String)
 
-Stop IIS site by name
+ Stop IIS site by name 
 
 
 | Parameter | Description |
@@ -1002,7 +1086,7 @@ Stop IIS site by name
 
 #### Useful.Utilities.IisManager.StartSite(System.String)
 
-Attempt to start a site by name
+ Attempt to start a site by name 
 
 
 | Parameter | Description |
@@ -1012,12 +1096,12 @@ Attempt to start a site by name
 
 #### Useful.Utilities.IisManager.Processes
 
-Get all worker process for all application pools
+ Get all worker process for all application pools
 
 
 #### Useful.Utilities.IisManager.CreateSslSite(System.String,System.String,System.String,System.Int32)
 
-Create a new web site on port 443
+ Create a new web site on port 443 
 
 
 | Parameter | Description |
@@ -1030,7 +1114,7 @@ Create a new web site on port 443
 
 #### Useful.Utilities.IisManager.CreateSite(System.String,System.String,System.Int32,System.String)
 
-Create a new web site
+ Create a new web site 
 
 
 | Parameter | Description |
@@ -1043,7 +1127,7 @@ Create a new web site
 
 #### Useful.Utilities.IisManager.DeleteSite(System.String)
 
-delete a site
+ delete a site 
 
 
 | Parameter | Description |
@@ -1053,7 +1137,7 @@ delete a site
 
 #### Useful.Utilities.IisManager.SetBinding(System.String,System.String,System.Int32,System.String,System.String,System.Boolean)
 
-Create or update a binding on the given site.
+ Create or update a binding on the given site. 
 
 
 | Parameter | Description |
@@ -1068,7 +1152,7 @@ Create or update a binding on the given site.
 
 #### Useful.Utilities.IisManager.ListApplications(System.String)
 
-Get list of applications for a site
+ Get list of applications for a site 
 
 
 | Parameter | Description |
@@ -1078,7 +1162,7 @@ Get list of applications for a site
 
 #### Useful.Utilities.IisManager.GetApplication(System.String,System.String)
 
-Get an application under the given site
+ Get an application under the given site 
 
 
 | Parameter | Description |
@@ -1089,7 +1173,7 @@ Get an application under the given site
 
 #### Useful.Utilities.IisManager.SetApplication(System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,Useful.Utilities.IisManager.ApplicationSslFlags)
 
-create or update an application under a site
+ create or update an application under a site 
 
 
 | Parameter | Description |
@@ -1105,7 +1189,7 @@ create or update an application under a site
 
 #### Useful.Utilities.IisManager.DeleteApplication(System.String,System.String)
 
-Deletes an application under a site.
+ Deletes an application under a site. 
 
 
 | Parameter | Description |
@@ -1116,7 +1200,7 @@ Deletes an application under a site.
 
 #### Useful.Utilities.IisManager.SetApplicationPool(System.String,System.String,System.String)
 
-Change the pool tied to an application
+ Change the pool tied to an application 
 
 
 | Parameter | Description |
@@ -1128,12 +1212,12 @@ Change the pool tied to an application
 
 #### Useful.Utilities.IisManager.ListPools
 
-Lists all the application pools.
+ Lists all the application pools.
 
 
 #### Useful.Utilities.IisManager.GetPool(System.String)
 
-Gets the application pool by name.
+ Gets the application pool by name. 
 
 
 | Parameter | Description |
@@ -1143,7 +1227,7 @@ Gets the application pool by name.
 
 #### Useful.Utilities.IisManager.RecyclePool(System.String)
 
-Recycles the pool.
+ Recycles the pool. 
 
 
 | Parameter | Description |
@@ -1153,7 +1237,7 @@ Recycles the pool.
 
 #### Useful.Utilities.IisManager.DeletePool(System.String)
 
-Deletes the application pool.
+ Deletes the application pool. 
 
 
 | Parameter | Description |
@@ -1163,7 +1247,7 @@ Deletes the application pool.
 
 #### Useful.Utilities.IisManager.SetPool(System.String,System.String,System.String,System.Int32,System.String)
 
-create or update an application pool
+ create or update an application pool 
 
 
 | Parameter | Description |
@@ -1179,17 +1263,17 @@ Throws: [[System.Exception|System.Exception]]:
 
 #### Useful.Utilities.IisManager.Refresh
 
-Refreshes this instance and restarts the[Useful.Utilities.IisManager.ServerManager]
+ Refreshes this instance and restarts the [Useful.Utilities.IisManager.ServerManager]
 
 
 #### Useful.Utilities.IisManager.CommitChanges
 
-Commits the[Useful.Utilities.IisManager.ServerManager]changes.
+ Commits the [Useful.Utilities.IisManager.ServerManager] changes.
 
 
 #### Useful.Utilities.IisManager.ResetIis(System.String)
 
-Resets IIS. Mode can be Restart, Stop, or Start
+ Resets IIS. Mode can be Restart, Stop, or Start 
 
 
 | Parameter | Description |
@@ -1199,7 +1283,7 @@ Resets IIS. Mode can be Restart, Stop, or Start
 
 #### Useful.Utilities.IisManager.IisVersion(System.String)
 
-IIS version number. 0 if not installed or error
+ IIS version number. 0 if not installed or error 
 
 
 | Parameter | Description |
@@ -1210,21 +1294,21 @@ IIS version number. 0 if not installed or error
 ---
 # Useful.Utilities.ComputerManager
 
-Collection of computer, domain, and user name functions
+ Collection of computer, domain, and user name functions
 
 #### Useful.Utilities.ComputerManager.#ctor(System.String,System.String,System.String)
 
-Creates a new instance of the Computer Manager connected to a remote server as a different user
+ Creates a new instance of the Computer Manager connected to a remote server as a different user
 
 
 #### Useful.Utilities.ComputerManager.Computer
 
-Gets information about the computer currently connected to.
+ Gets information about the computer currently connected to.
 
 
 #### Useful.Utilities.ComputerManager.Connect(System.String,System.String,System.String)
 
-Connects to the computer name passed in, leave blank for local
+ Connects to the computer name passed in, leave blank for local 
 
 
 | Parameter | Description |
@@ -1236,14 +1320,14 @@ Connects to the computer name passed in, leave blank for local
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.ComputerManager.DomainNameFull |Gets the full domain name of the current computer (without the computer name). Use[Useful.Utilities.ComputerManager.MachineFullName]to get FQN of current computer. |
-|Useful.Utilities.ComputerManager.DomainNameBios |Gets the Domain Net BIOS of the current user. |
-|Useful.Utilities.ComputerManager.UserName |Gets the username of current user |
-|Useful.Utilities.ComputerManager.UserQualified |Gets the domain and username of current user. Domain\User |
+|Useful.Utilities.ComputerManager.DomainNameFull | Gets the full domain name of the current computer (without the computer name). Use [Useful.Utilities.ComputerManager.MachineFullName] to get FQN of current computer. |
+|Useful.Utilities.ComputerManager.DomainNameBios | Gets the Domain Net BIOS of the current user. |
+|Useful.Utilities.ComputerManager.UserName | Gets the username of current user |
+|Useful.Utilities.ComputerManager.UserQualified | Gets the domain and username of current user. Domain\User |
 
 #### Useful.Utilities.ComputerManager.SplitUserAndDomain(System.String)
 
-Splits the username and domain into a Tuple. Domain is Item1, User is Item2.
+ Splits the username and domain into a Tuple. Domain is Item1, User is Item2. 
 
 
 | Parameter | Description |
@@ -1255,7 +1339,7 @@ Returns: Domain is Item1, Username is Item2
 
 #### Useful.Utilities.ComputerManager.EnsureDomain(System.String)
 
-Ensures the username as a domain prefix. If no prefix is given machine name is used.
+ Ensures the username as a domain prefix. If no prefix is given machine name is used. 
 
 
 | Parameter | Description |
@@ -1267,12 +1351,12 @@ Returns: domain\user or machine\user
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.ComputerManager.MachineName |Gets the Machine name of the current computer (without domain). Use[Useful.Utilities.ComputerManager.MachineFullName]to get the FQN of the current computer. |
-|Useful.Utilities.ComputerManager.MachineFullName |Gets the fully qualified name of the current computer. computer.domain.com |
+|Useful.Utilities.ComputerManager.MachineName | Gets the Machine name of the current computer (without domain). Use [Useful.Utilities.ComputerManager.MachineFullName] to get the FQN of the current computer. |
+|Useful.Utilities.ComputerManager.MachineFullName | Gets the fully qualified name of the current computer. computer.domain.com |
 
 #### Useful.Utilities.ComputerManager.IsLocal(System.String)
 
-Checks if the name passed in is the current computer. Returns true if the string is null/empty or the name matches the current[Useful.Utilities.ComputerManager.MachineName]or[Useful.Utilities.ComputerManager.MachineFullName].
+ Checks if the name passed in is the current computer. Returns true if the string is null/empty or the name matches the current [Useful.Utilities.ComputerManager.MachineName] or [Useful.Utilities.ComputerManager.MachineFullName]. 
 
 
 | Parameter | Description |
@@ -1283,16 +1367,16 @@ Checks if the name passed in is the current computer. Returns true if the string
 ---
 # Useful.Utilities.NetworkConnection
 
-Creates a connection to a network resource with a given set of credentials
+ Creates a connection to a network resource with a given set of credentials
 
 ---
 # Useful.Utilities.ObjectCopier
 
-Perform a deep copy of an object. Binary Serialization is used to perform the copy.
+ Perform a deep copy of an object. Binary Serialization is used to perform the copy.
 
 #### Useful.Utilities.ObjectCopier.Clone&lt;T&gt;(&lt;T&gt;)
 
-Perform a deep Copy of the object.
+ Perform a deep Copy of the object. 
 
 
 | Parameter | Description |
@@ -1308,7 +1392,7 @@ Returns: The copied object.
 
 #### Useful.Utilities.ObjectCopier.ToBytes&lt;T&gt;(&lt;T&gt;)
 
-Takes a serializable object and returns it as a byte array.
+ Takes a serializable object and returns it as a byte array. 
 
 
 | Parameter | Description |
@@ -1324,7 +1408,7 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: The type must be 
 
 #### Useful.Utilities.ObjectCopier.FromBytes&lt;T&gt;(System.Byte[])
 
-Takes a byte array and desterilizes it to a object.
+ Takes a byte array and desterilizes it to a object. 
 
 
 | Parameter | Description |
@@ -1340,7 +1424,7 @@ Throws: [[System.ArgumentException|System.ArgumentException]]: The type must be 
 
 #### Useful.Utilities.ObjectCopier.FromXml&lt;T&gt;(System.String)
 
-Load an object from XML string.
+ Load an object from XML string. 
 
 
 | Parameter | Description |
@@ -1354,7 +1438,7 @@ Load an object from XML string.
 
 #### Useful.Utilities.ObjectCopier.ToXml&lt;T&gt;(&lt;T&gt;)
 
-Serialize an object to XML string.
+ Serialize an object to XML string. 
 
 
 | Parameter | Description |
@@ -1371,16 +1455,16 @@ Returns: XML String
 ---
 # Useful.Utilities.ProcessManager
 
-Used to list, start and stop processes locally or remotely using WMI
+ Used to list, start and stop processes locally or remotely using WMI
 
 #### Useful.Utilities.ProcessManager.#ctor(System.String,System.String,System.String)
 
-Creates a new instance of the Process Manager connected to a remote server as a different user
+ Creates a new instance of the Process Manager connected to a remote server as a different user
 
 
 #### Useful.Utilities.ProcessManager.Connect(System.String,System.String,System.String)
 
-Connects to the computer name passed in, leave blank for local
+ Connects to the computer name passed in, leave blank for local 
 
 
 | Parameter | Description |
@@ -1392,7 +1476,7 @@ Connects to the computer name passed in, leave blank for local
 
 #### Useful.Utilities.ProcessManager.GetProcesses(System.String)
 
-Gets a list of running processes. Can be filtered by name
+ Gets a list of running processes. Can be filtered by name 
 
 
 | Parameter | Description |
@@ -1402,7 +1486,7 @@ Gets a list of running processes. Can be filtered by name
 
 #### Useful.Utilities.ProcessManager.GetProcess(System.UInt32)
 
-Gets a single process by process id
+ Gets a single process by process id 
 
 
 | Parameter | Description |
@@ -1412,7 +1496,7 @@ Gets a single process by process id
 
 #### Useful.Utilities.ProcessManager.Terminate(System.String,System.Boolean)
 
-Terminates a process with the specified name.
+ Terminates a process with the specified name. 
 
 
 | Parameter | Description |
@@ -1423,7 +1507,7 @@ Terminates a process with the specified name.
 
 #### Useful.Utilities.ProcessManager.Terminate(System.UInt32)
 
-Terminates a process by the specified identifier.
+ Terminates a process by the specified identifier. 
 
 
 | Parameter | Description |
@@ -1433,7 +1517,7 @@ Terminates a process by the specified identifier.
 
 #### Useful.Utilities.ProcessManager.Start(System.String,System.String,System.Int32)
 
-Starts a command process.
+ Starts a command process. 
 
 
 | Parameter | Description |
@@ -1444,7 +1528,7 @@ Starts a command process.
 
 #### Useful.Utilities.ProcessManager.Run(System.String,System.String,System.Boolean)
 
-Starts a local process
+ Starts a local process 
 
 
 | Parameter | Description |
@@ -1457,15 +1541,15 @@ Starts a local process
 ---
 # Useful.Utilities.RandomExtensions
 
-Extension methods for System.Random objects. IEnumerable extension to get a random item.
+ Extension methods for System.Random objects. IEnumerable extension to get a random item.
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.RandomExtensions.Random |Static access to random object |
+|Useful.Utilities.RandomExtensions.Random | Static access to random object |
 
 #### Useful.Utilities.RandomExtensions.String(System.Random,System.Int32,System.String)
 
-Generate a random string. Can take a string of characters to randomly pick from.
+ Generate a random string. Can take a string of characters to randomly pick from. 
 
 
 | Parameter | Description |
@@ -1477,7 +1561,7 @@ Generate a random string. Can take a string of characters to randomly pick from.
 
 #### Useful.Utilities.RandomExtensions.Number(System.Random,System.Int32,System.String)
 
-Generate a random string of numbers (may have leading zeros)
+ Generate a random string of numbers (may have leading zeros) 
 
 
 | Parameter | Description |
@@ -1489,7 +1573,7 @@ Generate a random string of numbers (may have leading zeros)
 
 #### Useful.Utilities.RandomExtensions.PhoneNumber(System.Random)
 
-Generate a random phone number (10 random digits formatted as ###-###-####)
+ Generate a random phone number (10 random digits formatted as ###-###-####) 
 
 
 | Parameter | Description |
@@ -1499,18 +1583,18 @@ Generate a random phone number (10 random digits formatted as ###-###-####)
 
 #### Useful.Utilities.RandomExtensions.Bool(System.Random,System.Double)
 
-Generate a random Boolean
+ Generate a random Boolean 
 
 
 | Parameter | Description |
 |-----------|-------------|
 |    random |             |
-|    weight |Percent of weight toward true results. 0 = all false, 1 = all true |
+|    weight | Percent of weight toward true results. 0 = all false, 1 = all true |
 
 
 #### Useful.Utilities.RandomExtensions.RandomItem&lt;T&gt;(System.Collections.Generic.IEnumerable{&lt;T&gt;})
 
-Randomly sort the items and pick one. If the collection is null, null is returned.
+ Randomly sort the items and pick one. If the collection is null, null is returned. 
 
 
 | Parameter | Description |
@@ -1525,11 +1609,11 @@ Randomly sort the items and pick one. If the collection is null, null is returne
 ---
 # Useful.Utilities.RegistryHelper
 
-Windows registry wrapper. Used to read, write and delete keys and values. Handles picking 64bit or 32bit views. Can be used on local or remote registries.
+ Windows registry wrapper. Used to read, write and delete keys and values. Handles picking 64bit or 32bit views. Can be used on local or remote registries.
 
 #### Useful.Utilities.RegistryHelper.GetValue&lt;T&gt;(Microsoft.Win32.RegistryKey,System.String,&lt;T&gt;)
 
-Get the value of a key or the default if the key has no value
+ Get the value of a key or the default if the key has no value 
 
 
 | Parameter | Description |
@@ -1545,7 +1629,7 @@ Get the value of a key or the default if the key has no value
 
 #### Useful.Utilities.RegistryHelper.SetValue&lt;T&gt;(Microsoft.Win32.RegistryKey,System.String,&lt;T&gt;)
 
-Sets the value of a given key
+ Sets the value of a given key 
 
 
 | Parameter | Description |
@@ -1561,7 +1645,7 @@ Sets the value of a given key
 
 #### Useful.Utilities.RegistryHelper.DeleteKey(Microsoft.Win32.RegistryKey,System.Boolean)
 
-Deletes a key and value. Will delete a full tree structure by default
+ Deletes a key and value. Will delete a full tree structure by default 
 
 
 | Parameter | Description |
@@ -1572,7 +1656,7 @@ Deletes a key and value. Will delete a full tree structure by default
 
 #### Useful.Utilities.RegistryHelper.DeleteValue(Microsoft.Win32.RegistryKey,System.String)
 
-Deletes the value from a given key. To delete the key use[Useful.Utilities.RegistryHelper.DeleteKey(Microsoft.Win32.RegistryKey,System.Boolean)]
+ Deletes the value from a given key. To delete the key use [Useful.Utilities.RegistryHelper.DeleteKey(Microsoft.Win32.RegistryKey,System.Boolean)]
 
 
 | Parameter | Description |
@@ -1583,7 +1667,7 @@ Deletes the value from a given key. To delete the key use[Useful.Utilities.Regis
 
 #### Useful.Utilities.RegistryHelper.GetKey(Microsoft.Win32.RegistryHive,System.String,System.String)
 
-Gets or Creates a registry Sub Key
+ Gets or Creates a registry Sub Key 
 
 
 | Parameter | Description |
@@ -1597,11 +1681,11 @@ Returns: [Microsoft.Win32.RegistryKey]
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.RegistryHelper.View |Selects the 64 or 32 bit registry view based on architecture. |
+|Useful.Utilities.RegistryHelper.View | Selects the 64 or 32 bit registry view based on architecture. |
 
 #### Useful.Utilities.RegistryHelper.ImportFile(System.String,System.String)
 
-Takes a .reg file and imports it to the registry
+ Takes a .reg file and imports it to the registry 
 
 
 | Parameter | Description |
@@ -1613,11 +1697,11 @@ Takes a .reg file and imports it to the registry
 ---
 # Useful.Utilities.Security
 
-Security Utility Functions
+ Security Utility Functions
 
 #### Useful.Utilities.Security.SetLogonAsAService(System.String,System.String)
 
-Set logon as a service rights for the user.
+ Set logon as a service rights for the user. 
 
 
 | Parameter | Description |
@@ -1628,19 +1712,19 @@ Set logon as a service rights for the user.
 
 #### Useful.Utilities.Security.SetPrivilege(System.String,System.String,System.String)
 
-Sets a privilege for the user.
+ Sets a privilege for the user. 
 
 
 | Parameter | Description |
 |-----------|-------------|
 |      user |The username as domain\user. if domain is not provide machine name is used |
-| privilege |The privilege to set.[Useful.Utilities.Security.LsaWrapper] |
+| privilege |The privilege to set. [Useful.Utilities.Security.LsaWrapper] |
 |remoteComputer |Can be used to execute on a remote computer. |
 
 
 #### Useful.Utilities.Security.Login(System.String,System.String,System.String)
 
-Login as a given user and return the login token
+ Login as a given user and return the login token 
 
 
 | Parameter | Description |
@@ -1652,7 +1736,7 @@ Login as a given user and return the login token
 
 #### Useful.Utilities.Security.IsValidLogin(System.String,System.String,System.String)
 
-Determines whether the specified username and password are valid. Can be ran locally or remotely
+ Determines whether the specified username and password are valid. Can be ran locally or remotely 
 
 
 | Parameter | Description |
@@ -1665,7 +1749,7 @@ Determines whether the specified username and password are valid. Can be ran loc
 
 #### Useful.Utilities.Security.ValidateLogin(System.String,System.String,System.String)
 
-Validates the username and password. Throws error if its invalid
+ Validates the username and password. Throws error if its invalid 
 
 
 | Parameter | Description |
@@ -1680,7 +1764,7 @@ Throws: [[System.InvalidOperationException|System.InvalidOperationException]]: T
 
 #### Useful.Utilities.Security.IsInRole(System.String,System.String,System.Security.Principal.WindowsBuiltInRole,System.String)
 
-Determines whether the specified user is in a given role
+ Determines whether the specified user is in a given role 
 
 
 | Parameter | Description |
@@ -1693,7 +1777,7 @@ Determines whether the specified user is in a given role
 
 #### Useful.Utilities.Security.RunAs(System.String,System.String)
 
-Runs an action as a different user.
+ Runs an action as a different user. 
 
 
 | Parameter | Description |
@@ -1704,56 +1788,56 @@ Runs an action as a different user.
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.Security.LogonType.Interactive |This logon type is intended for users who will be interactively using the computer, such as a user being logged on by a terminal server, remote shell, or similar process. This logon type has the additional expense of caching logon information for disconnected operations; therefore, it is inappropriate for some client/server applications, such as a mail server. |
-|Useful.Utilities.Security.LogonType.Network |This logon type is intended for high performance servers to authenticate plaintext passwords. The LogonUser function does not cache credentials for this logon type. |
-|Useful.Utilities.Security.LogonType.Batch |This logon type is intended for batch servers, where processes may be executing on behalf of a user without their direct intervention. This type is also for higher performance servers that process many plaintext authentication attempts at a time, such as mail or Web servers. The LogonUser function does not cache credentials for this logon type. |
-|Useful.Utilities.Security.LogonType.Service |Indicates a service-type logon. The account provided must have the service privilege enabled. |
-|Useful.Utilities.Security.LogonType.Unlock |This logon type is for GINA DLLs that log on users who will be interactively using the computer. This logon type can generate a unique audit record that shows when the workstation was unlocked. |
-|Useful.Utilities.Security.LogonType.NetworkCleartext |This logon type preserves the name and password in the authentication package, which allows the server to make connections to other network servers while impersonating the client. A server can accept plaintext credentials from a client, call LogonUser, verify that the user can access the system across the network, and still communicate with other servers. NOTE: Windows NT: This value is not supported. |
-|Useful.Utilities.Security.LogonType.NewCredentials |This logon type allows the caller to clone its current token and specify new credentials for outbound connections. The new logon session has the same local identifier but uses different credentials for other network connections. NOTE: This logon type is supported only by the LOGON32_PROVIDER_WINNT50 logon provider. NOTE: Windows NT: This value is not supported. |
-|Useful.Utilities.Security.LogonProvider.Default |Use the standard logon provider for the system. The default security provider is negotiate, unless you pass NULL for the domain name and the user name is not in UPN format. In this case, the default provider is NTLM. NOTE: Windows 2000/NT: The default security provider is NTLM. |
-|Useful.Utilities.Security.LogonProvider.WinNT35 |Use this provider if you'll be authenticating against a Windows NT 3.51 domain controller (uses the NT 3.51 logon provider). |
-|Useful.Utilities.Security.LogonProvider.WinNT40 |Use the NTLM logon provider. |
-|Useful.Utilities.Security.LogonProvider.WinNT50 |Use the negotiate logon provider. |
+|Useful.Utilities.Security.LogonType.Interactive | This logon type is intended for users who will be interactively using the computer, such as a user being logged on by a terminal server, remote shell, or similar process. This logon type has the additional expense of caching logon information for disconnected operations; therefore, it is inappropriate for some client/server applications, such as a mail server. |
+|Useful.Utilities.Security.LogonType.Network | This logon type is intended for high performance servers to authenticate plaintext passwords. The LogonUser function does not cache credentials for this logon type. |
+|Useful.Utilities.Security.LogonType.Batch | This logon type is intended for batch servers, where processes may be executing on behalf of a user without their direct intervention. This type is also for higher performance servers that process many plaintext authentication attempts at a time, such as mail or Web servers. The LogonUser function does not cache credentials for this logon type. |
+|Useful.Utilities.Security.LogonType.Service | Indicates a service-type logon. The account provided must have the service privilege enabled. |
+|Useful.Utilities.Security.LogonType.Unlock | This logon type is for GINA DLLs that log on users who will be interactively using the computer. This logon type can generate a unique audit record that shows when the workstation was unlocked. |
+|Useful.Utilities.Security.LogonType.NetworkCleartext | This logon type preserves the name and password in the authentication package, which allows the server to make connections to other network servers while impersonating the client. A server can accept plaintext credentials from a client, call LogonUser, verify that the user can access the system across the network, and still communicate with other servers. NOTE: Windows NT: This value is not supported. |
+|Useful.Utilities.Security.LogonType.NewCredentials | This logon type allows the caller to clone its current token and specify new credentials for outbound connections. The new logon session has the same local identifier but uses different credentials for other network connections. NOTE: This logon type is supported only by the LOGON32_PROVIDER_WINNT50 logon provider. NOTE: Windows NT: This value is not supported. |
+|Useful.Utilities.Security.LogonProvider.Default | Use the standard logon provider for the system. The default security provider is negotiate, unless you pass NULL for the domain name and the user name is not in UPN format. In this case, the default provider is NTLM. NOTE: Windows 2000/NT: The default security provider is NTLM. |
+|Useful.Utilities.Security.LogonProvider.WinNT35 | Use this provider if you'll be authenticating against a Windows NT 3.51 domain controller (uses the NT 3.51 logon provider). |
+|Useful.Utilities.Security.LogonProvider.WinNT40 | Use the NTLM logon provider. |
+|Useful.Utilities.Security.LogonProvider.WinNT50 | Use the negotiate logon provider. |
 
 #### Useful.Utilities.Security.Impersonation.#ctor(System.String,System.String,System.String,Useful.Utilities.Security.LogonType,Useful.Utilities.Security.LogonProvider)
 
-Begins impersonation with the given credentials, Logon type and Logon provider.
+ Begins impersonation with the given credentials, Logon type and Logon provider.
 
 
 #### Useful.Utilities.Security.Impersonation.#ctor
 
-Initializes a new instance of the[Useful.Utilities.Security.Impersonation]class.
+ Initializes a new instance of the [Useful.Utilities.Security.Impersonation] class.
 
 
 #### Useful.Utilities.Security.Impersonation.Dispose
 
-Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+ Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
 
 
 #### Useful.Utilities.Security.Impersonation.Impersonate(System.String,System.String,System.String,Useful.Utilities.Security.LogonType,Useful.Utilities.Security.LogonProvider)
 
-Impersonates the specified user account.
+ Impersonates the specified user account.
 
 
 #### Useful.Utilities.Security.Impersonation.UndoImpersonation
 
-Stops impersonation.
+ Stops impersonation.
 
 
 ---
 # Useful.Utilities.ServicesManager
 
-Used to control windows services locally or remotely using WMI. Can find, list, install, update, uninstall, start, stop or restart services
+ Used to control windows services locally or remotely using WMI. Can find, list, install, update, uninstall, start, stop or restart services
 
 #### Useful.Utilities.ServicesManager.#ctor(System.String,System.String,System.String)
 
-Initializes a new instance of the[Useful.Utilities.ServicesManager]class connected to a remote server as a different user.
+ Initializes a new instance of the [Useful.Utilities.ServicesManager] class connected to a remote server as a different user.
 
 
 #### Useful.Utilities.ServicesManager.Connect(System.String,System.String,System.String)
 
-Connects to the computer name passed in, leave blank for local
+ Connects to the computer name passed in, leave blank for local 
 
 
 | Parameter | Description |
@@ -1765,12 +1849,12 @@ Connects to the computer name passed in, leave blank for local
 
 #### Useful.Utilities.ServicesManager.GetServices
 
-Gets a list of all services
+ Gets a list of all services
 
 
 #### Useful.Utilities.ServicesManager.GetService(System.String)
 
-Gets a service by name.
+ Gets a service by name. 
 
 
 | Parameter | Description |
@@ -1780,7 +1864,7 @@ Gets a service by name.
 
 #### Useful.Utilities.ServicesManager.GetServiceInfo(Useful.Utilities.Models.ServiceInfo)
 
-Gets a service by name.
+ Gets a service by name. 
 
 
 | Parameter | Description |
@@ -1790,7 +1874,7 @@ Gets a service by name.
 
 #### Useful.Utilities.ServicesManager.GetServiceInfo(System.String)
 
-Gets a service by name.
+ Gets a service by name. 
 
 
 | Parameter | Description |
@@ -1800,7 +1884,7 @@ Gets a service by name.
 
 #### Useful.Utilities.ServicesManager.GetServiceState(Useful.Utilities.Models.ServiceInfo)
 
-Gets the state of the service.
+ Gets the state of the service. 
 
 
 | Parameter | Description |
@@ -1810,7 +1894,7 @@ Gets the state of the service.
 
 #### Useful.Utilities.ServicesManager.GetServiceState(System.String)
 
-Gets the state of the service.
+ Gets the state of the service. 
 
 
 | Parameter | Description |
@@ -1820,7 +1904,7 @@ Gets the state of the service.
 
 #### Useful.Utilities.ServicesManager.InstallService(System.String,System.String,System.String,System.String,System.String,System.String,Useful.Utilities.Models.ServiceType,Useful.Utilities.Models.OnError,Useful.Utilities.Models.StartMode,System.Boolean,System.String,System.String[],System.String[])
 
-Installs a windows service. Ensures user has Logon as a service right by calling[Useful.Utilities.Security.SetLogonAsAService(System.String,System.String)]
+ Installs a windows service. Ensures user has Logon as a service right by calling [Useful.Utilities.Security.SetLogonAsAService(System.String,System.String)]
 
 
 | Parameter | Description |
@@ -1844,17 +1928,17 @@ Returns: [Useful.Utilities.WMI.ReturnValue]
 
 #### Useful.Utilities.ServicesManager.InstallService(Useful.Utilities.Models.ServiceInfo)
 
-Installs a windows service. Ensures user has Logon as a service right by calling[Useful.Utilities.Security.SetLogonAsAService(System.String,System.String)]
+ Installs a windows service. Ensures user has Logon as a service right by calling [Useful.Utilities.Security.SetLogonAsAService(System.String,System.String)]
 
 
 | Parameter | Description |
 |-----------|-------------|
-|   service |The service information object.[Useful.Utilities.Models.ServiceInfo] |
+|   service |The service information object. [Useful.Utilities.Models.ServiceInfo] |
 
 
 #### Useful.Utilities.ServicesManager.IsServiceInstalled(Useful.Utilities.Models.ServiceInfo)
 
-Determines whether a service is installed by name.
+ Determines whether a service is installed by name. 
 
 
 | Parameter | Description |
@@ -1866,7 +1950,7 @@ Returns: True if installed
 
 #### Useful.Utilities.ServicesManager.IsServiceInstalled(System.String)
 
-Determines whether a service is installed by name.
+ Determines whether a service is installed by name. 
 
 
 | Parameter | Description |
@@ -1878,7 +1962,7 @@ Returns: True if installed
 
 #### Useful.Utilities.ServicesManager.ChangeCredentials(System.String,System.String,System.String)
 
-Changes the credentials of a service.
+ Changes the credentials of a service. 
 
 
 | Parameter | Description |
@@ -1890,7 +1974,7 @@ Changes the credentials of a service.
 
 #### Useful.Utilities.ServicesManager.Change(Useful.Utilities.Models.ServiceInfo)
 
-Changes the specified service username, password or path.
+ Changes the specified service username, password or path. 
 
 
 | Parameter | Description |
@@ -1900,7 +1984,7 @@ Changes the specified service username, password or path.
 
 #### Useful.Utilities.ServicesManager.GetDescription(System.String)
 
-Gets the description of the service from the registry.
+ Gets the description of the service from the registry. 
 
 
 | Parameter | Description |
@@ -1910,7 +1994,7 @@ Gets the description of the service from the registry.
 
 #### Useful.Utilities.ServicesManager.SetDescription(System.String,System.String)
 
-Sets the description of the service in the registry.
+ Sets the description of the service in the registry. 
 
 
 | Parameter | Description |
@@ -1921,7 +2005,7 @@ Sets the description of the service in the registry.
 
 #### Useful.Utilities.ServicesManager.GetPath(System.String)
 
-Gets the path of the service in the registry.
+ Gets the path of the service in the registry. 
 
 
 | Parameter | Description |
@@ -1931,7 +2015,7 @@ Gets the path of the service in the registry.
 
 #### Useful.Utilities.ServicesManager.SetPath(System.String,System.String)
 
-Sets the path of the service in the registry.
+ Sets the path of the service in the registry. 
 
 
 | Parameter | Description |
@@ -1942,7 +2026,7 @@ Sets the path of the service in the registry.
 
 #### Useful.Utilities.ServicesManager.UninstallService(System.String)
 
-Uninstalls the service from the system.
+ Uninstalls the service from the system. 
 
 
 | Parameter | Description |
@@ -1952,7 +2036,7 @@ Uninstalls the service from the system.
 
 #### Useful.Utilities.ServicesManager.UninstallService(Useful.Utilities.Models.ServiceInfo)
 
-Uninstalls the service from the system.
+ Uninstalls the service from the system. 
 
 
 | Parameter | Description |
@@ -1962,7 +2046,7 @@ Uninstalls the service from the system.
 
 #### Useful.Utilities.ServicesManager.StartService(System.String)
 
-Starts the service.
+ Starts the service. 
 
 
 | Parameter | Description |
@@ -1972,7 +2056,7 @@ Starts the service.
 
 #### Useful.Utilities.ServicesManager.StartService(Useful.Utilities.Models.ServiceInfo)
 
-Starts the service.
+ Starts the service. 
 
 
 | Parameter | Description |
@@ -1982,7 +2066,7 @@ Starts the service.
 
 #### Useful.Utilities.ServicesManager.StopService(System.String)
 
-Stops the service.
+ Stops the service. 
 
 
 | Parameter | Description |
@@ -1992,7 +2076,7 @@ Stops the service.
 
 #### Useful.Utilities.ServicesManager.StopService(Useful.Utilities.Models.ServiceInfo)
 
-Stops the service.
+ Stops the service. 
 
 
 | Parameter | Description |
@@ -2002,7 +2086,7 @@ Stops the service.
 
 #### Useful.Utilities.ServicesManager.WaitForState(System.String,Useful.Utilities.Models.ServiceState,System.Int32)
 
-Waits for the service to be in a given state.
+ Waits for the service to be in a given state. 
 
 
 | Parameter | Description |
@@ -2014,7 +2098,7 @@ Waits for the service to be in a given state.
 
 #### Useful.Utilities.ServicesManager.WaitForState(Useful.Utilities.Models.ServiceInfo,Useful.Utilities.Models.ServiceState,System.Int32)
 
-Waits for the service to be in a given state.
+ Waits for the service to be in a given state. 
 
 
 | Parameter | Description |
@@ -2029,7 +2113,7 @@ Returns: True when service is in given state. False if service is not in given s
 ---
 # Useful.Utilities.SharedFolderConnection
 
-Create a connection to a shared folder with a different set of credentials
+ Create a connection to a shared folder with a different set of credentials 
 
 _c# Example_
 
@@ -2044,28 +2128,28 @@ _c# Example_
 
 #### Useful.Utilities.SharedFolderConnection.#ctor(System.String,System.Net.NetworkCredential)
 
-Initializes a new instance of the[Useful.Utilities.SharedFolderConnection]class.
+ Initializes a new instance of the [Useful.Utilities.SharedFolderConnection] class. 
 
 
 | Parameter | Description |
 |-----------|-------------|
 |       unc |The unc. \\Server |
-|credentials |The[System.Net.NetworkCredential]. |
+|credentials |The [System.Net.NetworkCredential]. |
 
 
 ---
 # Useful.Utilities.TaskList
 
-Provides functions for running async work.
+ Provides functions for running async work.
 
 #### Useful.Utilities.TaskList.#ctor
 
-Initializes a new instance of the[Useful.Utilities.TaskList]class with a max thread count of 50.
+ Initializes a new instance of the [Useful.Utilities.TaskList] class with a max thread count of 50.
 
 
 #### Useful.Utilities.TaskList.#ctor(System.Int32)
 
-Initializes a new instance of the[Useful.Utilities.TaskList]class with a limited number of threads.
+ Initializes a new instance of the [Useful.Utilities.TaskList] class with a limited number of threads. 
 
 
 | Parameter | Description |
@@ -2075,7 +2159,7 @@ Initializes a new instance of the[Useful.Utilities.TaskList]class with a limited
 
 #### Useful.Utilities.TaskList.AddTask(System.Action)
 
-Adds the task to the list. If a thread is available work starts right away otherwise it waits for a thread then starts
+ Adds the task to the list. If a thread is available work starts right away otherwise it waits for a thread then starts 
 
 
 | Parameter | Description |
@@ -2085,16 +2169,16 @@ Adds the task to the list. If a thread is available work starts right away other
 
 #### Useful.Utilities.TaskList.WaitForAll
 
-Waits for all tasks in the list to finish. Then clears the lists
+ Waits for all tasks in the list to finish. Then clears the lists
 
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.TaskList.Tasks |Gets all the tasks in the list. |
+|Useful.Utilities.TaskList.Tasks | Gets all the tasks in the list. |
 
 #### Useful.Utilities.TaskList.Run(System.Action,System.Action{System.Boolean},System.Action{System.Exception})
 
-Runs the specified work. If work action threw an error and error action is provided, it will be called before the after action. If after action is provided, it is ran once the work action is done. The after action is passed true if work completed successfully, false if work faulted. After and error actions are ran in the Current Synchronization Context (usually the UI thread)
+ Runs the specified work. If work action threw an error and error action is provided, it will be called before the after action. If after action is provided, it is ran once the work action is done. The after action is passed true if work completed successfully, false if work faulted. After and error actions are ran in the Current Synchronization Context (usually the UI thread) 
 
 
 | Parameter | Description |
@@ -2106,7 +2190,7 @@ Runs the specified work. If work action threw an error and error action is provi
 
 #### Useful.Utilities.TaskList.Run&lt;T&gt;(System.Func{&lt;T&gt;},System.Action{&lt;T&gt;},System.Action{System.Exception})
 
-Runs the specified work. If work action threw an error and error action is provided, it will be called before the after action. If after action is provided, it is ran once the work action is done. The after action is passed the result of work action if it was successful. If work action faulted, after action will be passed the default of[T]. After and error actions are ran in the Current Synchronization Context (usually the UI thread)
+ Runs the specified work. If work action threw an error and error action is provided, it will be called before the after action. If after action is provided, it is ran once the work action is done. The after action is passed the result of work action if it was successful. If work action faulted, after action will be passed the default of [T]. After and error actions are ran in the Current Synchronization Context (usually the UI thread) 
 
 
 | Parameter | Description |
@@ -2123,7 +2207,7 @@ Runs the specified work. If work action threw an error and error action is provi
 ---
 # Useful.Utilities.WebBase
 
-Base class for building Web Clients that take and return typed objects.
+ Base class for building Web Clients that take and return typed objects. 
 
 _C# Example_
 
@@ -2146,7 +2230,7 @@ _C# Example_
 
 #### Useful.Utilities.WebBase.DeserializeObject&lt;T&gt;(System.String)
 
-Abstract hook for wiring object deserialization
+ Abstract hook for wiring object deserialization 
 
 _C# Example_
 
@@ -2168,7 +2252,7 @@ _C# Example_
 
 #### Useful.Utilities.WebBase.SerializeObject(System.Object)
 
-Abstract hook for wiring object serialization
+ Abstract hook for wiring object serialization 
 
 _C# Example_
 
@@ -2186,11 +2270,11 @@ _C# Example_
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.WebBase.BaseUrl |Base URL that can be prepended to requests |
+|Useful.Utilities.WebBase.BaseUrl | Base URL that can be prepended to requests |
 
 #### Useful.Utilities.WebBase.Go(System.Uri,System.Net.Http.HttpContent,System.Net.HttpStatusCode,Useful.Utilities.Useful.Utilities.Web.Models.Method,System.Action{System.Net.Http.HttpRequestMessage})
 
-Build an HTTP Client and sent a request to the given URL. The resulting status will be validated to match the expected status parameter
+ Build an HTTP Client and sent a request to the given URL. The resulting status will be validated to match the expected status parameter 
 
 
 | Parameter | Description |
@@ -2204,7 +2288,7 @@ Build an HTTP Client and sent a request to the given URL. The resulting status w
 
 #### Useful.Utilities.WebBase.Go&lt;T2&gt;(System.Uri,&lt;T&gt;,System.Net.HttpStatusCode,Useful.Utilities.Useful.Utilities.Web.Models.Method,System.Action{System.Net.Http.HttpRequestMessage})
 
-Build an HTTP Client and sent a typed request to the given URL. The response will be deserialized into a typed response object. The requested type and response type can be different types. The resulting status will be validated to match the expected status parameter.
+ Build an HTTP Client and sent a typed request to the given URL. The response will be deserialized into a typed response object. The requested type and response type can be different types. The resulting status will be validated to match the expected status parameter. 
 
 
 | Parameter | Description |
@@ -2223,7 +2307,7 @@ Build an HTTP Client and sent a typed request to the given URL. The response wil
 
 #### Useful.Utilities.WebBase.Go&lt;T&gt;(System.Uri,&lt;T&gt;,System.Net.HttpStatusCode,Useful.Utilities.Useful.Utilities.Web.Models.Method,System.Action{System.Net.Http.HttpRequestMessage})
 
-Build an HTTP Client and sent a typed request to the given URL. The response will be deserialized into a typed response object. The request type and response type will be the same. The resulting status will be validated to match the expected status parameter.
+ Build an HTTP Client and sent a typed request to the given URL. The response will be deserialized into a typed response object. The request type and response type will be the same. The resulting status will be validated to match the expected status parameter. 
 
 
 | Parameter | Description |
@@ -2241,7 +2325,7 @@ Build an HTTP Client and sent a typed request to the given URL. The response wil
 
 #### Useful.Utilities.WebBase.MakeUri(System.String)
 
-Takes a string URL and converts it to a URI object. If the string starts with http:// or https:// it is simply returned. Else the BaseUrl property is prepended to the URL.
+ Takes a string URL and converts it to a URI object. If the string starts with http:// or https:// it is simply returned. Else the BaseUrl property is prepended to the URL. 
 
 
 | Parameter | Description |
@@ -2251,7 +2335,7 @@ Takes a string URL and converts it to a URI object. If the string starts with ht
 
 #### Useful.Utilities.WebBase.Get(System.String,System.Net.HttpStatusCode,System.Action{System.Net.Http.HttpRequestMessage})
 
-Preform a GET Request and return a generic response object
+ Preform a GET Request and return a generic response object 
 
 
 | Parameter | Description |
@@ -2263,7 +2347,7 @@ Preform a GET Request and return a generic response object
 
 #### Useful.Utilities.WebBase.Get&lt;T&gt;(System.String,System.Net.HttpStatusCode,System.Action{System.Net.Http.HttpRequestMessage})
 
-Preform a GET Request and return a typed response object
+ Preform a GET Request and return a typed response object 
 
 
 | Parameter | Description |
@@ -2279,7 +2363,7 @@ Preform a GET Request and return a typed response object
 
 #### Useful.Utilities.WebBase.Post&lt;T&gt;(System.String,&lt;T&gt;,System.Net.HttpStatusCode,System.Action{System.Net.Http.HttpRequestMessage})
 
-Preform a POST Request and return a typed response object
+ Preform a POST Request and return a typed response object 
 
 
 | Parameter | Description |
@@ -2296,7 +2380,7 @@ Preform a POST Request and return a typed response object
 
 #### Useful.Utilities.WebBase.Post&lt;T2&gt;(System.String,&lt;T&gt;,System.Net.HttpStatusCode,System.Action{System.Net.Http.HttpRequestMessage})
 
-Preform a POST Request with a different type and return a typed response object
+ Preform a POST Request with a different type and return a typed response object 
 
 
 | Parameter | Description |
@@ -2314,7 +2398,7 @@ Preform a POST Request with a different type and return a typed response object
 
 #### Useful.Utilities.WebBase.Put&lt;T&gt;(System.String,&lt;T&gt;,System.Net.HttpStatusCode,System.Action{System.Net.Http.HttpRequestMessage})
 
-Preform a PUT Request and return a typed response object
+ Preform a PUT Request and return a typed response object 
 
 
 | Parameter | Description |
@@ -2331,7 +2415,7 @@ Preform a PUT Request and return a typed response object
 
 #### Useful.Utilities.WebBase.Put&lt;T2&gt;(System.String,&lt;T&gt;,System.Net.HttpStatusCode,System.Action{System.Net.Http.HttpRequestMessage})
 
-Preform a PUT Request and return a typed response object
+ Preform a PUT Request and return a typed response object 
 
 
 | Parameter | Description |
@@ -2349,7 +2433,7 @@ Preform a PUT Request and return a typed response object
 
 #### Useful.Utilities.WebBase.Delete&lt;T&gt;(System.String,&lt;T&gt;,System.Net.HttpStatusCode,System.Action{System.Net.Http.HttpRequestMessage})
 
-Preform a DELETE Request and return a typed response object
+ Preform a DELETE Request and return a typed response object 
 
 
 | Parameter | Description |
@@ -2366,7 +2450,7 @@ Preform a DELETE Request and return a typed response object
 
 #### Useful.Utilities.WebBase.Delete&lt;T2&gt;(System.String,&lt;T&gt;,System.Net.HttpStatusCode,System.Action{System.Net.Http.HttpRequestMessage})
 
-Preform a DELETE Request and return a typed response object
+ Preform a DELETE Request and return a typed response object 
 
 
 | Parameter | Description |
@@ -2385,22 +2469,22 @@ Preform a DELETE Request and return a typed response object
 ---
 # Useful.Utilities.JsonContent
 
-Provides HTTP content based on JSON string. Sets media type to "application/json"
+ Provides HTTP content based on JSON string. Sets media type to "application/json"
 
 ---
 # Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse
 
-Model for storing raw HTTP responses.
+ Model for storing raw HTTP responses.
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse.RawContent |Response content as a raw string |
-|Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse.Response |Full response message |
+|Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse.RawContent | Response content as a raw string |
+|Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse.Response | Full response message |
 
 ---
 # Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse&lt;T&gt;
 
-Model for storing typed HTTP responses.
+ Model for storing typed HTTP responses. 
 
 
 | Parameter | Description |
@@ -2409,21 +2493,21 @@ Model for storing typed HTTP responses.
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse&lt;T&gt;.Content |Typed content from the response |
+|Useful.Utilities.Useful.Utilities.Web.Models.HttpResponse&lt;T&gt;.Content | Typed content from the response |
 
 ---
 # Useful.Utilities.Useful.Utilities.Web.Models.Method
 
-Supported HTTP Methods: GET, POST, PUT, DELETE
+ Supported HTTP Methods: GET, POST, PUT, DELETE
 
 ---
 # Useful.Utilities.Useful.Utilities.Web.Ext.WebRequestExt
 
-Web Request Extension methods
+ Web Request Extension methods
 
 #### Useful.Utilities.Useful.Utilities.Web.Ext.WebRequestExt.AddBearer(System.Net.Http.HttpRequestMessage,System.String)
 
-Add a Bearer Token authorization header to the request object
+ Add a Bearer Token authorization header to the request object 
 
 
 | Parameter | Description |
@@ -2434,7 +2518,7 @@ Add a Bearer Token authorization header to the request object
 
 #### Useful.Utilities.Useful.Utilities.Web.Ext.WebRequestExt.AddHeader(System.Net.Http.HttpRequestMessage,System.String,System.String)
 
-Add an unvalidated header and value to the request object
+ Add an unvalidated header and value to the request object 
 
 
 | Parameter | Description |
@@ -2447,11 +2531,11 @@ Add an unvalidated header and value to the request object
 ---
 # Useful.Utilities.WMI
 
-Windows Management Interface Wrapper class. Handles scoping WMI calls for local or remote computers
+ Windows Management Interface Wrapper class. Handles scoping WMI calls for local or remote computers
 
 #### Useful.Utilities.WMI.GetProperties(System.Management.ManagementBaseObject)
 
-Convert the property data collection to a string object dictionary
+ Convert the property data collection to a string object dictionary 
 
 
 | Parameter | Description |
@@ -2463,27 +2547,27 @@ Returns: Dictionary{string,object}
 
 #### Useful.Utilities.WMI.#ctor
 
-Creates a new instance of the wrapper
+ Creates a new instance of the wrapper
 
 
 #### Useful.Utilities.WMI.#ctor(System.String)
 
-Creates a new instance of the wrapper connected to a remote server
+ Creates a new instance of the wrapper connected to a remote server
 
 
 #### Useful.Utilities.WMI.#ctor(System.String,System.String,System.String)
 
-Creates a new instance of the wrapper connected to a remote server as a different user
+ Creates a new instance of the wrapper connected to a remote server as a different user
 
 
 #### Useful.Utilities.WMI.Finalize
 
-Clean up unmanaged references
+ Clean up unmanaged references
 
 
 #### Useful.Utilities.WMI.Initialize(System.String,System.String,System.String)
 
-Initializes the WMI connection
+ Initializes the WMI connection 
 
 
 | Parameter | Description |
@@ -2495,12 +2579,12 @@ Initializes the WMI connection
 
 #### Useful.Utilities.WMI.Scope
 
-Creates a[System.Management.ManagementScope]scoped to the current connection
+ Creates a [System.Management.ManagementScope] scoped to the current connection
 
 
 #### Useful.Utilities.WMI.ScopedObject(System.String,System.Management.ObjectGetOptions)
 
-Creates a[System.Management.ManagementObject]scoped to the current connection
+ Creates a [System.Management.ManagementObject] scoped to the current connection 
 
 
 | Parameter | Description |
@@ -2511,7 +2595,7 @@ Creates a[System.Management.ManagementObject]scoped to the current connection
 
 #### Useful.Utilities.WMI.ScopedClass(System.String,System.Management.ObjectGetOptions)
 
-Creates a[System.Management.ManagementClass]scoped to the current connection
+ Creates a [System.Management.ManagementClass] scoped to the current connection 
 
 
 | Parameter | Description |
@@ -2522,7 +2606,7 @@ Creates a[System.Management.ManagementClass]scoped to the current connection
 
 #### Useful.Utilities.WMI.GetObjects(System.String)
 
-Get an instance of the specified class
+ Get an instance of the specified class 
 
 
 | Parameter | Description |
@@ -2534,7 +2618,7 @@ Returns: Array of management objects
 
 #### Useful.Utilities.WMI.GetObjects(System.String,System.String)
 
-Get an instance of the specified class filtered by a where clause
+ Get an instance of the specified class filtered by a where clause 
 
 
 | Parameter | Description |
@@ -2545,7 +2629,7 @@ Get an instance of the specified class filtered by a where clause
 
 #### Useful.Utilities.WMI.GetObjectsByName(System.String,System.String)
 
-Get an instance of the specified class filtered by name
+ Get an instance of the specified class filtered by name 
 
 
 | Parameter | Description |
@@ -2556,12 +2640,12 @@ Get an instance of the specified class filtered by name
 
 #### Useful.Utilities.WMI.Dispose
 
-Managed dispose
+ Managed dispose
 
 
 #### Useful.Utilities.WMI.Dispose(System.Boolean)
 
-Dispose of managed and unmanaged objects
+ Dispose of managed and unmanaged objects 
 
 
 | Parameter | Description |
@@ -2571,15 +2655,15 @@ Dispose of managed and unmanaged objects
 
 |  Property | Description |
 |-----------|-------------|
-|Useful.Utilities.WMI.ConnectionOptions |Gets or sets the management scope |
-|Useful.Utilities.WMI.Server |Gets the server connected to |
-|Useful.Utilities.WMI.Username |Gets the username used to connect |
-|Useful.Utilities.WMI.Password |Gets the password used to connect |
-|Useful.Utilities.WMI.WmiNameSpace |Gets or sets the WMI namespace. default is CimV2 |
+|Useful.Utilities.WMI.ConnectionOptions | Gets or sets the management scope |
+|Useful.Utilities.WMI.Server | Gets the server connected to |
+|Useful.Utilities.WMI.Username | Gets the username used to connect |
+|Useful.Utilities.WMI.Password | Gets the password used to connect |
+|Useful.Utilities.WMI.WmiNameSpace | Gets or sets the WMI namespace. default is CimV2 |
 
 ---
 # Useful.Utilities.WMI.ReturnValue
 
-WMI Common Return Values
+ WMI Common Return Values
 
 

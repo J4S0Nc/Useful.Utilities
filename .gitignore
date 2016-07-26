@@ -46,3 +46,4 @@ Icon
 *.pfx
 /node_modules
 /.vs/config
+/packages

@@ -109,13 +109,16 @@ and output MD files to the parent directory", ConsoleColor.Cyan);
         /// <param name="msg">the output message</param>
         /// <param name="color">font color, default is red</param>
         /// <param name="promptForKeyPress">prompt user to press the any key</param>
-        private static void ShowError(string msg, ConsoleColor color = ConsoleColor.Red, bool promptForKeyPress = true)
+        private static void ShowError(string msg, ConsoleColor color = ConsoleColor.Red)
         {
             var tempColor = Console.ForegroundColor;
             Console.ForegroundColor = color;
             Console.WriteLine(msg);
             Console.ForegroundColor = tempColor;
-            if (promptForKeyPress && Console.OpenStandardInput(1) != Stream.Null)
+
+            Environment.ExitCode += (int)color;
+
+            if (!Console.IsInputRedirected && Console.OpenStandardInput(1) != Stream.Null)
             {
                 Console.WriteLine("Press the any key...");
                 Console.ReadKey();

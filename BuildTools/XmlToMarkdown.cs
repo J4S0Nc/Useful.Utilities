@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml;
@@ -34,7 +35,8 @@ namespace XmlMd
             {"exception", "\nThrows: [[{0}|{0}]]: {1}\n\n"},
             {"returns", "\nReturns: {0}\n\n"},
             {"paramref", "{0}" },
-            {"none", ""}
+            {"none", ""},
+            {"unknown", " {0} "}
         };
         /// <summary>
         /// Helper function for documenting a node (and child nodes) into markdown 
@@ -65,7 +67,7 @@ namespace XmlMd
             {"method",x=>d("name", x)},
             {"event", x=>d("name", x)},
             {"summary", x=> new[]{ x.Nodes().ToMarkDown() }},
-            {"remarks", x => new[]{x.Nodes().ToMarkDown()}},
+            {"remarks", x => new[]{x.Nodes().ToMarkDown().Replace("\n","\n>")}},
             {"example", x => new[]{x.Value.ToCodeBlock()}},
             {"code", x =>
             {
@@ -82,7 +84,8 @@ namespace XmlMd
             {"typeparam", x=> d("name", x)},
             {"exception", x => d("cref", x) },
             {"returns", x => new[]{x.Nodes().ToMarkDown()}},
-            {"none", x => new string[0]}
+            {"none", x => new string[0]},
+            {"unknown", x => new[] { x.Value} }
         };
 
         /// <summary>
@@ -131,12 +134,18 @@ namespace XmlMd
                 //check for reference links 
                 if (name == "see")
                 {
-                    var anchor = el.Attribute("cref").Value.StartsWith("!:#");
-                    name = anchor ? "seeAnchor" : "seePage";
+                    name = "unknown";
+                    if (el.Attribute("cref") != null)
+                    {
+                        var anchor = el.Attribute("cref").Value.StartsWith("!:#");
+                        name = anchor ? "seeAnchor" : "seePage";
+                    }
                 }
                 if (!templates.ContainsKey(name))
                 {
-                    throw new KeyNotFoundException("No template defined for " + name);
+                    Trace.TraceWarning("No template defined for " + name);
+                    name = "unknown";
+                    //throw new KeyNotFoundException("No template defined for " + name);
                 }
                 var vals = methods[name](el).ToArray();
                 if ("type|event|method".Contains(name)) tableHeader = false;
@@ -174,7 +183,7 @@ namespace XmlMd
             }
 
             if (e.NodeType == XmlNodeType.Text)
-                return Regex.Replace(((XText)e).Value, @"\s+", " ").Trim();
+                return Regex.Replace(((XText)e).Value, @"\s+", " ");//.Trim();
             //              return Regex.Replace(((XText)e).Value, @"(?:(?![\n\r])\s)+", " ").Trim();
             tableHeader = false;
             return "";

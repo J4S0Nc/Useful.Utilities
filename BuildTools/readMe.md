@@ -18,5 +18,5 @@ The second parameter is optional and will override the output folder.
 
 ## Example Output
 
-[./XmlMd.md]
+[XmlMd.md](./XmlMd.md)
 

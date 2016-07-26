@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
+
+using System.Xml;
 
 namespace Useful.Utilities
 {
@@ -196,6 +200,19 @@ namespace Useful.Utilities
         }
 
         /// <summary>
+        /// Returns a value indicating if the substring is found within the string. 
+        /// Accepts comparison parameter that can be set to ignore case. 
+        /// </summary>
+        /// <param name="source">The string</param>
+        /// <param name="value">Value to look for in source string</param>
+        /// <param name="comparison">comparison type to use (can be set to ignore case)</param>
+        /// <returns></returns>
+        public static bool Contains(this string source, string value, StringComparison comparison)
+        {
+            return source.IndexOf(value, comparison) >= 0;
+        }
+
+        /// <summary>
         /// Recursively search a tree collection based on the child selector
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -216,5 +233,89 @@ namespace Useful.Utilities
                     stack.Push(child);
             }
         }
+
+        /// <summary>
+        /// Recursively iterate child nodes of an XML document. 
+        /// Calls elementVisitor action for each node and passes the node and current depth. 
+        /// If max depth is greater than 0 an error will be throw when current depth is greater than max. 
+        /// </summary>
+        /// <code lang="c#"> 
+        /// //print a tree of the all the nodes
+        /// var xmlDoc = new XmlDocument();
+        /// xmlDoc.LoadXml(File.ReadAllText(filename));
+        /// xmlDoc.IterateNodes((node, depth) =>
+        /// {
+        ///     Debug.WriteLine(string.Format("{0}{1} : {2}", string.Empty.PadLeft(depth, ' '), node.Name, (node.ChildNodes.Count == 1 ? node.InnerText : node.Value)));
+        /// });
+        /// </code>
+        /// <param name="doc">The XML document to iterate over</param>
+        /// <param name="elementVisitor">The action to call for each node</param>
+        /// <param name="maxDepth">Max depth before an error is thrown. 0 = no limit</param>
+        /// <exception cref="StackOverflowException"></exception>
+        public static void IterateNodes(this XmlDocument doc, Action<XmlNode, int> elementVisitor, int maxDepth = 0)
+        {
+            if (doc == null || elementVisitor == null) return;
+            foreach (XmlNode node in doc.ChildNodes)
+            {
+                node.IterateNodes(elementVisitor);
+            }
+        }
+
+        /// <summary>
+        /// Recursively iterates over an XML node and all of its child nodes. 
+        /// Calls elementVisitor action for each node and passes the node and current depth. 
+        /// If max depth is greater than 0 an error will be throw when current depth is greater than max. 
+        /// </summary>
+        /// <param name="node">XML Node to iterate</param>
+        /// <param name="elementVisitor">The action to call for each node</param>
+        /// <param name="currentDepth">Zero based counter of current iteration level</param>
+        /// <param name="maxDepth">Max depth before an error is thrown. 0 = no limit</param>
+        /// <exception cref="StackOverflowException"></exception>
+        public static void IterateNodes(this XmlNode node, Action<XmlNode, int> elementVisitor, int currentDepth = 0, int maxDepth = 0)
+        {
+            //null check
+            if (node == null || elementVisitor == null) return;
+
+            //depth check
+            if (maxDepth > 0 && currentDepth > maxDepth)
+                throw new StackOverflowException("Max iteration depth has been reached");
+
+            //visit current node
+            elementVisitor(node, currentDepth);
+
+            //recursively iterate over child nodes
+            foreach (XmlNode childNode in node.ChildNodes)
+            {
+                IterateNodes(childNode, elementVisitor, currentDepth + 1);
+            }
+        }
+
+        /// <summary>
+        /// Extends a name value collection to allow obtaining an item by matching on the calling property or method name. 
+        /// </summary>
+        /// <param name="items">The collection of items</param>
+        /// <param name="defaultValue">default value to return when item is not found or value is empty</param>
+        /// <param name="name">Name of key to select. This is optional and obtained through name of the caller method or property (see example code) </param>
+        /// <code lang="c#">
+        /// //Example using hard coded items
+        ///public NameValueCollection Items = new NameValueCollection { { "SomeKey", "Some Value" }, { "AnotherKey", "Another Value" } };
+        ///public string SomeKey => Items.Item(); //returns "Some value" from the "SomeKey" item
+        ///public string AnotherKey => Items.Item(); //returns "Another value" from the "AnotherKey" item
+        ///public string InvalidKey => Items.Item(); //returns null when key is not in items collection
+        ///public string DefaultKey => Items.Item("Default value"); //returns "Default value" since key is not in collection
+        /// 
+        /// //Example using appSettings from a config file
+        /// //assume config appSettings has something like: &lt;add key="MyAppSetting" value="some setting value" /&gt;
+        /// public string MyAppSetting => System.Configuration.ConfigurationManager.AppSettings.Item(); 
+        /// //If setting is not defined or empty string, default value can be returned instead:
+        /// public string NotInConfig => System.Configuration.ConfigurationManager.AppSettings.Item("Some default value"); 
+        /// </code>
+        public static string Item(this NameValueCollection items, string defaultValue = null, [System.Runtime.CompilerServices.CallerMemberName] string name = "")
+        {
+            return items[name].Default(defaultValue);
+
+        }
+
+        
     }
 }

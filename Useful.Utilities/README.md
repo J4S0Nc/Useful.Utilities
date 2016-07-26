@@ -10,10 +10,14 @@ Collection of utility classes for dealing with Windows services, IIS, WMI, Regis
 
 
 ## Change Log
+#### v1.0.6
+Added extension methods for recursively iterating over XML documents and XML nodes
+Added extension method for name value collections to get items by name and default values
+Added extension method string.Contains that takes a comparison parameter and can ignore case
 
 #### v1.0.5
 Added WebBase class for building typed web clients
-Added XML to Markdown logic for documentation generation (See [./buildTools/XmlToMarkdown.cs])
+Added XML to Markdown logic for documentation generation (See [Build Toolds](./buildTools/XmlToMarkdown.cs))
 
 #### v1.0.4
 Enhanced Default extension method, Support for more types including nullables

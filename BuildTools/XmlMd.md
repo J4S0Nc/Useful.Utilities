@@ -30,7 +30,7 @@ _Example_
 ```
 
 
-#### XmlMd.Program.ShowError(System.String,System.ConsoleColor,System.Boolean)
+#### XmlMd.Program.ShowError(System.String,System.ConsoleColor)
 
 Helper method to print errors to console, if app is running with input available it can prompt user to press a key
 
