@@ -142,11 +142,22 @@ namespace Useful.Utilities
             if (obj is string && string.IsNullOrWhiteSpace(obj.ToString())) return value;
             if (obj is DateTime && DateTime.MinValue.Equals(obj)) return value;
             if (obj is T) return (T)obj;
+            if (typeof(T).IsEnum) return obj.ToString().ToEnum<T>();
 
             var type = Nullable.GetUnderlyingType(typeof(T)) ?? typeof(T);
             obj = (T)Convert.ChangeType(obj, type);
             if (obj == null || Equals(obj, default(T))) return value;
             return (T)obj;
+        }
+        /// <summary>
+        /// Attempt to cast a string to a type. T Could be DateTime, Enum, int, etc
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static T To<T>(this string str)
+        {
+            return str.Default<T>();
         }
 
         /// <summary>
